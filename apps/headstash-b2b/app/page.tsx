@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { home } from "@/content/home";
 
 export default function Page() {
@@ -118,15 +119,27 @@ export default function Page() {
             {launchPartners.partners.map((partner) => (
               <article key={partner.label}>
                 <p className="font-blunt-micro text-micro text-onyx/45">{partner.label}</p>
-                <p
-                  className={
-                    partner.value === "Under NDA"
-                      ? "mt-2 font-blunt-h text-h2 text-onyx/40"
-                      : "mt-2 font-blunt-h text-h2 text-onyx"
-                  }
-                >
-                  {partner.value}
-                </p>
+                {partner.logoSrc ? (
+                  <div className="mt-3 h-14 w-full max-w-[220px]">
+                    <Image
+                      src={partner.logoSrc}
+                      alt={partner.logoAlt ?? `${partner.name} logo`}
+                      width={220}
+                      height={56}
+                      className="h-full w-auto object-contain object-left"
+                    />
+                  </div>
+                ) : (
+                  <p
+                    className={
+                      "value" in partner && partner.value === "Under NDA"
+                        ? "mt-2 font-blunt-h text-h2 text-onyx/40"
+                        : "mt-2 font-blunt-h text-h2 text-onyx"
+                    }
+                  >
+                    {"value" in partner ? partner.value : partner.name}
+                  </p>
+                )}
               </article>
             ))}
           </div>
