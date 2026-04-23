@@ -1,0 +1,90 @@
+/**
+ * Blunt Family @font-face declarations.
+ *
+ * Files are self-hosted from each app's /public/fonts/ directory (paths
+ * resolve to root `/fonts/...` in the browser, so a single declaration works
+ * for both apps once each one has its own copy of the woff2 files).
+ *
+ * font-display: swap — brand spec §12.
+ */
+
+@font-face {
+  font-family: "Blunt Family";
+  src: url("/fonts/BluntFamily-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Blunt Family Outline";
+  src: url("/fonts/BluntFamily-Outline.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Blunt Family Italic";
+  src: url("/fonts/BluntFamily-Italic.woff2") format("woff2");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Blunt Family Script";
+  src: url("/fonts/BluntFamily-Script.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ———————————————————————————————————————————————————————————————
+   Typography utility classes — brand §7 casing rules.
+   Use these when you want the uppercase + tracking + family defaults
+   applied together. Pair with a size utility, e.g.:
+
+     <h1 class="font-blunt-display text-display">HEADSTASH</h1>
+     <h2 class="font-blunt-h text-h1">Own your customer.</h2>
+     <span class="font-blunt-micro text-micro">Heads only · est 2026</span>
+   ——————————————————————————————————————————————————————————————— */
+
+.font-blunt-display {
+  font-family: var(--font-blunt);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  font-weight: 400;
+}
+
+.font-blunt-h {
+  font-family: var(--font-blunt);
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  font-weight: 400;
+}
+
+.font-blunt-micro {
+  font-family: var(--font-blunt);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 400;
+}
+
+.font-blunt-outline {
+  font-family: var(--font-blunt-outline);
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  font-weight: 400;
+}
+
+.font-blunt-italic {
+  font-family: var(--font-blunt-italic);
+  font-style: italic;
+  font-weight: 400;
+}
+
+.font-blunt-script {
+  font-family: var(--font-blunt-script);
+  font-weight: 400;
+}

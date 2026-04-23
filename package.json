@@ -1,0 +1,25 @@
+{
+  "name": "headstash-monorepo",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Headstash marketing sites (getheadstash.com, joinheadstash.com) and shared brand system.",
+  "packageManager": "pnpm@9.12.3",
+  "engines": {
+    "node": ">=20.11"
+  },
+  "scripts": {
+    "dev": "turbo run dev",
+    "dev:b2b": "pnpm --filter headstash-b2b dev",
+    "dev:consumer": "pnpm --filter headstash-consumer dev",
+    "build": "turbo run build",
+    "build:b2b": "pnpm --filter headstash-b2b build",
+    "build:consumer": "pnpm --filter headstash-consumer build",
+    "lint": "turbo run lint",
+    "typecheck": "turbo run typecheck",
+    "clean": "turbo run clean && rm -rf node_modules"
+  },
+  "devDependencies": {
+    "turbo": "^2.3.3",
+    "typescript": "^5.7.2"
+  }
+}

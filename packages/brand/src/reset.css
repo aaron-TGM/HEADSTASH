@@ -1,0 +1,39 @@
+/**
+ * Minimal shared resets on top of Tailwind Preflight.
+ *
+ * Tailwind v4 ships its own Preflight. This file handles only brand-specific
+ * baseline behavior: body background, antialiasing, link defaults. Per the
+ * brand system: no pure white, flat surfaces only, no drop shadows.
+ */
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  background-color: var(--color-onyx);
+  color: var(--color-bone);
+  font-family: var(--font-sans);
+  font-size: var(--text-body);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+}
+
+::selection {
+  background: var(--color-ochre);
+  color: var(--color-onyx);
+}
