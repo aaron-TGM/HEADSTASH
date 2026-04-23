@@ -119,7 +119,7 @@ export default function Page() {
             {launchPartners.partners.map((partner) => (
               <article key={partner.label}>
                 <p className="font-blunt-micro text-micro text-onyx/45">{partner.label}</p>
-                {partner.logoSrc ? (
+                {"logoSrc" in partner ? (
                   <div className="mt-3 h-14 w-full max-w-[220px]">
                     <Image
                       src={partner.logoSrc}
