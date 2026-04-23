@@ -2,3 +2,10 @@
 @import "@headstash/brand/theme.css";
 @import "@headstash/brand/fonts.css";
 @import "@headstash/brand/reset.css";
+
+/* Force high-contrast text on ochre CTAs across browsers (including iOS Safari). */
+.cta-ochre {
+  background-color: var(--color-ochre);
+  color: var(--color-onyx) !important;
+  -webkit-text-fill-color: var(--color-onyx);
+}

@@ -29,7 +29,7 @@ export default function Page() {
           <p className="font-blunt-micro text-micro text-ochre">{hero.eyebrow}</p>
           <h1 className="mt-7 max-w-3xl font-blunt-display text-display text-bone">{hero.headline}</h1>
           <p className="mt-8 max-w-xl text-body-l text-fog">{hero.subcopy}</p>
-          <a href={hero.primaryCta.href} className="mt-10 inline-flex rounded-sharp bg-ochre px-6 py-3 font-blunt-micro text-micro text-onyx no-underline hover:opacity-90">
+          <a href={hero.primaryCta.href} className="cta-ochre mt-10 inline-flex rounded-sharp px-6 py-3 font-blunt-micro text-micro no-underline hover:opacity-90">
             {hero.primaryCta.label}
           </a>
 
@@ -152,7 +152,7 @@ export default function Page() {
             />
             <button
               type="submit"
-              className="rounded-sharp bg-ochre px-6 py-3 font-blunt-micro text-micro text-onyx"
+              className="cta-ochre rounded-sharp px-6 py-3 font-blunt-micro text-micro"
             >
               {cta.button}
             </button>
