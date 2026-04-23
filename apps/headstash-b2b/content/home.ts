@@ -3,6 +3,23 @@
  *
  * Never hardcode copy in JSX. Edit this file only.
  */
+type LaunchPartnerLogo = {
+  kind: "logo";
+  label: string;
+  name: string;
+  logoSrc: string;
+  logoAlt: string;
+};
+
+type LaunchPartnerText = {
+  kind: "text";
+  label: string;
+  value: string;
+  muted?: boolean;
+};
+
+type LaunchPartner = LaunchPartnerLogo | LaunchPartnerText;
+
 export const home = {
   nav: {
     wordmark: "HEADSTASH",
@@ -99,19 +116,21 @@ export const home = {
     headline: "California's most wanted flower.",
     partners: [
       {
+        kind: "logo",
         label: "Partner 01",
         name: "Alien Labs",
         logoSrc: "/partners/alien-labs.png",
         logoAlt: "Alien Labs logo",
       },
       {
+        kind: "logo",
         label: "Partner 02",
         name: "Connected",
         logoSrc: "/partners/connected.png",
         logoAlt: "Connected logo",
       },
-      { label: "More", name: "More", value: "Under NDA" },
-    ],
+      { kind: "text", label: "More", value: "Under NDA", muted: true },
+    ] satisfies LaunchPartner[],
   },
   cta: {
     id: "cta",

@@ -119,7 +119,7 @@ export default function Page() {
             {launchPartners.partners.map((partner) => (
               <article key={partner.label}>
                 <p className="font-blunt-micro text-micro text-onyx/45">{partner.label}</p>
-                {"logoSrc" in partner ? (
+                {partner.kind === "logo" ? (
                   <div className="mt-3 h-14 w-full max-w-[220px]">
                     <Image
                       src={partner.logoSrc}
@@ -132,12 +132,12 @@ export default function Page() {
                 ) : (
                   <p
                     className={
-                      "value" in partner && partner.value === "Under NDA"
+                      partner.muted
                         ? "mt-2 font-blunt-h text-h2 text-onyx/40"
                         : "mt-2 font-blunt-h text-h2 text-onyx"
                     }
                   >
-                    {"value" in partner ? partner.value : partner.name}
+                    {partner.value}
                   </p>
                 )}
               </article>
