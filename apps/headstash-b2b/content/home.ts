@@ -98,9 +98,19 @@ export const home = {
     eyebrow: "Launching 2026 with",
     headline: "California's most wanted flower.",
     partners: [
-      { label: "Partner 01", value: "Locked in" },
-      { label: "Partner 02", value: "Locked in" },
-      { label: "More", value: "Under NDA" },
+      {
+        label: "Partner 01",
+        name: "Alien Labs",
+        logoSrc: "/partners/alien-labs.png",
+        logoAlt: "Alien Labs logo",
+      },
+      {
+        label: "Partner 02",
+        name: "Connected",
+        logoSrc: "/partners/connected.png",
+        logoAlt: "Connected logo",
+      },
+      { label: "More", name: "More", value: "Under NDA" },
     ],
   },
   cta: {
