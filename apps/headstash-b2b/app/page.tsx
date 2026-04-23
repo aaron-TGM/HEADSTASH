@@ -123,7 +123,7 @@ export default function Page() {
                   <div className="mt-3 h-14 w-full max-w-[220px]">
                     <Image
                       src={partner.logoSrc}
-                      alt={partner.logoAlt ?? `${partner.name} logo`}
+                      alt={partner.logoAlt}
                       width={220}
                       height={56}
                       className="h-full w-auto object-contain object-left"
