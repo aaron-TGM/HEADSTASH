@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { home } from "@/content/home";
 
 export default function Page() {
@@ -112,9 +113,25 @@ export default function Page() {
             {availableFor.items.map((item) => (
               <article key={item.label} className="border-t border-t-bone/25 pt-5">
                 <p className="font-blunt-micro text-micro text-fog/60">{item.label}</p>
-                <p className={item.muted ? "mt-2 font-blunt-h text-h2 text-fog/40" : "mt-2 font-blunt-h text-h2 text-bone"}>
-                  {item.value}
-                </p>
+                {item.kind === "logo" ? (
+                  <div className="mt-3 h-14 w-full max-w-[220px]">
+                    <Image
+                      src={item.logoSrc}
+                      alt={item.logoAlt}
+                      width={220}
+                      height={56}
+                      className="h-full w-auto object-contain object-left"
+                    />
+                  </div>
+                ) : (
+                  <p
+                    className={
+                      item.muted ? "mt-2 font-blunt-h text-h2 text-fog/40" : "mt-2 font-blunt-h text-h2 text-bone"
+                    }
+                  >
+                    {item.value}
+                  </p>
+                )}
               </article>
             ))}
           </div>

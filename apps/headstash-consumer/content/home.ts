@@ -3,6 +3,22 @@
  *
  * Never hardcode copy in JSX. Edit this file only.
  */
+type AvailableBrandLogo = {
+  kind: "logo";
+  label: string;
+  logoSrc: string;
+  logoAlt: string;
+};
+
+type AvailableBrandText = {
+  kind: "text";
+  label: string;
+  value: string;
+  muted?: boolean;
+};
+
+type AvailableBrand = AvailableBrandLogo | AvailableBrandText;
+
 export const home = {
   nav: {
     wordmark: "HEADSTASH",
@@ -97,10 +113,20 @@ export const home = {
     eyebrow: "Available for",
     headline: "The heaviest brands in California.",
     items: [
-      { label: "Brand 01", value: "Locked in", muted: false },
-      { label: "Brand 02", value: "Locked in", muted: false },
-      { label: "More", value: "Under NDA", muted: true },
-    ],
+      {
+        kind: "logo",
+        label: "Brand 01",
+        logoSrc: "/partners/alien-labs.png",
+        logoAlt: "Alien Labs logo",
+      },
+      {
+        kind: "logo",
+        label: "Brand 02",
+        logoSrc: "/partners/connected.png",
+        logoAlt: "Connected logo",
+      },
+      { kind: "text", label: "More", value: "Under NDA", muted: true },
+    ] satisfies AvailableBrand[],
   },
   faq: {
     eyebrow: "FAQ",
