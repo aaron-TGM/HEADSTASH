@@ -152,12 +152,18 @@ export default function Page() {
           <h2 className="mt-7 max-w-3xl font-blunt-display text-display text-bone">{cta.headline}</h2>
           <p className="mt-6 max-w-xl text-body text-fog">{cta.body}</p>
 
-          <form className="mt-10 flex max-w-xl flex-col gap-3 md:flex-row" action="#" method="post">
+          <form
+            className="mt-10 flex max-w-xl flex-col gap-3 md:flex-row"
+            action="/api/brand-inquiries"
+            method="post"
+          >
+            <input type="hidden" name="pageSource" value="getheadstash.com" />
             <label htmlFor="brand-email" className="sr-only">
               Work email
             </label>
             <input
               id="brand-email"
+              name="email"
               type="email"
               placeholder={cta.inputPlaceholder}
               required
