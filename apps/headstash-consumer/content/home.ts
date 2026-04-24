@@ -49,7 +49,7 @@ export const home = {
   howItWorks: {
     id: "how",
     eyebrow: "How it works",
-    headline: "Buy & upload. Track & earn.",
+    headline: "Buy & upload. Track & earn. Redeem your stash.",
     steps: [
       {
         number: "01",
@@ -60,6 +60,11 @@ export const home = {
         number: "02",
         title: "Track & earn",
         body: "The home dashboard shows your stashes for every brand you shop. As receipts clear, you earn the rewards each brand sets—merch, drops, and access.",
+      },
+      {
+        number: "03",
+        title: "Redeem your stash",
+        body: "When you qualify, rewards show as ready in each brand's stash. Redeem the way the brand sets up, and we text you the second a receipt clears or something unlocks.",
       },
     ],
   },

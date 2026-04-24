@@ -608,6 +608,12 @@
     gap: 32px !important;
   }
 }
+@media (min-width: 769px) and (max-width: 1180px) {
+  .hs-how-grid {
+    grid-template-columns: 1fr !important;
+    gap: 40px !important;
+  }
+}
 @keyframes hs-arrow-nudge {
   0%, 100% { transform: translateX(0); }
   50% { transform: translateX(3px); }
@@ -737,12 +743,12 @@
   </div>
 </div>
 
-<!-- HOW IT WORKS: buy+upload, track+earn -->
+<!-- HOW IT WORKS: buy+upload, track+earn, redeem -->
 <div id="how" style="background: #EDE4D0; padding: 90px 40px;">
   <div class="lb" style="color: #0E0E0E; opacity: 0.45; font-size: 10px; margin-bottom: 20px;">How it works</div>
-  <h2 class="hd" style="color: #0E0E0E; font-size: 44px; margin: 0 0 60px; line-height: 1;">Buy &amp; upload.<br>Track &amp; earn.</h2>
+  <h2 class="hd" style="color: #0E0E0E; font-size: 44px; margin: 0 0 60px; line-height: 1;">Buy &amp; upload.<br>Track &amp; earn.<br>Redeem your stash.</h2>
 
-  <div class="hs-how-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; align-items: start;">
+  <div class="hs-how-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; align-items: start;">
 
     <div>
       <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
@@ -888,6 +894,74 @@
           </div>
           <div style="position: absolute; bottom: 14px; left: 18px; right: 18px;">
             <div style="width: 100%; background: #F2D35C; color: #0E0E0E; padding: 12px; border-radius: 4px; font-family: 'BluntFamily', sans-serif; font-size: 10px; letter-spacing: 0.22em; text-align: center;">Upload receipt ↗</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+        <div style="width: 48px; height: 48px; border-radius: 50%; background: #0E0E0E; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+          <span class="hd" style="color: #F2D35C; font-size: 24px; line-height: 1; letter-spacing: 0.06em;">03</span>
+        </div>
+        <div class="hd" style="color: #0E0E0E; font-size: 20px; line-height: 1.1;">Redeem your stash</div>
+      </div>
+      <p class="bd" style="color: #2A2A2A; font-size: 14px; margin: 0 0 26px;">When you qualify, rewards show as ready in each brand's stash. Redeem the way the brand sets up—merch, drops, access. Your receipt can sit in review first, then the check hits: we text you the second it clears.</p>
+      <div style="display: flex; justify-content: center;">
+        <div class="hs-submit-stage" style="position: relative; display: flex; justify-content: center; align-items: center; margin-bottom: 0; min-height: 520px; overflow: visible; width: 100%; max-width: 360px;">
+          <div class="mobile-frame hs-submit-peek" style="position: absolute; transform: rotate(-8deg) translate(-40px, 20px) scale(0.92); z-index: 1; opacity: 0.88;">
+            <div class="status-bar"><div class="time">9:43</div><div class="battery"></div></div>
+            <div class="frame-nav">
+              <div class="frame-nav-brand">
+                <img src="/brand/headstash-logo-hit.png" alt="" width="40" height="40" style="height:18px;width:auto;object-fit:contain;"/>
+                <div class="hd" style="color: #EDE4D0; font-size: 10px; letter-spacing: 0.14em;">HEADSTASH</div>
+              </div>
+              <div style="width: 22px; height: 22px; border-radius: 50%; background: #2A2A2A; display: flex; align-items: center; justify-content: center;">
+                <div class="hd" style="color: #F2D35C; font-size: 8px;">AP</div>
+              </div>
+            </div>
+            <div style="padding: 40px 18px 0; text-align: center;">
+              <div style="width: 58px; height: 58px; border: 2px solid #F2D35C; border-radius: 50%; margin: 0 auto 16px; display: flex; align-items: center; justify-content: center; position: relative;">
+                <div style="position: absolute; inset: -6px; border: 1px solid rgba(242,211,92,0.3); border-radius: 50%; animation: pulse-ring 2s infinite;"></div>
+                <svg width="26" height="26" viewBox="0 0 36 36" style="color: #F2D35C;"><circle cx="18" cy="18" r="14" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M 18 10 L 18 18 L 24 22" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+              </div>
+              <div class="hd" style="color: #EDE4D0; font-size: 18px; line-height: 1; margin-bottom: 6px;">In the queue.</div>
+              <div class="bd" style="color: #D8D2C2; font-size: 9px; line-height: 1.45; opacity: 0.75;">Receipt under review.</div>
+            </div>
+          </div>
+          <div class="mobile-frame hs-submit-front" style="position: relative; z-index: 2; transform: rotate(3deg) translate(36px, -10px) scale(0.96);">
+            <div class="status-bar"><div class="time">9:46</div><div class="battery"></div></div>
+            <div class="frame-nav">
+              <div class="frame-nav-brand">
+                <img src="/brand/headstash-logo-hit.png" alt="" width="40" height="40" style="height:18px;width:auto;object-fit:contain;"/>
+                <div class="hd" style="color: #EDE4D0; font-size: 10px; letter-spacing: 0.14em;">HEADSTASH</div>
+              </div>
+              <div style="width: 22px; height: 22px; border-radius: 50%; background: #2A2A2A; display: flex; align-items: center; justify-content: center;">
+                <div class="hd" style="color: #F2D35C; font-size: 8px;">AP</div>
+              </div>
+            </div>
+            <div style="padding: 44px 18px 0; text-align: center; position: relative; overflow: hidden;">
+              <div class="hs-confetti" style="position: absolute; top: 58px; left: 50%; transform: translateX(-50%); width: 180px; height: 180px; pointer-events: none;">
+                <span style="--dx:-58px;--dy:-42px;--c:#5A7A3E;--d:0s;"></span>
+                <span style="--dx:42px;--dy:-52px;--c:#35B6F2;--d:.08s;"></span>
+                <span style="--dx:-28px;--dy:-62px;--c:#F2D35C;--d:.12s;"></span>
+                <span style="--dx:62px;--dy:-24px;--c:#E87A3A;--d:.06s;"></span>
+                <span style="--dx:-68px;--dy:6px;--c:#F2D35C;--d:.18s;"></span>
+                <span style="--dx:50px;--dy:12px;--c:#5A7A3E;--d:.22s;"></span>
+                <span style="--dx:-12px;--dy:-78px;--c:#E87A3A;--d:.14s;"></span>
+                <span style="--dx:22px;--dy:-34px;--c:#35B6F2;--d:.24s;"></span>
+              </div>
+              <div class="hs-check-pop" style="width: 64px; height: 64px; background: #5A7A3E; border-radius: 50%; margin: 0 auto 18px; display: flex; align-items: center; justify-content: center; position: relative; box-shadow: 0 0 0 6px rgba(90,122,62,0.2);">
+                <svg width="30" height="22" viewBox="0 0 40 30" style="color: #EDE4D0;"><path d="M 5 16 L 15 26 L 35 4" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <div class="hd" style="color: #EDE4D0; font-size: 20px; line-height: 1; margin-bottom: 8px;">You're in.</div>
+              <div class="bd" style="color: #D8D2C2; font-size: 11px; line-height: 1.5; margin-bottom: 16px;">Alien Labs · Biscotti just unlocked something in your stash.</div>
+              <div style="background: #171717; border: 0.5px solid rgba(237,228,208,0.1); padding: 9px; border-radius: 3px; text-align: left;">
+                <div class="lb" style="color: #5A7A3E; font-size: 5.5px; margin-bottom: 3px;">Approved · Apr 21</div>
+                <div class="bd" style="color: #EDE4D0; font-size: 9px; font-weight: 500;">Harborside Oakland</div>
+                <div class="bd" style="color: #D8D2C2; opacity: 0.6; font-size: 7px;">+$62.40 to Alien Labs stash</div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
