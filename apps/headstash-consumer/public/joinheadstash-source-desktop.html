@@ -304,6 +304,17 @@
   opacity: 0.9;
 }
 .hs-receipt-body { position: relative; z-index: 1; }
+.hs-receipt-in-camera {
+  transform: none !important;
+  max-width: 100% !important;
+  margin: 0 auto;
+}
+@media (max-width: 768px) {
+  .hs-how-grid {
+    grid-template-columns: 1fr !important;
+    gap: 32px !important;
+  }
+}
 @keyframes hs-arrow-nudge {
   0%, 100% { transform: translateX(0); }
   50% { transform: translateX(3px); }
@@ -444,35 +455,58 @@
   </div>
 </div>
 
-<!-- HOW IT WORKS with phones for each step -->
+<!-- HOW IT WORKS: buy+upload, track+earn -->
 <div id="how" style="background: #EDE4D0; padding: 90px 40px;">
   <div class="lb" style="color: #0E0E0E; opacity: 0.45; font-size: 10px; margin-bottom: 20px;">How it works</div>
-  <h2 class="hd" style="color: #0E0E0E; font-size: 44px; margin: 0 0 60px; line-height: 1;">Buy. Upload.<br>Get the perks.</h2>
+  <h2 class="hd" style="color: #0E0E0E; font-size: 44px; margin: 0 0 60px; line-height: 1;">Buy &amp; upload.<br>Track &amp; earn.</h2>
 
-  <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; align-items: start;">
+  <div class="hs-how-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; align-items: start;">
 
     <div>
       <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
         <div style="width: 48px; height: 48px; border-radius: 50%; background: #0E0E0E; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
           <span class="hd" style="color: #F2D35C; font-size: 24px; line-height: 1; letter-spacing: 0.06em;">01</span>
         </div>
-        <div class="hd" style="color: #0E0E0E; font-size: 22px; line-height: 1;">Buy</div>
+        <div class="hd" style="color: #0E0E0E; font-size: 20px; line-height: 1.1;">Buy &amp; upload</div>
       </div>
-      <p class="bd" style="color: #2A2A2A; font-size: 14px; margin: 0 0 26px;">Buy flower at any California dispensary. Participating brands like Alien Labs and Connected show up in your stash automatically.</p>
+      <p class="bd" style="color: #2A2A2A; font-size: 14px; margin: 0 0 26px;">Shop at a California dispensary, open Headstash, and use the in-app camera to photograph your receipt. We read the SKUs, match them to every participating brand, and your upload hits all of your stashes at once.</p>
       <div style="display: flex; justify-content: center;">
-        <div class="mobile-frame hs-receipt-frame" style="background: #121110; border-color: #2a2824;">
-          <div class="hs-receipt-stage">
-            <div class="hs-receipt-photo" role="img" aria-label="Receipt photograph from Harborside Oakland">
-              <div class="hs-receipt-scanlines" aria-hidden="true"></div>
-              <div class="hs-receipt-body">
-                <div style="font-size: 11px; font-weight: bold; margin-bottom: 4px; letter-spacing: 0.04em; opacity: 0.92;">HARBORSIDE OAKLAND</div>
-                <div style="font-size: 8px; margin-bottom: 12px; opacity: 0.78;">04/21/26 · 14:22</div>
-                <div style="border-top: 1px dashed rgba(20,18,15,0.45); border-bottom: 1px dashed rgba(20,18,15,0.45); padding: 10px 0; width: 100%; font-size: 9px; line-height: 1.55; opacity: 0.9;">
-                  ALIEN LABS BISCOTTI<br>ALIEN LABS BABY J<br>CONNECTED GELATTI
-                </div>
-                <div style="margin-top: 10px; font-size: 11px; font-weight: bold; display: flex; justify-content: space-between; width: 100%; opacity: 0.95;"><span>TOTAL</span><span>$140.63</span></div>
-                <div style="margin-top: 22px; opacity: 0.42; font-size: 7px; letter-spacing: 0.12em;">KEEP THIS RECEIPT</div>
+        <div class="mobile-frame" style="position: relative;">
+          <div class="status-bar"><div class="time">9:43</div><div class="battery"></div></div>
+          <div style="padding: 10px 16px 8px; display: flex; align-items: center; justify-content: space-between; border-bottom: 0.5px solid rgba(237,228,208,0.08);">
+            <div><svg width="14" height="14" viewBox="0 0 14 14" style="color: #D8D2C2;" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><path d="M 2 2 L 12 12 M 12 2 L 2 12"/></svg></div>
+            <div style="display: flex; align-items: center; gap: 6px;">
+              <img src="/brand/headstash-logo-hit.png" alt="" style="height:16px;width:auto;object-fit:contain;flex-shrink:0;"/>
+              <div class="lb" style="color: #EDE4D0; font-size: 8px;">Capture receipt</div>
+            </div>
+            <div><svg width="11" height="14" viewBox="0 0 11 14" style="color: #D8D2C2;" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M 6.5 0.5 L 1 8 L 5 8 L 4.5 13.5 L 10 6 L 6 6 Z"/></svg></div>
+          </div>
+          <div style="padding: 10px 12px 6px;">
+            <div style="height: 300px; border-radius: 4px; background: #101010; position: relative; overflow: hidden;">
+              <div style="position: absolute; top: 9px; left: 9px; right: 9px; bottom: 8px; pointer-events: none; z-index: 2;">
+                <div style="position: absolute; top: 0; left: 0; width: 20px; height: 20px; border-top: 2.5px solid #F2D35C; border-left: 2.5px solid #F2D35C; border-radius: 1px;"></div>
+                <div style="position: absolute; top: 0; right: 0; width: 20px; height: 20px; border-top: 2.5px solid #F2D35C; border-right: 2.5px solid #F2D35C; border-radius: 1px;"></div>
+                <div style="position: absolute; bottom: 0; left: 0; width: 20px; height: 20px; border-bottom: 2.5px solid #F2D35C; border-left: 2.5px solid #F2D35C; border-radius: 1px;"></div>
+                <div style="position: absolute; bottom: 0; right: 0; width: 20px; height: 20px; border-bottom: 2.5px solid #F2D35C; border-right: 2.5px solid #F2D35C; border-radius: 1px;"></div>
               </div>
+              <div style="position: absolute; left: 50%; top: 48%; transform: translate(-50%,-50%) scale(0.55); z-index: 1; width: 234px;">
+                <div class="hs-receipt-photo hs-receipt-in-camera" role="img" aria-label="Harborside receipt in camera frame">
+                  <div class="hs-receipt-scanlines" aria-hidden="true"></div>
+                  <div class="hs-receipt-body">
+                    <div style="font-size: 11px; font-weight: bold; margin-bottom: 4px; letter-spacing: 0.04em; opacity: 0.92;">HARBORSIDE OAKLAND</div>
+                    <div style="font-size: 8px; margin-bottom: 12px; opacity: 0.78;">04/21/26 · 14:22</div>
+                    <div style="border-top: 1px dashed rgba(20,18,15,0.45); border-bottom: 1px dashed rgba(20,18,15,0.45); padding: 10px 0; width: 100%; font-size: 9px; line-height: 1.55; opacity: 0.9;">ALIEN LABS BISCOTTI<br>ALIEN LABS BABY J<br>CONNECTED GELATTI</div>
+                    <div style="margin-top: 10px; font-size: 11px; font-weight: bold; display: flex; justify-content: space-between; width: 100%; opacity: 0.95;"><span>TOTAL</span><span>$140.63</span></div>
+                    <div style="margin-top: 22px; opacity: 0.42; font-size: 7px; letter-spacing: 0.12em;">KEEP THIS RECEIPT</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="lb" style="color: #D8D2C2; opacity: 0.45; font-size: 6px; text-align: center; margin-top: 4px; letter-spacing: 0.14em;">LIVE PREVIEW</div>
+          </div>
+          <div style="position: absolute; bottom: 18px; left: 0; right: 0; display: flex; justify-content: center; z-index: 3;">
+            <div style="width: 48px; height: 48px; border: 2.5px solid #F2D35C; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: rgba(14,14,14,0.35);">
+              <div style="width: 36px; height: 36px; background: #F2D35C; border-radius: 50%;"></div>
             </div>
           </div>
         </div>
@@ -484,90 +518,94 @@
         <div style="width: 48px; height: 48px; border-radius: 50%; background: #0E0E0E; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
           <span class="hd" style="color: #F2D35C; font-size: 24px; line-height: 1; letter-spacing: 0.06em;">02</span>
         </div>
-        <div class="hd" style="color: #0E0E0E; font-size: 22px; line-height: 1;">Upload</div>
+        <div class="hd" style="color: #0E0E0E; font-size: 20px; line-height: 1.1;">Track &amp; earn</div>
       </div>
-      <p class="bd" style="color: #2A2A2A; font-size: 14px; margin: 0 0 26px;">Snap your receipt or forward your delivery email. Your stash updates per brand, usually within 24 hours.</p>
+      <p class="bd" style="color: #2A2A2A; font-size: 14px; margin: 0 0 26px;">The home dashboard lists every brand you shop, live progress, and what you are working toward. As receipts clear, you earn merch, drops, and access—each brand sets its own rewards.</p>
       <div style="display: flex; justify-content: center;">
-        <div class="mobile-frame">
-          <div class="status-bar"><div class="time">9:43</div><div class="battery"></div></div>
-          <div style="padding: 10px 16px 8px; display: flex; align-items: center; justify-content: space-between; border-bottom: 0.5px solid rgba(237,228,208,0.08);">
-            <div><svg width="14" height="14" viewBox="0 0 14 14" style="color: #D8D2C2;" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><path d="M 2 2 L 12 12 M 12 2 L 2 12"/></svg></div>
-            <div style="display: flex; align-items: center; gap: 6px;">
-              <img src="/brand/headstash-logo-hit.png" alt="" style="height:16px;width:auto;object-fit:contain;flex-shrink:0;"/>
-              <div class="lb" style="color: #EDE4D0; font-size: 8px;">Capture receipt</div>
-            </div>
-            <div><svg width="11" height="14" viewBox="0 0 11 14" style="color: #D8D2C2;" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M 6.5 0.5 L 1 8 L 5 8 L 4.5 13.5 L 10 6 L 6 6 Z"/></svg></div>
-          </div>
-          <div style="padding: 16px 18px 0;">
-            <div style="background: #1a1a1a; height: 360px; border-radius: 4px; position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 30px;">
-              <div style="position: absolute; top: 12px; left: 12px; width: 20px; height: 20px; border-top: 2px solid #F2D35C; border-left: 2px solid #F2D35C;"></div>
-              <div style="position: absolute; top: 12px; right: 12px; width: 20px; height: 20px; border-top: 2px solid #F2D35C; border-right: 2px solid #F2D35C;"></div>
-              <div style="position: absolute; bottom: 12px; left: 12px; width: 20px; height: 20px; border-bottom: 2px solid #F2D35C; border-left: 2px solid #F2D35C;"></div>
-              <div style="position: absolute; bottom: 12px; right: 12px; width: 20px; height: 20px; border-bottom: 2px solid #F2D35C; border-right: 2px solid #F2D35C;"></div>
-              <div style="width: 40px; height: 40px; border: 1.2px solid rgba(237,228,208,0.4); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 14px;">
-                <svg width="20" height="18" viewBox="0 0 26 24" style="color: #EDE4D0; opacity: 0.6;"><rect x="3" y="6" width="20" height="14" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="M 9 6 L 10.5 3 L 15.5 3 L 17 6" fill="none" stroke="currentColor" stroke-width="1.2"/><circle cx="13" cy="13" r="3.5" fill="none" stroke="currentColor" stroke-width="1.2"/></svg>
-              </div>
-              <div class="hd" style="color: #EDE4D0; font-size: 13px; line-height: 1.1; text-align: center;">Center the receipt<br>inside the frame</div>
-            </div>
-          </div>
-          <div style="position: absolute; bottom: 20px; left: 0; right: 0; display: flex; justify-content: center;">
-            <div style="width: 48px; height: 48px; border: 2.5px solid #F2D35C; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
-              <div style="width: 36px; height: 36px; background: #F2D35C; border-radius: 50%;"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div>
-      <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
-        <div style="width: 48px; height: 48px; border-radius: 50%; background: #0E0E0E; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-          <span class="hd" style="color: #F2D35C; font-size: 24px; line-height: 1; letter-spacing: 0.06em;">03</span>
-        </div>
-        <div class="hd" style="color: #0E0E0E; font-size: 22px; line-height: 1;">Get it back</div>
-      </div>
-      <p class="bd" style="color: #2A2A2A; font-size: 14px; margin: 0 0 26px;">Each brand decides what you unlock. Merch. Drops. Invites. Sometimes something you didn't see coming.</p>
-      <div style="display: flex; justify-content: center;">
-        <div class="mobile-frame">
-          <div class="status-bar"><div class="time">7:16</div><div class="battery"></div></div>
+        <div class="mobile-frame large" style="position: relative;">
+          <div class="status-bar"><div class="time">7:12</div><div class="battery"></div></div>
           <div class="frame-nav">
             <div class="frame-nav-brand">
-              <img src="/brand/headstash-logo-hit.png" alt="" style="height:18px;width:auto;object-fit:contain;"/>
-              <div class="hd" style="color: #EDE4D0; font-size: 10px; letter-spacing: 0.14em;">HEADSTASH</div>
+              <img src="/brand/headstash-logo-hit.png" alt="" width="40" height="40" style="height:20px;width:auto;object-fit:contain;"/>
+              <div class="hd" style="color: #EDE4D0; font-size: 11px; letter-spacing: 0.14em;">HEADSTASH</div>
             </div>
-            <div style="width: 22px; height: 22px; border-radius: 50%; background: #2A2A2A; display: flex; align-items: center; justify-content: center;">
-              <div class="hd" style="color: #F2D35C; font-size: 8px;">AP</div>
+            <div style="width: 24px; height: 24px; border-radius: 50%; background: #2A2A2A; display: flex; align-items: center; justify-content: center;">
+              <div class="hd" style="color: #F2D35C; font-size: 9px;">AP</div>
             </div>
           </div>
-          <div style="padding: 40px 24px 0; text-align: center; position: relative; overflow: hidden;">
-            <div class="hs-confetti" style="position: absolute; top: 52px; left: 50%; transform: translateX(-50%); width: 180px; height: 180px; pointer-events: none;">
-              <span style="--dx:-58px;--dy:-42px;--c:#5A7A3E;--d:0s;"></span>
-              <span style="--dx:42px;--dy:-52px;--c:#35B6F2;--d:.08s;"></span>
-              <span style="--dx:-28px;--dy:-62px;--c:#F2D35C;--d:.12s;"></span>
-              <span style="--dx:62px;--dy:-24px;--c:#E87A3A;--d:.06s;"></span>
-              <span style="--dx:-68px;--dy:6px;--c:#F2D35C;--d:.18s;"></span>
-              <span style="--dx:50px;--dy:12px;--c:#5A7A3E;--d:.22s;"></span>
-              <span style="--dx:-12px;--dy:-78px;--c:#E87A3A;--d:.14s;"></span>
-              <span style="--dx:22px;--dy:-34px;--c:#35B6F2;--d:.24s;"></span>
-            </div>
-            <div class="hs-check-pop" style="width: 64px; height: 64px; background: #5A7A3E; border-radius: 50%; margin: 0 auto 22px; display: flex; align-items: center; justify-content: center; position: relative; box-shadow: 0 0 0 6px rgba(90,122,62,0.16);">
-              <svg width="28" height="22" viewBox="0 0 40 30" style="color: #EDE4D0;"><path d="M 5 16 L 15 26 L 35 4" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </div>
-            <div class="hd" style="color: #EDE4D0; font-size: 26px; line-height: 1; margin-bottom: 12px;">It's yours.</div>
-            <div class="bd" style="color: #D8D2C2; font-size: 11px; line-height: 1.5; margin-bottom: 22px;">You unlocked the 4D Traveler dopp bag. Tap below to redeem with Alien Labs Apparel.</div>
-            <div style="background: #171717; border: 0.5px solid rgba(237,228,208,0.1); padding: 12px; border-radius: 3px; text-align: left;">
-              <div style="display: flex; gap: 8px; align-items: center; margin-bottom: 12px;">
-                <div style="width: 40px; height: 40px; background: #0E0E0E; border-radius: 2px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; overflow: hidden; border: 0.5px solid rgba(237,228,208,0.18);">
-                  <img src="/mockups/product-doppbag-alienlabs.png" alt="4D Traveler Dopp Bag" style="width: 100%; height: 100%; object-fit: cover;"/>
+          <div style="padding: 18px 18px 10px;">
+            <div class="lb" style="color: #F2D35C; font-size: 8px; margin-bottom: 6px;">Evening · Aaron</div>
+            <div class="hd" style="color: #EDE4D0; font-size: 18px; line-height: 1;">Your stashes.</div>
+            <div class="bd" style="color: #D8D2C2; font-size: 8px; line-height: 1.45; opacity: 0.75; margin-top: 6px;">No App Store download. Sign in with your phone number, then track and redeem from every brand stash here.</div>
+          </div>
+          <div style="padding: 0 18px 52px;">
+            <div style="background: #171717; border: 0.5px solid rgba(237,228,208,0.1); border-left: 2px solid #5A7A3E; padding: 12px; margin-bottom: 8px; border-radius: 0 4px 4px 0;">
+              <div style="display: flex; justify-content: space-between; margin-bottom: 8px; gap: 8px;">
+                <div style="display: flex; gap: 7px; align-items: center; min-width: 0;">
+                  <div style="width: 16px; height: 16px; flex-shrink: 0; display: flex; align-items: center; justify-content: center;">
+                    <img src="/partners/alien-labs-brand.png" alt="Alien Labs" style="width: 16px; height: 16px; object-fit: contain;"/>
+                  </div>
+                  <div style="width: 24px; height: 24px; border-radius: 2px; overflow: hidden; flex-shrink: 0; border: 0.5px solid rgba(237,228,208,0.2);">
+                    <img src="/mockups/product-hoodie-alienlabs.png" alt="Smokers Club hoodie" style="width: 100%; height: 100%; object-fit: cover;"/>
+                  </div>
+                  <div style="min-width: 0;">
+                    <div class="lb" style="color: #D8D2C2; opacity: 0.65; font-size: 7px;">Alien Labs · stash</div>
+                    <div class="hd" style="color: #EDE4D0; font-size: 14px; margin-top: 3px; line-height: 1.02;">Smokers Club hoodie</div>
+                  </div>
                 </div>
-                <div style="flex: 1; min-width: 0;">
-                  <div class="hd" style="color: #EDE4D0; font-size: 11px; line-height: 1.05;">4D Traveler dopp bag</div>
-                  <div class="bd" style="color: #D8D2C2; opacity: 0.8; font-size: 9px;">Alien Labs · free gift unlocked</div>
-                </div>
+                <div class="hd" style="color: #EDE4D0; font-size: 16px; flex-shrink: 0;">$247</div>
               </div>
-              <a href="https://alienlabsapparel.com" target="_blank" rel="noreferrer" style="display: block; width: 100%; background: #F2D35C; color: #0E0E0E; text-align: center; padding: 8px 10px; border-radius: 3px; text-decoration: none; font-family: 'BluntFamily', sans-serif; font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase;">Redeem at alienlabsapparel.com ↗</a>
-              <div class="bd" style="color: #D8D2C2; opacity: 0.65; font-size: 8px; margin-top: 6px; text-align: center;">Add your free gift to your next order at checkout.</div>
+              <div style="height: 2px; background: rgba(237,228,208,0.12); border-radius: 2px;">
+                <div style="width: 82%; height: 100%; background: #5A7A3E; border-radius: 2px;"></div>
+              </div>
             </div>
+            <div style="background: #171717; border: 0.5px solid rgba(237,228,208,0.1); border-left: 2px solid #35B6F2; padding: 12px; margin-bottom: 8px; border-radius: 0 4px 4px 0;">
+              <div style="display: flex; justify-content: space-between; margin-bottom: 8px; gap: 8px;">
+                <div style="display: flex; gap: 7px; align-items: center; min-width: 0;">
+                  <div style="width: 16px; height: 16px; flex-shrink: 0; display: flex; align-items: center; justify-content: center;">
+                    <img src="/partners/connected-brand.png" alt="Connected" style="width: 16px; height: 16px; object-fit: contain;"/>
+                  </div>
+                  <div style="width: 24px; height: 24px; border-radius: 2px; overflow: hidden; flex-shrink: 0; border: 0.5px solid rgba(237,228,208,0.2);">
+                    <img src="/mockups/product-longsleeve-connected.png" alt="Death Traitors long sleeve" style="width: 100%; height: 100%; object-fit: cover; object-position: center 20%;"/>
+                  </div>
+                  <div style="min-width: 0;">
+                    <div class="lb" style="color: #D8D2C2; opacity: 0.65; font-size: 7px;">Connected · stash</div>
+                    <div class="hd" style="color: #EDE4D0; font-size: 14px; margin-top: 3px; line-height: 1.02;">Death Traitors long sleeve</div>
+                  </div>
+                </div>
+                <div class="hd" style="color: #EDE4D0; font-size: 16px; flex-shrink: 0;">$94</div>
+              </div>
+              <div style="height: 2px; background: rgba(237,228,208,0.12); border-radius: 2px;">
+                <div style="width: 63%; height: 100%; background: #35B6F2; border-radius: 2px;"></div>
+              </div>
+            </div>
+            <div style="background: #171717; border: 0.5px solid rgba(237,228,208,0.1); border-left: 2px solid #E87A3A; padding: 12px; margin-bottom: 8px; border-radius: 0 4px 4px 0;">
+              <div style="display: flex; justify-content: space-between; margin-bottom: 8px; gap: 8px;">
+                <div style="display: flex; gap: 7px; align-items: center; min-width: 0;">
+                  <div style="width: 16px; height: 16px; flex-shrink: 0; display: flex; align-items: center; justify-content: center;">
+                    <div style="width: 14px; height: 14px; border-radius: 2px; background: #E87A3A; color: #0E0E0E; display: flex; align-items: center; justify-content: center; font-family: 'BluntFamily', sans-serif; font-size: 6px; letter-spacing: 0.04em;">OF</div>
+                  </div>
+                  <div style="width: 24px; height: 24px; border-radius: 2px; overflow: hidden; flex-shrink: 0; border: 0.5px solid rgba(232,122,58,0.45); background: linear-gradient(145deg, #2A1F14 0%, #3D2614 100%); display: flex; align-items: center; justify-content: center;">
+                    <div class="lb" style="color: #E87A3A; font-size: 5.5px; letter-spacing: 0.12em; text-align: center; line-height: 1.1;">VIP<br/>PASS</div>
+                  </div>
+                  <div style="min-width: 0;">
+                    <div class="lb" style="color: #D8D2C2; opacity: 0.65; font-size: 7px;">Oakfruitland · stash</div>
+                    <div class="hd" style="color: #EDE4D0; font-size: 14px; margin-top: 3px; line-height: 1.02;">Tasting invite</div>
+                  </div>
+                </div>
+                <div class="hd" style="color: #EDE4D0; font-size: 16px; flex-shrink: 0;">$42</div>
+              </div>
+              <div style="height: 2px; background: rgba(237,228,208,0.12); border-radius: 2px;">
+                <div style="width: 28%; height: 100%; background: #E87A3A; border-radius: 2px;"></div>
+              </div>
+            </div>
+            <div style="background: #171717; border: 0.5px dashed rgba(237,228,208,0.18); padding: 10px; border-radius: 3px;">
+              <div class="lb" style="color: #F2D35C; font-size: 7px; margin-bottom: 3px;">Pending · in review</div>
+              <div class="bd" style="color: #EDE4D0; font-size: 10px; font-weight: 500;">Harborside · Apr 21</div>
+            </div>
+          </div>
+          <div style="position: absolute; bottom: 14px; left: 18px; right: 18px;">
+            <div style="width: 100%; background: #F2D35C; color: #0E0E0E; padding: 12px; border-radius: 4px; font-family: 'BluntFamily', sans-serif; font-size: 10px; letter-spacing: 0.22em; text-align: center;">Upload receipt ↗</div>
           </div>
         </div>
       </div>

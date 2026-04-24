@@ -49,22 +49,17 @@ export const home = {
   howItWorks: {
     id: "how",
     eyebrow: "How it works",
-    headline: "Buy. Upload. Get the perks.",
+    headline: "Buy & upload. Track & earn.",
     steps: [
       {
         number: "01",
-        title: "Buy.",
-        body: "Shop any California dispensary. Any SKU from a brand running Headstash qualifies.",
+        title: "Buy & upload",
+        body: "Use the Headstash camera to photograph your dispensary receipt. We read the SKUs and match them to every participating brand in one upload.",
       },
       {
         number: "02",
-        title: "Upload.",
-        body: "Snap the receipt. Headstash matches the SKUs to the brand. Usually approved inside thirty seconds.",
-      },
-      {
-        number: "03",
-        title: "Get it back.",
-        body: "Hit a milestone, unlock the drop. Real merch, real invites, real access. Shipped or held in your stash.",
+        title: "Track & earn",
+        body: "The home dashboard shows your stashes for every brand you shop. As receipts clear, you earn the rewards each brand sets—merch, drops, and access.",
       },
     ],
   },
