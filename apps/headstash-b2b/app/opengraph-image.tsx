@@ -5,13 +5,14 @@ export const alt = "Headstash - Own your customer.";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
-const SITE = "https://getheadstash.com";
+/** Satori (@vercel/og) does not support WOFF2; use system sans + weight instead of Blunt. */
+const DISPLAY =
+  'system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif';
 
 export default async function OpenGraphImage() {
-  const [bluntFont, logoBuf] = await Promise.all([
-    fetch(`${SITE}/fonts/BluntFamily-Regular.woff2`).then((r) => r.arrayBuffer()),
-    fetch(`${SITE}/brand/headstash-logo-hit.png`).then((r) => r.arrayBuffer()),
-  ]);
+  const logoBuf = await fetch(
+    new URL("../public/brand/headstash-logo-hit.png", import.meta.url),
+  ).then((r) => r.arrayBuffer());
   const logoSrc = `data:image/png;base64,${Buffer.from(logoBuf).toString("base64")}`;
 
   return new ImageResponse(
@@ -43,7 +44,8 @@ export default async function OpenGraphImage() {
           <img src={logoSrc} alt="" width={96} height={96} style={{ objectFit: "contain" }} />
           <div
             style={{
-              fontFamily: "BluntFamily",
+              fontFamily: DISPLAY,
+              fontWeight: 900,
               fontSize: 104,
               letterSpacing: "0.12em",
               color: "#EDE4D0",
@@ -57,7 +59,8 @@ export default async function OpenGraphImage() {
         <div style={{ display: "flex", flexDirection: "column", gap: 22, maxWidth: 980, zIndex: 1 }}>
           <div
             style={{
-              fontFamily: "BluntFamily",
+              fontFamily: DISPLAY,
+              fontWeight: 800,
               color: "#F2D35C",
               fontSize: 28,
               letterSpacing: "0.28em",
@@ -67,7 +70,8 @@ export default async function OpenGraphImage() {
           </div>
           <div
             style={{
-              fontFamily: "BluntFamily",
+              fontFamily: DISPLAY,
+              fontWeight: 900,
               fontSize: 172,
               lineHeight: 0.92,
               letterSpacing: "0.005em",
@@ -90,7 +94,8 @@ export default async function OpenGraphImage() {
         >
           <div
             style={{
-              fontFamily: "BluntFamily",
+              fontFamily: DISPLAY,
+              fontWeight: 700,
               color: "#D8D2C2",
               fontSize: 22,
               letterSpacing: "0.22em",
@@ -101,7 +106,8 @@ export default async function OpenGraphImage() {
           <div
             style={{
               color: "#F2D35C",
-              fontFamily: "BluntFamily",
+              fontFamily: DISPLAY,
+              fontWeight: 800,
               fontSize: 22,
               letterSpacing: "0.24em",
             }}
@@ -111,16 +117,6 @@ export default async function OpenGraphImage() {
         </div>
       </div>
     ),
-    {
-      ...size,
-      fonts: [
-        {
-          name: "BluntFamily",
-          data: bluntFont,
-          style: "normal",
-          weight: 400,
-        },
-      ],
-    },
+    size,
   );
 }
