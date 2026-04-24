@@ -1,6 +1,6 @@
 # Drop Blunt Family woff2 files here
 
-Same requirements as `apps/headstash-b2b/public/fonts/README.md`. Drop the four woff2 files here as well — each Next.js app serves its own `/public` directory at build time, so both apps need their own copy.
+Same requirements as `apps/headstash-b2b/public/fonts/README.md`. Drop the four woff2 files here as well. Each Next.js app serves its own `/public` directory at build time, so both apps need their own copy.
 
 ## Required filenames
 
