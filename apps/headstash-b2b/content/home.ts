@@ -9,6 +9,7 @@ type LaunchPartnerLogo = {
   name: string;
   logoSrc: string;
   logoAlt: string;
+  value: string;
 };
 
 type LaunchPartnerText = {
@@ -121,8 +122,22 @@ export const home = {
     eyebrow: "Launching 2026 with",
     headline: "California's most wanted flower.",
     partners: [
-      { kind: "text", label: "Partner 01", value: "Locked in" },
-      { kind: "text", label: "Partner 02", value: "Locked in" },
+      {
+        kind: "logo",
+        label: "Partner 01",
+        name: "Alien Labs",
+        logoSrc: "/partners/alien-labs.png",
+        logoAlt: "Alien Labs logo",
+        value: "Locked in",
+      },
+      {
+        kind: "logo",
+        label: "Partner 02",
+        name: "Connected",
+        logoSrc: "/partners/connected.png",
+        logoAlt: "Connected logo",
+        value: "Locked in",
+      },
       { kind: "text", label: "Partner 03", value: "Locked in" },
     ] satisfies LaunchPartner[],
   },

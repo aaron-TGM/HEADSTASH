@@ -8,6 +8,7 @@ type AvailableBrandLogo = {
   label: string;
   logoSrc: string;
   logoAlt: string;
+  value: string;
 };
 
 type AvailableBrandText = {
@@ -137,8 +138,20 @@ export const home = {
     eyebrow: "Available for",
     headline: "The heaviest brands in California.",
     items: [
-      { kind: "text", label: "Brand 01", value: "Locked in" },
-      { kind: "text", label: "Brand 02", value: "Locked in" },
+      {
+        kind: "logo",
+        label: "Brand 01",
+        logoSrc: "/partners/alien-labs.png",
+        logoAlt: "Alien Labs logo",
+        value: "Locked in",
+      },
+      {
+        kind: "logo",
+        label: "Brand 02",
+        logoSrc: "/partners/connected.png",
+        logoAlt: "Connected logo",
+        value: "Locked in",
+      },
       { kind: "text", label: "Brand 03", value: "Locked in" },
     ] satisfies AvailableBrand[],
   },
