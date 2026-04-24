@@ -7,12 +7,9 @@ export default function Page() {
     gap,
     howItWorks,
     adminShowcase,
-    bridge,
-    campaign,
     configure,
     category,
     launchPartners,
-    pricing,
     cta,
     footer,
   } = home;
@@ -113,61 +110,6 @@ export default function Page() {
         </div>
       </section>
 
-      <section className="bg-bone px-6 py-20 md:px-10 md:py-24">
-        <div className="mx-auto w-full max-w-6xl">
-          <p className="font-blunt-micro text-micro text-onyx/50">{bridge.eyebrow}</p>
-          <h2 className="mt-6 max-w-3xl font-blunt-h text-h1 text-onyx">{bridge.headline}</h2>
-          <p className="mt-4 max-w-3xl text-body text-ash">{bridge.body}</p>
-
-          <div className="mt-8 grid grid-cols-1 gap-3 rounded-sharp bg-onyx p-5 md:grid-cols-4">
-            {bridge.integrations.map((integration) => (
-              <article key={integration.name} className="rounded-sharp border border-bone/10 bg-ash/35 p-3">
-                <p className="font-blunt-h text-h2 text-bone">{integration.name}</p>
-                <p className="mt-2 text-caption text-fog">{integration.detail}</p>
-              </article>
-            ))}
-          </div>
-
-          <div className="mt-5 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
-            {bridge.syncPoints.map((point) => (
-              <article key={point.title} className="rounded-sharp border border-onyx/15 bg-bone-alt p-4">
-                <div className="mb-3 h-0.5 w-6 bg-ochre" />
-                <p className="font-blunt-h text-h2 text-onyx">{point.title}</p>
-                <p className="mt-2 text-caption text-ash">{point.body}</p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-onyx px-6 py-20 md:px-10 md:py-24">
-        <div className="mx-auto w-full max-w-6xl">
-          <p className="font-blunt-micro text-micro text-ochre">{campaign.eyebrow}</p>
-          <h2 className="mt-6 max-w-4xl font-blunt-h text-h1 text-bone">{campaign.headline}</h2>
-          <p className="mt-4 max-w-3xl text-body text-fog">{campaign.body}</p>
-
-          <div className="mt-8 grid grid-cols-1 gap-4 md:grid-cols-2">
-            {campaign.channels.map((channel) => (
-              <article key={channel.title} className="rounded-sharp border border-bone/10 bg-ash/35 p-4">
-                <div className="flex items-center justify-between">
-                  <p className="font-blunt-micro text-micro text-ochre">{channel.title}</p>
-                  <p className="text-caption text-fog/60">{channel.when}</p>
-                </div>
-                <p className="mt-3 text-body text-fog">{channel.body}</p>
-              </article>
-            ))}
-          </div>
-
-          <div className="mt-6 grid grid-cols-2 gap-3 rounded-sharp border border-ochre/30 bg-onyx p-4 md:grid-cols-4">
-            {campaign.kpis.map((kpi) => (
-              <article key={kpi.label}>
-                <p className="font-blunt-micro text-micro text-ochre">{kpi.label}</p>
-                <p className="mt-1 font-blunt-h text-h2 text-bone">{kpi.value}</p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
 
       <section className="bg-onyx px-6 py-20 md:px-10 md:py-24">
         <div className="mx-auto w-full max-w-6xl">
@@ -199,29 +141,6 @@ export default function Page() {
               </article>
             ))}
           </div>
-        </div>
-      </section>
-
-      <section className="bg-bone px-6 py-20 md:px-10 md:py-24">
-        <div className="mx-auto w-full max-w-6xl">
-          <p className="font-blunt-micro text-micro text-onyx/50">{pricing.eyebrow}</p>
-          <h2 className="mt-6 max-w-3xl font-blunt-h text-h1 text-onyx">{pricing.headline}</h2>
-          <p className="mt-4 max-w-2xl text-body text-ash">{pricing.intro}</p>
-          <div className="mt-10 grid grid-cols-1 gap-4 md:grid-cols-2">
-            {pricing.cards.map((card) => (
-              <article key={card.tier} className={`rounded-sharp border p-5 ${card.tier === "Founding partner" ? "border-ochre bg-onyx text-bone" : "border-onyx/20 bg-bone-alt text-onyx"}`}>
-                <p className={`font-blunt-micro text-micro ${card.tier === "Founding partner" ? "text-ochre" : "text-onyx/55"}`}>{card.tier}</p>
-                <p className="mt-2 font-blunt-display text-display">{card.price}</p>
-                <p className={`text-body ${card.tier === "Founding partner" ? "text-fog" : "text-ash"}`}>{card.cadence}</p>
-                <div className="mt-4 space-y-2">
-                  {card.notes.map((note) => (
-                    <p key={note} className={`text-caption ${card.tier === "Founding partner" ? "text-fog" : "text-ash"}`}>+ {note}</p>
-                  ))}
-                </div>
-              </article>
-            ))}
-          </div>
-          <p className="mt-5 text-body text-ash">{pricing.summary}</p>
         </div>
       </section>
 
