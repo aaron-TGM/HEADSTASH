@@ -20,11 +20,28 @@ export const metadata: Metadata = {
     template: "%s · Headstash",
   },
   description:
-    "One app for every cannabis brand you buy. Upload your receipt. Your favorite brands see you. They decide how to say thanks — merch, early access, drops, or something else entirely.",
+    "One app for every cannabis brand you buy. Upload your receipt. Your favorite brands see you. They decide how to say thanks - merch, early access, drops, or something else entirely.",
   applicationName: "Headstash",
+  keywords: [
+    "Headstash",
+    "cannabis rewards",
+    "brand loyalty",
+    "save receipt",
+    "cannabis merch",
+    "cannabis drops",
+    "early access",
+  ],
   authors: [{ name: "Tuff Ghost Media LLC" }],
   creator: "Tuff Ghost Media LLC",
   publisher: "Tuff Ghost Media LLC",
+  alternates: {
+    canonical: "/",
+  },
+  icons: {
+    icon: [{ url: "/icon.svg", type: "image/svg+xml" }],
+    apple: [{ url: "/brand/headstash-logo-hit.png" }],
+    shortcut: ["/icon.svg"],
+  },
   openGraph: {
     type: "website",
     siteName: "Headstash",
@@ -32,11 +49,20 @@ export const metadata: Metadata = {
     description:
       "One app for every cannabis brand you buy. Each brand decides how to say thanks.",
     url: SITE_URL,
+    images: [
+      {
+        url: "/opengraph-image",
+        width: 1200,
+        height: 630,
+        alt: "Headstash - Save the receipt. Hear from the brand.",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Headstash — Save the receipt. Hear from the brand.",
     description: "One app for every cannabis brand you buy.",
+    images: ["/twitter-image"],
   },
   robots: {
     index: true,

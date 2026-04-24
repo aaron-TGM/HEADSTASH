@@ -1,0 +1,965 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0E0E0E">
+<meta name="description" content="Headstash connects the flower you already buy to the brands behind it. Upload your receipt. Your favorite cannabis brands see you. They decide how to say thanks.">
+<title>Headstash — Save the receipt. (Mobile)</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  @font-face {
+    font-family: 'BluntFamily';
+    src: url('/fonts/BluntFamily-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  /* Prevent horizontal scroll / sideways bounce on touch devices */
+  html, body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+    overscroll-behavior-x: none;
+    touch-action: pan-y;
+  }
+
+  /* Keep top-level sections clipped to viewport width */
+  body > div {
+    max-width: 100%;
+    overflow-x: clip;
+  }
+
+</style>
+<style>
+
+  /* ======================================================================= */
+  /* BASE STYLES (desktop/large screen)                                      */
+  /* ======================================================================= */
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: Inter, -apple-system, BlinkMacSystemFont, sans-serif; background: #0E0E0E; color: #EDE4D0; -webkit-font-smoothing: antialiased; }
+  img { max-width: 100%; height: auto; display: block; }
+
+  .hd { font-family: 'BluntFamily', Impact, sans-serif; letter-spacing: 0.02em; line-height: 0.95; text-transform: uppercase; font-weight: 400; }
+  .lb { font-family: 'BluntFamily', Impact, sans-serif; letter-spacing: 0.25em; text-transform: uppercase; font-weight: 400; }
+  .bd { font-family: Inter, sans-serif; line-height: 1.55; }
+
+  .btn-ochre {
+    background: #F2D35C;
+    color: #0E0E0E;
+    padding: 14px 26px;
+    text-decoration: none;
+    font-family: 'BluntFamily', Impact, sans-serif;
+    font-size: 13px;
+    letter-spacing: 0.22em;
+    border-radius: 4px;
+    text-transform: uppercase;
+    display: inline-block;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .btn-ochre:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(242,211,92,0.25); }
+
+  .btn-ghost {
+    background: transparent;
+    color: #EDE4D0;
+    padding: 14px 26px;
+    text-decoration: none;
+    font-family: 'BluntFamily', Impact, sans-serif;
+    font-size: 13px;
+    letter-spacing: 0.22em;
+    border: 0.5px solid rgba(237,228,208,0.35);
+    border-radius: 4px;
+    text-transform: uppercase;
+    display: inline-block;
+    cursor: pointer;
+    transition: background 0.15s ease, border-color 0.15s ease;
+  }
+  .btn-ghost:hover { background: rgba(237,228,208,0.06); border-color: rgba(237,228,208,0.55); }
+
+  input {
+    font-family: Inter, sans-serif;
+    font-size: 14px;
+    outline: none;
+    border: none;
+  }
+  input:focus { border-color: #F2D35C !important; }
+  button { font-family: 'BluntFamily', Impact, sans-serif; text-transform: uppercase; letter-spacing: 0.22em; cursor: pointer; border: none; }
+
+  /* Phone frame (used in embedded product previews on desktop hero) */
+  .mobile-frame {
+    background: #0E0E0E;
+    border-radius: 32px;
+    border: 8px solid #1a1a1a;
+    overflow: hidden;
+    position: relative;
+    width: 280px;
+    height: 580px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+    flex-shrink: 0;
+  }
+  .mobile-frame.large { width: 320px; height: 660px; }
+
+  .status-bar { height: 22px; display: flex; align-items: center; justify-content: space-between; padding: 0 16px; color: #EDE4D0; }
+  .status-bar .time { font-family: Inter, sans-serif; font-size: 10px; font-weight: 500; }
+  .status-bar .battery { width: 13px; height: 8px; border: 0.5px solid #EDE4D0; border-radius: 2px; position: relative; }
+  .status-bar .battery::after { content: ''; position: absolute; top: 1px; left: 1px; right: 2.5px; bottom: 1px; background: #EDE4D0; }
+
+  .frame-nav { padding: 12px 16px 10px; display: flex; align-items: center; justify-content: space-between; border-bottom: 0.5px solid rgba(237,228,208,0.08); }
+
+  .phone-float { position: relative; }
+  .phone-float::after { content: ''; position: absolute; top: 20px; left: -40px; right: -40px; bottom: 20px; background: radial-gradient(ellipse at center, rgba(242,211,92,0.08) 0%, transparent 70%); z-index: -1; pointer-events: none; }
+
+  @keyframes pulse-ring {
+    0% { transform: scale(1); opacity: 0.5; }
+    50% { transform: scale(1.15); opacity: 0.2; }
+    100% { transform: scale(1); opacity: 0.5; }
+  }
+
+  .admin-preview { background: #F5EFE1; border-radius: 8px; overflow: hidden; border: 0.5px solid rgba(14,14,14,0.1); box-shadow: 0 20px 60px rgba(0,0,0,0.25); transform-origin: top center; }
+
+  /* Prevent horizontal scroll on any viewport */
+  body { overflow-x: hidden; }
+
+  /* ======================================================================= */
+  /* TABLET BREAKPOINT (768px and below)                                     */
+  /* ======================================================================= */
+
+  
+
+  /* ======================================================================= */
+  /* MOBILE BREAKPOINT (768px and below — primary phone viewports)           */
+  /* ======================================================================= */
+
+  
+
+  /* ======================================================================= */
+  /* SMALL MOBILE BREAKPOINT (480px and below)                               */
+  /* ======================================================================= */
+
+  
+
+
+
+
+    /* Collapse all 2-column and multi-column grids to single column */
+    div[style*="grid-template-columns: 1.1fr 1fr"],
+    div[style*="grid-template-columns: 1fr 1.3fr"],
+    div[style*="grid-template-columns: 1fr 1.4fr"],
+    div[style*="grid-template-columns: 1fr 2fr"],
+    div[style*="grid-template-columns: 1fr 1fr"] {
+      grid-template-columns: 1fr !important;
+      gap: 32px !important;
+    }
+
+    /* 3-column grids stack vertically on mobile */
+    div[style*="grid-template-columns: repeat(3, 1fr)"] {
+      grid-template-columns: 1fr !important;
+      gap: 20px !important;
+    }
+
+    /* 4-column grids become 2x2 on mobile (for stat cards and small feature grids) */
+    div[style*="grid-template-columns: repeat(4, 1fr)"] {
+      grid-template-columns: 1fr 1fr !important;
+      gap: 10px !important;
+    }
+
+    /* 6-column feature grid collapses to 1-col */
+    div[style*="grid-template-columns: repeat(6, 1fr)"] {
+      grid-template-columns: 1fr !important;
+    }
+
+    /* The 5-column CRM flow (receipt → arrow → headstash → arrow → tiles) needs to reflow vertically */
+    div[style*="grid-template-columns: 1fr auto 1fr auto 1.5fr"] {
+      grid-template-columns: 1fr !important;
+      gap: 16px !important;
+    }
+    /* Rotate the horizontal arrows to vertical on mobile */
+    div[style*="grid-template-columns: 1fr auto 1fr auto 1.5fr"] > div:nth-child(2) svg,
+    div[style*="grid-template-columns: 1fr auto 1fr auto 1.5fr"] > div:nth-child(4) svg {
+      transform: rotate(90deg);
+    }
+
+    /* Section padding shrinks on mobile */
+    div[style*="padding: 80px 40px 70px"],
+    div[style*="padding: 90px 40px"],
+    div[style*="padding: 90px 40px 100px"],
+    div[style*="padding: 90px 40px 110px"],
+    div[style*="padding: 100px 40px"],
+    div[style*="padding: 110px 40px"],
+    div[style*="padding: 80px 40px"] {
+      padding: 56px 22px !important;
+    }
+
+    /* Nav padding shrinks */
+    div[style*="padding: 18px 40px"] {
+      padding: 16px 20px !important;
+    }
+
+    /* Footer padding shrinks */
+    div[style*="padding: 30px 40px"] {
+      padding: 26px 22px !important;
+    }
+
+    /* Hero headlines cap at mobile-readable size */
+    h1.hd[style*="font-size: 88px"], h1.hd[style*="font-size: 80px"], h1.hd[style*="font-size: 68px"] {
+      font-size: 48px !important;
+    }
+    h2.hd[style*="font-size: 64px"] {
+      font-size: 44px !important;
+    }
+    h2.hd[style*="font-size: 44px"], h2.hd[style*="font-size: 42px"] {
+      font-size: 30px !important;
+    }
+    h2.hd[style*="font-size: 32px"] {
+      font-size: 26px !important;
+    }
+    div.hd[style*="font-size: 58px"] {
+      font-size: 44px !important;
+    }
+    div.hd[style*="font-size: 48px"] {
+      font-size: 38px !important;
+    }
+
+    /* Reduce margins on headlines */
+    h1.hd[style*="margin: 0 0 30px"], h2.hd[style*="margin: 0 0 40px"], h2.hd[style*="margin: 0 0 44px"], h2.hd[style*="margin: 0 0 60px"], h2.hd[style*="margin: 0 0 70px"] {
+      margin: 0 0 22px !important;
+    }
+
+    /* Body paragraph padding adjust */
+    p.bd {
+      font-size: 14px !important;
+    }
+
+    /* Hero flex buttons wrap nicely */
+    div[style*="display: flex; gap: 10px;"] {
+      flex-wrap: wrap;
+    }
+
+    /* CTA forms go full-width vertical */
+    div[style*="max-width: 520px"][style*="display: flex"],
+    div[style*="max-width: 480px"][style*="display: flex"] {
+      flex-direction: column !important;
+      max-width: 100% !important;
+    }
+    div[style*="max-width: 520px"][style*="display: flex"] input,
+    div[style*="max-width: 520px"][style*="display: flex"] button,
+    div[style*="max-width: 480px"][style*="display: flex"] input,
+    div[style*="max-width: 480px"][style*="display: flex"] button {
+      width: 100%;
+    }
+
+    /* Hero embedded phone mockup — center it, don't rotate */
+    .phone-float .mobile-frame,
+    .phone-float .mobile-frame.large {
+      transform: none !important;
+      margin: 0 auto !important;
+    }
+    .phone-float {
+      display: flex !important;
+      justify-content: center !important;
+    }
+
+    /* Consumer hero 3-phone fan — show only the center phone on mobile */
+    [id="start"] ~ *, /* No-op safety */
+    body {}
+    /* Hide the rotated outer phones in the fan; center one stays */
+    div[style*="position: absolute"][style*="transform: rotate(-10deg)"],
+    div[style*="position: absolute"][style*="transform: rotate(12deg)"] {
+      display: none !important;
+    }
+    /* Collapse the fan container min-height */
+    div[style*="min-height: 600px"] {
+      min-height: auto !important;
+      padding: 20px 0 !important;
+    }
+
+    /* Admin preview card becomes scrollable horizontally if needed but scales to fit */
+    .admin-preview {
+      font-size: 9px !important;
+    }
+    .admin-preview > div:first-child {
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    /* Hide non-critical nav links in admin preview to keep it readable at narrow width */
+    .admin-preview div[style*="display: flex; gap: 12px"] {
+      display: none !important;
+    }
+
+    /* Pricing card adjustments */
+    div[style*="padding: 36px 32px"] {
+      padding: 28px 22px !important;
+    }
+    /* Pricing header counter card — stack under headline */
+    div[style*="display: flex; justify-content: space-between; align-items: flex-end"][style*="margin-bottom: 36px"] {
+      flex-direction: column !important;
+      align-items: flex-start !important;
+      gap: 20px;
+    }
+    /* Pricing FAQ headings shrink slightly */
+    div.hd[style*="font-size: 17px; margin-bottom: 8px"] {
+      font-size: 15px !important;
+    }
+
+    /* Campaign example card — channels stack */
+    div[style*="grid-template-columns: repeat(2, 1fr)"][style*="gap: 16px"] {
+      grid-template-columns: 1fr !important;
+      gap: 12px !important;
+    }
+
+    /* Campaign header inside-card — stack brand and config badge */
+    div[style*="padding: 28px 32px"][style*="flex-wrap: wrap"] {
+      flex-direction: column;
+      align-items: flex-start !important;
+    }
+    div[style*="padding: 32px"] {
+      padding: 22px !important;
+    }
+
+    /* "Your side of it" admin showcase — reduce padding */
+    div[style*="padding: 50px 40px"] {
+      padding: 30px 22px !important;
+    }
+
+    /* Large internal padding adjustments */
+    div[style*="padding: 50px 40px"][style*="background: #171717"] {
+      padding: 30px 22px !important;
+    }
+
+    /* Inside the app showcase — phones center on mobile */
+    div[style*="display: flex; justify-content: center; margin-bottom: 22px"] {
+      margin-bottom: 16px !important;
+    }
+
+    /* Mobile frame thumbnails stay at original size but center within parent */
+    .mobile-frame {
+      width: 260px !important;
+      height: 540px !important;
+    }
+    .mobile-frame.large {
+      width: 280px !important;
+      height: 580px !important;
+    }
+
+    /* Step numbers get smaller on mobile */
+    div.hd[style*="font-size: 48px; margin-bottom: 16px"] {
+      font-size: 38px !important;
+      margin-bottom: 10px !important;
+    }
+    div.hd[style*="font-size: 44px; margin-bottom: 14px"] {
+      font-size: 36px !important;
+      margin-bottom: 8px !important;
+    }
+
+    /* Footer stacks */
+    div[style*="padding: 26px 22px"][style*="display: flex"][style*="justify-content: space-between"] {
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    /* Hide any scaled-admin "Alien Labs · 23 pending" label text at narrow widths where it overflows */
+  
+
+
+    h1.hd[style*="font-size: 88px"], h1.hd[style*="font-size: 80px"], h1.hd[style*="font-size: 68px"], h1.hd[style*="font-size: 48px"] {
+      font-size: 44px !important;
+    }
+    h2.hd[style*="font-size: 64px"] {
+      font-size: 38px !important;
+    }
+    h2.hd[style*="font-size: 44px"], h2.hd[style*="font-size: 42px"], h2.hd[style*="font-size: 30px"] {
+      font-size: 28px !important;
+    }
+    div.hd[style*="font-size: 58px"] {
+      font-size: 40px !important;
+    }
+
+    /* Even tighter padding on smallest screens */
+    div[style*="padding: 56px 22px"] {
+      padding: 48px 18px !important;
+    }
+
+    /* Mobile frame phones slightly smaller */
+    .mobile-frame {
+      width: 240px !important;
+      height: 500px !important;
+    }
+    .mobile-frame.large {
+      width: 260px !important;
+      height: 540px !important;
+    }
+  
+
+  /* ======================================================================= */
+  /* FORCED MOBILE LAYOUT — renders at 430px max width     */
+  /* even on desktop. Content locked to phone viewport dimensions.           */
+  /* ======================================================================= */
+
+  body {
+    background: #1a1a1a;
+    padding: 40px 0;
+    min-height: 100vh;
+  }
+
+  body > *:not(script):not(style) {
+    max-width: 430px;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+  }
+
+  /* Ensure any hero section with gradient/phone-float doesn't overflow */
+  .phone-float {
+    overflow: visible;
+  }
+
+  /* Phone mockup frames: keep sizes from mobile breakpoint */
+  .mobile-frame {
+    width: 260px !important;
+    height: 540px !important;
+  }
+  .mobile-frame.large {
+    width: 280px !important;
+    height: 580px !important;
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<div style="background: #0E0E0E; padding: 18px 40px; display: flex; align-items: center; justify-content: space-between; border-bottom: 0.5px solid rgba(237,228,208,0.12);">
+  <div style="display:flex;align-items:center;gap:12px;"><img src="/brand/headstash-logo-hit.png" alt="Headstash logo" style="height:30px;width:auto;object-fit:contain;"/><div class="hd" style="color: #EDE4D0; font-size: 21px; letter-spacing: 0.14em;">HEADSTASH</div></div>
+  <div style="display: flex; gap: 16px; align-items: center;">
+    <div class="lb" style="color: #D8D2C2; opacity: 0.7; font-size: 10px;">Sign in</div>
+    <div class="lb" style="color: #0E0E0E; background: #F2D35C; font-size: 10px; padding: 8px 14px; border-radius: 4px;">Start ↗</div>
+  </div>
+</div>
+
+<!-- HERO with 3-PHONE FAN -->
+<div style="background: #0E0E0E; padding: 80px 40px 100px; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center;">
+  <div>
+    <div class="lb" style="color: #F2D35C; font-size: 10px; margin-bottom: 24px;">Heads only · est 2026</div>
+    <h1 class="hd" style="color: #EDE4D0; font-size: 80px; margin: 0 0 26px;">Save the<br>receipt.<br>Hear from<br>the brand.</h1>
+    <p class="bd" style="color: #D8D2C2; font-size: 16px; max-width: 480px; margin: 0 0 36px;">Headstash connects the flower you already buy to the brands behind it. Upload your receipt. Your favorite brands see you. They decide how to say thanks — merch, early access, drops, or something else entirely.</p>
+    <div style="display: flex; gap: 10px;">
+      <a href="#start" class="btn-ochre">Start your stash ↗</a>
+      <a href="#how" class="btn-ghost">How it works</a>
+    </div>
+  </div>
+
+  <!-- 3-phone fan showing dashboard + drop + redemption -->
+  <div style="position: relative; display: flex; justify-content: center; align-items: center; min-height: 600px;">
+
+    <!-- Back phone: redemption -->
+    <div class="mobile-frame" style="position: absolute; transform: rotate(-10deg) translateX(-80px); z-index: 1;">
+      <div class="status-bar"><div class="time">7:16</div><div class="battery"></div></div>
+      <div class="frame-nav">
+        <div class="hd" style="color: #EDE4D0; font-size: 10px; letter-spacing: 0.14em;">HEADSTASH</div>
+        <div style="width: 22px; height: 22px; border-radius: 50%; background: #2A2A2A; display: flex; align-items: center; justify-content: center;">
+          <div class="hd" style="color: #F2D35C; font-size: 8px;">AP</div>
+        </div>
+      </div>
+      <div style="padding: 44px 22px 0; text-align: center;">
+        <div style="width: 62px; height: 62px; background: #5A7A3E; border-radius: 50%; margin: 0 auto 22px; display: flex; align-items: center; justify-content: center;">
+          <svg width="28" height="22" viewBox="0 0 40 30" style="color: #EDE4D0;"><path d="M 5 16 L 15 26 L 35 4" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="hd" style="color: #EDE4D0; font-size: 24px; line-height: 1; margin-bottom: 12px;">It's yours.</div>
+        <div class="bd" style="color: #D8D2C2; font-size: 11px;">The six-panel cap is on its way.</div>
+      </div>
+    </div>
+
+    <!-- Back right phone: drop detail -->
+    <div class="mobile-frame" style="position: absolute; transform: rotate(12deg) translateX(80px); z-index: 2;">
+      <div class="status-bar"><div class="time">7:14</div><div class="battery"></div></div>
+      <div class="frame-nav">
+        <div style="color: #D8D2C2; font-size: 14px;">←</div>
+        <div class="lb" style="color: #EDE4D0; font-size: 8px;">Smokers Club hoodie</div>
+        <div style="width: 22px;"></div>
+      </div>
+      <div style="padding: 12px 16px 0;">
+        <div style="background: #F5EFE1; height: 160px; border-radius: 4px; display: flex; align-items: center; justify-content: center; margin-bottom: 14px; position: relative;">
+          <img src="/mockups/product-hoodie-alienlabs.png" alt="Smokers Club Grey Camo Hoodie" style="max-width: 140px; max-height: 140px; object-fit: contain;"/>
+          <div style="position: absolute; top: 8px; left: 8px; background: #0E0E0E; color: #F2D35C; padding: 2px 7px; border-radius: 2px; font-family: 'BluntFamily', sans-serif; font-size: 7px; letter-spacing: 0.18em;">ISSUE 01</div>
+        </div>
+        <div class="lb" style="color: #F2D35C; font-size: 7px; margin-bottom: 4px;">From Alien Labs</div>
+        <div class="hd" style="color: #EDE4D0; font-size: 16px; line-height: 1; margin-bottom: 12px;">Smokers Club<br>Grey Camo Hoodie.</div>
+        <div style="padding: 7px 0; border-top: 0.5px solid rgba(237,228,208,0.15); display: flex; justify-content: space-between;">
+          <div class="bd" style="color: #D8D2C2; opacity: 0.7; font-size: 10px;">Cost</div>
+          <div class="hd" style="color: #F2D35C; font-size: 13px;">$300</div>
+        </div>
+        <div style="padding: 7px 0; border-top: 0.5px solid rgba(237,228,208,0.15); display: flex; justify-content: space-between;">
+          <div class="bd" style="color: #D8D2C2; opacity: 0.7; font-size: 10px;">You have</div>
+          <div class="hd" style="color: #EDE4D0; font-size: 13px;">$247</div>
+        </div>
+        <div style="height: 3px; background: rgba(237,228,208,0.12); border-radius: 2px; margin-top: 10px;">
+          <div style="width: 82%; height: 100%; background: #F2D35C; border-radius: 2px;"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Front phone: populated dashboard -->
+    <div class="mobile-frame large" style="position: relative; z-index: 3;">
+      <div class="status-bar"><div class="time">7:12</div><div class="battery"></div></div>
+      <div class="frame-nav">
+        <div class="hd" style="color: #EDE4D0; font-size: 11px; letter-spacing: 0.14em;">HEADSTASH</div>
+        <div style="width: 24px; height: 24px; border-radius: 50%; background: #2A2A2A; display: flex; align-items: center; justify-content: center;">
+          <div class="hd" style="color: #F2D35C; font-size: 9px;">AP</div>
+        </div>
+      </div>
+      <div style="padding: 18px 18px 12px;">
+        <div class="lb" style="color: #F2D35C; font-size: 8px; margin-bottom: 6px;">Evening · Aaron</div>
+        <div class="hd" style="color: #EDE4D0; font-size: 18px; line-height: 1;">Your stashes.</div>
+      </div>
+      <div style="padding: 0 18px;">
+        <div style="background: #171717; border: 0.5px solid rgba(237,228,208,0.1); border-left: 2px solid #F2D35C; padding: 12px; margin-bottom: 8px; border-radius: 0 4px 4px 0;">
+          <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+            <div>
+              <div class="lb" style="color: #D8D2C2; opacity: 0.55; font-size: 7px;">Alien Labs · stash</div>
+              <div class="hd" style="color: #EDE4D0; font-size: 14px; margin-top: 3px;">Smokers Club hoodie</div>
+            </div>
+            <div class="hd" style="color: #EDE4D0; font-size: 16px;">$247</div>
+          </div>
+          <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+            <div class="bd" style="color: #D8D2C2; opacity: 0.7; font-size: 9px;">$53 to go</div>
+            <div class="bd" style="color: #D8D2C2; opacity: 0.7; font-size: 9px;">82%</div>
+          </div>
+          <div style="height: 2px; background: rgba(237,228,208,0.12); border-radius: 2px;">
+            <div style="width: 82%; height: 100%; background: #F2D35C; border-radius: 2px;"></div>
+          </div>
+        </div>
+        <div style="background: #171717; border: 0.5px solid rgba(237,228,208,0.1); border-left: 2px solid #D4A574; padding: 12px; margin-bottom: 8px; border-radius: 0 4px 4px 0;">
+          <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+            <div>
+              <div class="lb" style="color: #D8D2C2; opacity: 0.55; font-size: 7px;">Connected · stash</div>
+              <div class="hd" style="color: #EDE4D0; font-size: 14px; margin-top: 3px;">Death Traitors long sleeve</div>
+            </div>
+            <div class="hd" style="color: #EDE4D0; font-size: 16px;">$94</div>
+          </div>
+          <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+            <div class="bd" style="color: #D8D2C2; opacity: 0.7; font-size: 9px;">$56 to go</div>
+            <div class="bd" style="color: #D8D2C2; opacity: 0.7; font-size: 9px;">63%</div>
+          </div>
+          <div style="height: 2px; background: rgba(237,228,208,0.12); border-radius: 2px;">
+            <div style="width: 63%; height: 100%; background: #D4A574; border-radius: 2px;"></div>
+          </div>
+        </div>
+        <div style="background: #171717; border: 0.5px dashed rgba(237,228,208,0.18); padding: 10px; border-radius: 3px;">
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <div>
+              <div class="lb" style="color: #F2D35C; font-size: 7px;">Pending · in review</div>
+              <div class="bd" style="color: #EDE4D0; font-size: 10px; font-weight: 500; margin-top: 2px;">Harborside · Apr 21</div>
+            </div>
+            <div style="width: 6px; height: 6px; border-radius: 50%; background: #F2D35C;"></div>
+          </div>
+        </div>
+      </div>
+      <div style="position: absolute; bottom: 14px; left: 18px; right: 18px;">
+        <div style="width: 100%; background: #F2D35C; color: #0E0E0E; padding: 12px; border-radius: 4px; font-family: 'BluntFamily', sans-serif; font-size: 10px; letter-spacing: 0.22em; text-align: center;">Upload receipt ↗</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- HOW IT WORKS with phones for each step -->
+<div id="how" style="background: #EDE4D0; padding: 90px 40px;">
+  <div class="lb" style="color: #0E0E0E; opacity: 0.45; font-size: 10px; margin-bottom: 20px;">How it works</div>
+  <h2 class="hd" style="color: #0E0E0E; font-size: 44px; margin: 0 0 60px; line-height: 1;">Three steps.<br>Then you just buy flower.</h2>
+
+  <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; align-items: start;">
+
+    <div>
+      <div class="hd" style="color: #0E0E0E; font-size: 44px; margin-bottom: 14px;">01</div>
+      <div class="hd" style="color: #0E0E0E; font-size: 22px; margin-bottom: 12px;">Buy</div>
+      <p class="bd" style="color: #2A2A2A; font-size: 13.5px; margin: 0 0 26px;">Buy flower at any California dispensary. Alien Labs, Connected, Oakfruitland, and more brands joining.</p>
+      <div style="display: flex; justify-content: center;">
+        <div class="mobile-frame" style="background: #F5EFE1; border-color: #E8E0CA;">
+          <div style="height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 40px 20px; text-align: center; font-family: 'Courier New', monospace;">
+            <div style="color: #0E0E0E; font-size: 11px; font-weight: bold; margin-bottom: 4px;">HARBORSIDE OAKLAND</div>
+            <div style="color: #0E0E0E; font-size: 8px; margin-bottom: 14px;">04/21/26 — 14:22</div>
+            <div style="border-top: 1px dashed #0E0E0E; border-bottom: 1px dashed #0E0E0E; padding: 10px 0; width: 100%; color: #0E0E0E; font-size: 9px; line-height: 1.5; text-align: left;">
+              ALIEN LABS BISCOTTI<br>ALIEN LABS BABY J<br>CONNECTED GELATTI
+            </div>
+            <div style="margin-top: 10px; color: #0E0E0E; font-size: 11px; font-weight: bold; display: flex; justify-content: space-between; width: 100%;"><span>TOTAL</span><span>$140.63</span></div>
+            <div style="margin-top: 30px; color: #0E0E0E; opacity: 0.5; font-size: 8px;">KEEP THIS RECEIPT</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="hd" style="color: #0E0E0E; font-size: 44px; margin-bottom: 14px;">02</div>
+      <div class="hd" style="color: #0E0E0E; font-size: 22px; margin-bottom: 12px;">Upload</div>
+      <p class="bd" style="color: #2A2A2A; font-size: 13.5px; margin: 0 0 26px;">Snap your receipt. Or forward your delivery email. Points land per brand within 24 hours.</p>
+      <div style="display: flex; justify-content: center;">
+        <div class="mobile-frame">
+          <div class="status-bar"><div class="time">9:43</div><div class="battery"></div></div>
+          <div style="padding: 10px 16px 8px; display: flex; align-items: center; justify-content: space-between;">
+            <div><svg width="14" height="14" viewBox="0 0 14 14" style="color: #D8D2C2;" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><path d="M 2 2 L 12 12 M 12 2 L 2 12"/></svg></div>
+            <div class="lb" style="color: #EDE4D0; font-size: 8px;">Capture receipt</div>
+            <div><svg width="11" height="14" viewBox="0 0 11 14" style="color: #D8D2C2;" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M 6.5 0.5 L 1 8 L 5 8 L 4.5 13.5 L 10 6 L 6 6 Z"/></svg></div>
+          </div>
+          <div style="padding: 16px 18px 0;">
+            <div style="background: #1a1a1a; height: 360px; border-radius: 4px; position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 30px;">
+              <div style="position: absolute; top: 12px; left: 12px; width: 20px; height: 20px; border-top: 2px solid #F2D35C; border-left: 2px solid #F2D35C;"></div>
+              <div style="position: absolute; top: 12px; right: 12px; width: 20px; height: 20px; border-top: 2px solid #F2D35C; border-right: 2px solid #F2D35C;"></div>
+              <div style="position: absolute; bottom: 12px; left: 12px; width: 20px; height: 20px; border-bottom: 2px solid #F2D35C; border-left: 2px solid #F2D35C;"></div>
+              <div style="position: absolute; bottom: 12px; right: 12px; width: 20px; height: 20px; border-bottom: 2px solid #F2D35C; border-right: 2px solid #F2D35C;"></div>
+              <div style="width: 40px; height: 40px; border: 1.2px solid rgba(237,228,208,0.4); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 14px;">
+                <svg width="20" height="18" viewBox="0 0 26 24" style="color: #EDE4D0; opacity: 0.6;"><rect x="3" y="6" width="20" height="14" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="M 9 6 L 10.5 3 L 15.5 3 L 17 6" fill="none" stroke="currentColor" stroke-width="1.2"/><circle cx="13" cy="13" r="3.5" fill="none" stroke="currentColor" stroke-width="1.2"/></svg>
+              </div>
+              <div class="hd" style="color: #EDE4D0; font-size: 13px; line-height: 1.1; text-align: center;">Center the receipt<br>inside the frame</div>
+            </div>
+          </div>
+          <div style="position: absolute; bottom: 20px; left: 0; right: 0; display: flex; justify-content: center;">
+            <div style="width: 48px; height: 48px; border: 2.5px solid #F2D35C; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+              <div style="width: 36px; height: 36px; background: #F2D35C; border-radius: 50%;"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="hd" style="color: #0E0E0E; font-size: 44px; margin-bottom: 14px;">03</div>
+      <div class="hd" style="color: #0E0E0E; font-size: 22px; margin-bottom: 12px;">Get it back</div>
+      <p class="bd" style="color: #2A2A2A; font-size: 13.5px; margin: 0 0 26px;">Each brand decides what you unlock. Merch. Drops. Invites. Sometimes something you didn't see coming.</p>
+      <div style="display: flex; justify-content: center;">
+        <div class="mobile-frame">
+          <div class="status-bar"><div class="time">7:16</div><div class="battery"></div></div>
+          <div class="frame-nav">
+            <div class="hd" style="color: #EDE4D0; font-size: 10px; letter-spacing: 0.14em;">HEADSTASH</div>
+            <div style="width: 22px; height: 22px; border-radius: 50%; background: #2A2A2A; display: flex; align-items: center; justify-content: center;">
+              <div class="hd" style="color: #F2D35C; font-size: 8px;">AP</div>
+            </div>
+          </div>
+          <div style="padding: 38px 20px 0; text-align: center;">
+            <div style="width: 60px; height: 60px; background: #5A7A3E; border-radius: 50%; margin: 0 auto 22px; display: flex; align-items: center; justify-content: center;">
+              <svg width="28" height="22" viewBox="0 0 40 30" style="color: #EDE4D0;"><path d="M 5 16 L 15 26 L 35 4" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="hd" style="color: #EDE4D0; font-size: 24px; line-height: 1; margin-bottom: 12px;">It's yours.</div>
+            <div class="bd" style="color: #D8D2C2; font-size: 11px; line-height: 1.5; margin-bottom: 20px;">The 4D Traveler dopp bag is on its way. Alien Labs is handling the ship-out.</div>
+            <div style="background: #171717; border: 0.5px solid rgba(237,228,208,0.1); padding: 10px; border-radius: 3px; text-align: left;">
+              <div style="display: flex; gap: 8px; align-items: center;">
+                <div style="width: 32px; height: 32px; background: #0E0E0E; border-radius: 2px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                  <img src="/mockups/product-doppbag-alienlabs.png" alt="4D Traveler Dopp Bag" style="width: 28px; height: 22px; object-fit: cover; border-radius: 2px;"/>
+                </div>
+                <div style="flex: 1;">
+                  <div class="hd" style="color: #EDE4D0; font-size: 10px;">4D Traveler dopp bag</div>
+                  <div class="bd" style="color: #D8D2C2; opacity: 0.6; font-size: 8px;">Alien Labs · $150</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- INSIDE THE APP — phone screenshot showcase -->
+<div style="background: #0E0E0E; padding: 90px 40px;">
+  <div class="lb" style="color: #F2D35C; font-size: 10px; margin-bottom: 20px;">Inside the app</div>
+  <h2 class="hd" style="color: #EDE4D0; font-size: 44px; margin: 0 0 60px; line-height: 1; max-width: 600px;">One stash per brand.<br>All in one place.</h2>
+
+  <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; align-items: start;">
+
+    <div>
+      <div style="display: flex; justify-content: center; margin-bottom: 22px;">
+        <div class="mobile-frame">
+          <div class="status-bar"><div class="time">7:13</div><div class="battery"></div></div>
+          <div class="frame-nav">
+            <div style="color: #D8D2C2; font-size: 14px;">←</div>
+            <div class="lb" style="color: #EDE4D0; font-size: 8px;">Alien Labs</div>
+            <div style="width: 22px;"></div>
+          </div>
+          <div style="padding: 16px 18px 0;">
+            <div class="lb" style="color: #F2D35C; font-size: 7px; margin-bottom: 6px;">Your Alien Labs stash</div>
+            <div class="hd" style="color: #EDE4D0; font-size: 32px; line-height: 1;">$247</div>
+            <div class="bd" style="color: #D8D2C2; opacity: 0.7; font-size: 9px; margin-bottom: 14px;">Qualifying dollars · 6 receipts</div>
+            <div style="height: 1px; background: rgba(237,228,208,0.12); margin-bottom: 12px;"></div>
+            <div style="display: flex; align-items: center; gap: 6px; margin-bottom: 8px;">
+              <div style="width: 5px; height: 5px; border-radius: 50%; background: #5A7A3E;"></div>
+              <div class="lb" style="color: #5A7A3E; font-size: 7px;">Available now · 1</div>
+            </div>
+            <div style="background: #171717; border: 0.5px solid rgba(90,122,62,0.35); padding: 10px; border-radius: 3px; margin-bottom: 14px;">
+              <div style="display: flex; gap: 10px;">
+                <div style="width: 44px; height: 44px; background: #0E0E0E; border-radius: 2px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                  <img src="/mockups/product-doppbag-alienlabs.png" alt="4D Traveler Dopp Bag" style="width: 36px; height: 36px; object-fit: cover; border-radius: 2px;"/>
+                </div>
+                <div style="flex: 1;">
+                  <div class="hd" style="color: #EDE4D0; font-size: 11px;">4D Traveler dopp bag</div>
+                  <div style="display: flex; justify-content: space-between; margin-top: 4px;">
+                    <div class="bd" style="color: #5A7A3E; font-size: 9px; font-weight: 500;">Ready to pull</div>
+                    <div class="hd" style="color: #F2D35C; font-size: 11px;">$150</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div style="display: flex; align-items: center; gap: 6px; margin-bottom: 8px;">
+              <div style="width: 5px; height: 5px; border-radius: 50%; background: #F2D35C;"></div>
+              <div class="lb" style="color: #F2D35C; font-size: 7px;">Working toward · 2</div>
+            </div>
+            <div style="background: #171717; border: 0.5px solid rgba(237,228,208,0.1); padding: 10px; border-radius: 3px;">
+              <div style="display: flex; gap: 10px;">
+                <div style="width: 44px; height: 44px; background: #0E0E0E; border-radius: 2px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                  <img src="/mockups/product-hoodie-alienlabs.png" alt="Smokers Club hoodie" style="width: 36px; height: 36px; object-fit: cover; border-radius: 2px;"/>
+                </div>
+                <div style="flex: 1;">
+                  <div class="lb" style="color: #F2D35C; font-size: 6px;">Issue 01 · hoodie</div>
+                  <div class="hd" style="color: #EDE4D0; font-size: 11px; margin-top: 2px;">Smokers Club hoodie</div>
+                  <div style="height: 1.5px; background: rgba(237,228,208,0.12); border-radius: 1px; margin-top: 6px;">
+                    <div style="width: 82%; height: 100%; background: #F2D35C; border-radius: 1px;"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="lb" style="color: #D8D2C2; opacity: 0.55; font-size: 9px; text-align: center; margin-bottom: 4px;">A brand stash</div>
+      <div class="bd" style="color: #D8D2C2; font-size: 12px; text-align: center; opacity: 0.85;">Available now, working toward, invite only.</div>
+    </div>
+
+    <div>
+      <div style="display: flex; justify-content: center; margin-bottom: 22px;">
+        <div class="mobile-frame">
+          <div class="status-bar"><div class="time">7:12</div><div class="battery"></div></div>
+          <div class="frame-nav">
+            <div class="hd" style="color: #EDE4D0; font-size: 10px; letter-spacing: 0.14em;">HEADSTASH</div>
+            <div style="width: 22px; height: 22px; border-radius: 50%; background: #2A2A2A; display: flex; align-items: center; justify-content: center;">
+              <div class="hd" style="color: #F2D35C; font-size: 8px;">AP</div>
+            </div>
+          </div>
+          <div style="padding: 16px 18px 10px;">
+            <div class="lb" style="color: #F2D35C; font-size: 7px; margin-bottom: 5px;">Evening · Aaron</div>
+            <div class="hd" style="color: #EDE4D0; font-size: 18px; line-height: 1;">Your stashes.</div>
+          </div>
+          <div style="padding: 0 18px;">
+            <div style="background: #171717; border: 0.5px solid rgba(237,228,208,0.1); border-left: 2px solid #F2D35C; padding: 10px; margin-bottom: 7px; border-radius: 0 3px 3px 0;">
+              <div style="display: flex; justify-content: space-between; margin-bottom: 6px;">
+                <div>
+                  <div class="lb" style="color: #D8D2C2; opacity: 0.55; font-size: 6px;">Alien Labs</div>
+                  <div class="hd" style="color: #EDE4D0; font-size: 12px;">Smokers Club hoodie</div>
+                </div>
+                <div class="hd" style="color: #EDE4D0; font-size: 14px;">$247</div>
+              </div>
+              <div style="height: 2px; background: rgba(237,228,208,0.12); border-radius: 1px;">
+                <div style="width: 82%; height: 100%; background: #F2D35C; border-radius: 1px;"></div>
+              </div>
+            </div>
+            <div style="background: #171717; border: 0.5px solid rgba(237,228,208,0.1); border-left: 2px solid #D4A574; padding: 10px; margin-bottom: 7px; border-radius: 0 3px 3px 0;">
+              <div style="display: flex; justify-content: space-between; margin-bottom: 6px;">
+                <div>
+                  <div class="lb" style="color: #D8D2C2; opacity: 0.55; font-size: 6px;">Connected</div>
+                  <div class="hd" style="color: #EDE4D0; font-size: 12px;">Death Traitors long sleeve</div>
+                </div>
+                <div class="hd" style="color: #EDE4D0; font-size: 14px;">$94</div>
+              </div>
+              <div style="height: 2px; background: rgba(237,228,208,0.12); border-radius: 1px;">
+                <div style="width: 63%; height: 100%; background: #D4A574; border-radius: 1px;"></div>
+              </div>
+            </div>
+            <div style="background: #171717; border: 0.5px solid rgba(237,228,208,0.1); border-left: 2px solid #B888E8; padding: 10px; border-radius: 0 3px 3px 0;">
+              <div style="display: flex; justify-content: space-between; margin-bottom: 6px;">
+                <div>
+                  <div class="lb" style="color: #D8D2C2; opacity: 0.55; font-size: 6px;">Oakfruitland</div>
+                  <div class="hd" style="color: #EDE4D0; font-size: 12px;">Tasting invite</div>
+                </div>
+                <div class="hd" style="color: #EDE4D0; font-size: 14px;">$42</div>
+              </div>
+              <div style="height: 2px; background: rgba(237,228,208,0.12); border-radius: 1px;">
+                <div style="width: 28%; height: 100%; background: #B888E8; border-radius: 1px;"></div>
+              </div>
+            </div>
+          </div>
+          <div style="position: absolute; bottom: 14px; left: 18px; right: 18px;">
+            <div style="width: 100%; background: #F2D35C; color: #0E0E0E; padding: 11px; border-radius: 4px; font-family: 'BluntFamily', sans-serif; font-size: 9px; letter-spacing: 0.22em; text-align: center;">Upload receipt ↗</div>
+          </div>
+        </div>
+      </div>
+      <div class="lb" style="color: #D8D2C2; opacity: 0.55; font-size: 9px; text-align: center; margin-bottom: 4px;">Home dashboard</div>
+      <div class="bd" style="color: #D8D2C2; font-size: 12px; text-align: center; opacity: 0.85;">Every brand you shop. One screen.</div>
+    </div>
+
+    <div>
+      <div style="display: flex; justify-content: center; margin-bottom: 22px;">
+        <div class="mobile-frame">
+          <div class="status-bar"><div class="time">9:44</div><div class="battery"></div></div>
+          <div class="frame-nav">
+            <div class="hd" style="color: #EDE4D0; font-size: 10px; letter-spacing: 0.14em;">HEADSTASH</div>
+            <div style="width: 22px; height: 22px; border-radius: 50%; background: #2A2A2A; display: flex; align-items: center; justify-content: center;">
+              <div class="hd" style="color: #F2D35C; font-size: 8px;">AP</div>
+            </div>
+          </div>
+          <div style="padding: 56px 20px 0; text-align: center;">
+            <div style="width: 62px; height: 62px; border: 2px solid #F2D35C; border-radius: 50%; margin: 0 auto 22px; display: flex; align-items: center; justify-content: center; position: relative;">
+              <div style="position: absolute; inset: -6px; border: 1px solid rgba(242,211,92,0.3); border-radius: 50%; animation: pulse-ring 2s infinite;"></div>
+              <svg width="28" height="28" viewBox="0 0 36 36" style="color: #F2D35C;"><circle cx="18" cy="18" r="14" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M 18 10 L 18 18 L 24 22" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </div>
+            <div class="hd" style="color: #EDE4D0; font-size: 24px; line-height: 1; margin-bottom: 12px;">In the queue.</div>
+            <div class="bd" style="color: #D8D2C2; font-size: 11px; line-height: 1.55; margin-bottom: 22px;">Your Harborside Oakland receipt is under review. We'll text you the second your stash is updated.</div>
+            <div style="background: #171717; border: 0.5px solid rgba(237,228,208,0.1); padding: 10px; border-radius: 3px; text-align: left;">
+              <div class="lb" style="color: #F2D35C; font-size: 6px; margin-bottom: 4px;">Pending · submitted 9:43 AM</div>
+              <div class="bd" style="color: #EDE4D0; font-size: 10px; font-weight: 500;">Harborside Oakland</div>
+              <div class="bd" style="color: #D8D2C2; opacity: 0.6; font-size: 8px;">3 items · $140.63 · Apr 21</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="lb" style="color: #D8D2C2; opacity: 0.55; font-size: 9px; text-align: center; margin-bottom: 4px;">Submitted</div>
+      <div class="bd" style="color: #D8D2C2; font-size: 12px; text-align: center; opacity: 0.85;">We text the second your stash updates.</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ONE APP EVERY BRAND -->
+<div style="background: #EDE4D0; padding: 90px 40px;">
+  <div class="lb" style="color: #0E0E0E; opacity: 0.45; font-size: 10px; margin-bottom: 20px;">Each brand runs their own thing</div>
+  <h2 class="hd" style="color: #0E0E0E; font-size: 44px; margin: 0 0 14px; line-height: 1;">One app.<br>Every brand you buy.</h2>
+  <p class="bd" style="color: #2A2A2A; font-size: 15px; max-width: 540px; margin: 0 0 44px;">Headstash is one place for every brand you buy. Each one sets up its own program — their own rewards, their own drops, their own voice.</p>
+
+  <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px;">
+
+    <div style="background: #0E0E0E; border-left: 2px solid #F2D35C; padding: 18px; border-radius: 0 4px 4px 0; min-height: 220px; display: flex; flex-direction: column;">
+      <div class="lb" style="color: #F2D35C; font-size: 9px; margin-bottom: 10px;">Example · from a brand</div>
+      <div class="hd" style="color: #EDE4D0; font-size: 20px; margin-bottom: 16px; line-height: 1;">Smokers Club hoodie</div>
+      <div style="flex: 1;"><div class="bd" style="color: #D8D2C2; font-size: 12px; opacity: 0.85;">Spend $300 qualifying across any dispensaries in 90 days.</div></div>
+      <div style="padding-top: 14px; border-top: 0.5px solid rgba(237,228,208,0.12); margin-top: 12px;">
+        <div class="bd" style="color: #D8D2C2; opacity: 0.55; font-size: 11px;">Example reward. Brands configure their own.</div>
+      </div>
+    </div>
+
+    <div style="background: #0E0E0E; border-left: 2px solid #F2D35C; padding: 18px; border-radius: 0 4px 4px 0; min-height: 220px; display: flex; flex-direction: column; opacity: 0.9;">
+      <div class="lb" style="color: #F2D35C; font-size: 9px; margin-bottom: 10px;">Example · from a brand</div>
+      <div class="hd" style="color: #EDE4D0; font-size: 20px; margin-bottom: 16px; line-height: 1;">Sunday tasting invite</div>
+      <div style="flex: 1;"><div class="bd" style="color: #D8D2C2; font-size: 12px; opacity: 0.85;">Hit five approved receipts in a rolling month.</div></div>
+      <div style="padding-top: 14px; border-top: 0.5px solid rgba(237,228,208,0.12); margin-top: 12px;">
+        <div class="bd" style="color: #D8D2C2; opacity: 0.55; font-size: 11px;">Example reward. Brands configure their own.</div>
+      </div>
+    </div>
+
+    <div style="background: #0E0E0E; border-left: 2px solid #F2D35C; padding: 18px; border-radius: 0 4px 4px 0; min-height: 220px; display: flex; flex-direction: column; opacity: 0.8;">
+      <div class="lb" style="color: #F2D35C; font-size: 9px; margin-bottom: 10px;">Example · from a brand</div>
+      <div class="hd" style="color: #EDE4D0; font-size: 20px; margin-bottom: 16px; line-height: 1;">Bonus sticker pack</div>
+      <div style="flex: 1;"><div class="bd" style="color: #D8D2C2; font-size: 12px; opacity: 0.85;">Upload any receipt with an infused pre-roll from the brand.</div></div>
+      <div style="padding-top: 14px; border-top: 0.5px solid rgba(237,228,208,0.12); margin-top: 12px;">
+        <div class="bd" style="color: #D8D2C2; opacity: 0.55; font-size: 11px;">Example reward. Brands configure their own.</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- THINGS YOU ALREADY DO -->
+<div style="background: #0E0E0E; padding: 90px 40px;">
+  <div class="lb" style="color: #F2D35C; font-size: 10px; margin-bottom: 20px;">What brands can reward you for</div>
+  <h2 class="hd" style="color: #EDE4D0; font-size: 44px; margin: 0 0 40px; line-height: 1;">Things you already do.</h2>
+
+  <div>
+    <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 16px; padding: 20px 0; border-top: 0.5px solid rgba(237,228,208,0.2); align-items: baseline;">
+      <div class="hd" style="color: #EDE4D0; font-size: 22px;">Buying.</div>
+      <div class="bd" style="color: #D8D2C2; font-size: 13.5px;">Every receipt containing a participating brand's SKU adds qualifying dollars to that brand's stash.</div>
+    </div>
+    <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 16px; padding: 20px 0; border-top: 0.5px solid rgba(237,228,208,0.2); align-items: baseline;">
+      <div class="hd" style="color: #EDE4D0; font-size: 22px;">Repeating.</div>
+      <div class="bd" style="color: #D8D2C2; font-size: 13.5px;">Hit a brand's spend or receipt milestone in a rolling window. A real named item shows up in your stash.</div>
+    </div>
+    <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 16px; padding: 20px 0; border-top: 0.5px solid rgba(237,228,208,0.2); align-items: baseline;">
+      <div class="hd" style="color: #EDE4D0; font-size: 22px;">Trying.</div>
+      <div class="bd" style="color: #D8D2C2; font-size: 13.5px;">First receipt with a new brand usually triggers a welcome item. Most brands say hello with something.</div>
+    </div>
+    <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 16px; padding: 20px 0; border-top: 0.5px solid rgba(237,228,208,0.2); align-items: baseline;">
+      <div class="hd" style="color: #EDE4D0; font-size: 22px;">Exploring.</div>
+      <div class="bd" style="color: #D8D2C2; font-size: 13.5px;">Some brands reward buying their SKUs across multiple dispensaries. The kind of thing only Headstash can see.</div>
+    </div>
+    <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 16px; padding: 20px 0; border-top: 0.5px solid rgba(237,228,208,0.2); border-bottom: 0.5px solid rgba(237,228,208,0.2); align-items: baseline;">
+      <div class="hd" style="color: #EDE4D0; font-size: 22px;">Putting people on.</div>
+      <div class="bd" style="color: #D8D2C2; font-size: 13.5px;">Refer a head to a brand you already shop. When their first receipt lands, you both get something.</div>
+    </div>
+  </div>
+</div>
+
+<!-- AVAILABLE FOR -->
+<div style="background: #EDE4D0; padding: 80px 40px;">
+  <div class="lb" style="color: #0E0E0E; opacity: 0.45; font-size: 10px; margin-bottom: 20px;">Available for</div>
+  <h2 class="hd" style="color: #0E0E0E; font-size: 42px; margin: 0 0 40px; line-height: 1;">The heaviest brands<br>in California.</h2>
+  <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; border-top: 0.5px solid rgba(14,14,14,0.2); padding-top: 28px;">
+    <div>
+      <div class="lb" style="color: #0E0E0E; opacity: 0.4; font-size: 9px; margin-bottom: 8px;">Brand 01</div>
+      <div class="hd" style="color: #0E0E0E; font-size: 22px;">Locked in</div>
+    </div>
+    <div>
+      <div class="lb" style="color: #0E0E0E; opacity: 0.4; font-size: 9px; margin-bottom: 8px;">Brand 02</div>
+      <div class="hd" style="color: #0E0E0E; font-size: 22px;">Locked in</div>
+    </div>
+    <div>
+      <div class="lb" style="color: #0E0E0E; opacity: 0.4; font-size: 9px; margin-bottom: 8px;">Brand 03</div>
+      <div class="hd" style="color: #0E0E0E; font-size: 22px;">Locked in</div>
+    </div>
+  </div>
+</div>
+
+<!-- FAQ -->
+<div style="background: #0E0E0E; padding: 90px 40px;">
+  <div class="lb" style="color: #F2D35C; font-size: 10px; margin-bottom: 20px;">FAQ</div>
+  <h2 class="hd" style="color: #EDE4D0; font-size: 44px; margin: 0 0 40px; line-height: 1;">Quick answers.</h2>
+  <div>
+    <div style="padding: 20px 0; border-top: 0.5px solid rgba(237,228,208,0.2);">
+      <div class="hd" style="color: #EDE4D0; font-size: 17px; margin-bottom: 8px;">How much does it cost?</div>
+      <div class="bd" style="color: #D8D2C2; font-size: 14px;">Free. Pay with receipts.</div>
+    </div>
+    <div style="padding: 20px 0; border-top: 0.5px solid rgba(237,228,208,0.2);">
+      <div class="hd" style="color: #EDE4D0; font-size: 17px; margin-bottom: 8px;">Does Headstash sell anything?</div>
+      <div class="bd" style="color: #D8D2C2; font-size: 14px;">No. Each brand you shop runs their own rewards. Headstash just connects your receipt to them.</div>
+    </div>
+    <div style="padding: 20px 0; border-top: 0.5px solid rgba(237,228,208,0.2);">
+      <div class="hd" style="color: #EDE4D0; font-size: 17px; margin-bottom: 8px;">Do receipts expire?</div>
+      <div class="bd" style="color: #D8D2C2; font-size: 14px;">Fourteen days from purchase. Don't sit on them.</div>
+    </div>
+    <div style="padding: 20px 0; border-top: 0.5px solid rgba(237,228,208,0.2);">
+      <div class="hd" style="color: #EDE4D0; font-size: 17px; margin-bottom: 8px;">Is this a discount program?</div>
+      <div class="bd" style="color: #D8D2C2; font-size: 14px;">No. Brands reward you with their merch, drops, or access. Never coupons, never percent-off.</div>
+    </div>
+    <div style="padding: 20px 0; border-top: 0.5px solid rgba(237,228,208,0.2); border-bottom: 0.5px solid rgba(237,228,208,0.2);">
+      <div class="hd" style="color: #EDE4D0; font-size: 17px; margin-bottom: 8px;">Can I share receipts with a friend?</div>
+      <div class="bd" style="color: #D8D2C2; font-size: 14px;">One receipt, one account. We dedupe.</div>
+    </div>
+  </div>
+</div>
+
+<!-- START -->
+<div id="start" style="background: #EDE4D0; padding: 110px 40px;">
+  <div class="lb" style="color: #0E0E0E; opacity: 0.45; font-size: 10px; margin-bottom: 22px;">Start here</div>
+  <h2 class="hd" style="color: #0E0E0E; font-size: 68px; margin: 0 0 22px; line-height: 0.95;">Start your<br>stash.</h2>
+  <p class="bd" style="color: #2A2A2A; font-size: 16px; max-width: 480px; margin: 0 0 36px;">Takes thirty seconds. Works on any phone. Add it to your home screen and upload receipts as you shop.</p>
+  <div style="display: flex; gap: 10px; max-width: 480px;">
+    <input type="tel" placeholder="(___) ___-____" style="flex: 1; background: transparent; border: 0.5px solid rgba(14,14,14,0.3); color: #0E0E0E; padding: 14px 16px; font-size: 15px; border-radius: 4px;">
+    <button class="btn-ochre">Send code ↗</button>
+  </div>
+  <div class="bd" style="color: #2A2A2A; opacity: 0.55; font-size: 11px; margin-top: 18px; max-width: 480px;">By continuing you agree to receive SMS from Headstash. Msg & data rates may apply. Reply STOP to opt out.</div>
+</div>
+
+<div style="background: #080808; padding: 30px 40px; display: flex; align-items: flex-start; justify-content: space-between; border-top: 0.5px solid rgba(237,228,208,0.08);">
+  <div>
+    <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;"><img src="/brand/headstash-logo-hit.png" alt="Headstash logo" style="height:18px;width:auto;object-fit:contain;"/><div class="hd" style="color: #EDE4D0; font-size: 15px; letter-spacing: 0.14em;">HEADSTASH</div></div>
+    <div class="bd" style="color: #D8D2C2; opacity: 0.4; font-size: 11px;">A Tuff Ghost Media product · © 2026</div>
+  </div>
+  <div style="display: flex; gap: 22px;">
+    <div class="bd" style="color: #D8D2C2; opacity: 0.55; font-size: 11px;">Privacy</div>
+    <div class="bd" style="color: #D8D2C2; opacity: 0.55; font-size: 11px;">Terms</div>
+    <div class="bd" style="color: #D8D2C2; opacity: 0.55; font-size: 11px;">For brands</div>
+  </div>
+</div>
+
+
+
+</body>
+</html>
