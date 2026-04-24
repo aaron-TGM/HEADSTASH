@@ -68,28 +68,6 @@ export const home = {
       },
     ],
   },
-  insideApp: {
-    eyebrow: "Inside the app",
-    headline: "One stash per brand.\nAll in one place.",
-    body: "Each brand you buy runs its own stash inside Headstash. Upload once, the receipt lands where it should.",
-    screens: [
-      {
-        label: "A brand stash",
-        headline: "Alien Labs · stash",
-        body: "Your progress, current drop, next unlock. The brand runs it. You just buy flower.",
-      },
-      {
-        label: "Home dashboard",
-        headline: "Your stashes",
-        body: "Every brand you've bought, together. One app, all your progress.",
-      },
-      {
-        label: "Submitted",
-        headline: "Receipt in",
-        body: "Submitted. We text you the second your stash updates.",
-      },
-    ],
-  },
   examples: {
     eyebrow: "Each brand runs their own thing",
     headline: "One app. Every brand you buy.",
