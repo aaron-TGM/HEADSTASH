@@ -1163,12 +1163,24 @@
   const details = document.getElementById('campaign-details');
   if (!details) return;
 
-  const applyState = () => {
-    details.open = window.innerWidth >= 1024;
+  const desktopMedia = window.matchMedia('(min-width: 1024px)');
+  let wasDesktop = desktopMedia.matches;
+
+  // Set the default state once on load.
+  details.open = wasDesktop;
+
+  const onBreakpointChange = (event) => {
+    if (event.matches !== wasDesktop) {
+      wasDesktop = event.matches;
+      details.open = wasDesktop;
+    }
   };
 
-  applyState();
-  window.addEventListener('resize', applyState);
+  if (typeof desktopMedia.addEventListener === 'function') {
+    desktopMedia.addEventListener('change', onBreakpointChange);
+  } else if (typeof desktopMedia.addListener === 'function') {
+    desktopMedia.addListener(onBreakpointChange);
+  }
 })();
 </script>
 
