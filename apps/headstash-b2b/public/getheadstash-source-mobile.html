@@ -108,23 +108,6 @@
     50% { transform: translateY(-6px) rotate(-3deg); }
   }
 
-  @keyframes hs-fade-up {
-    from { opacity: 0; transform: translateY(18px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  .hs-reveal {
-    opacity: 0;
-    transform: translateY(18px);
-    transition: opacity 520ms ease, transform 520ms cubic-bezier(.22,.61,.36,1);
-    will-change: opacity, transform;
-  }
-
-  .hs-reveal.is-visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
   .phone-float .mobile-frame.large {
     animation: hs-float 5.2s ease-in-out infinite;
   }
@@ -146,11 +129,6 @@
 
   @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
-    .hs-reveal, .hs-reveal.is-visible {
-      opacity: 1 !important;
-      transform: none !important;
-      transition: none !important;
-    }
     .phone-float .mobile-frame.large,
     .btn-ochre,
     .btn-ghost,
@@ -518,7 +496,7 @@
         <div class="hd" style="color: #EDE4D0; font-size: 18px; line-height: 1;">Your stashes.</div>
       </div>
       <div style="padding: 0 18px;">
-        <div style="background: #171717; border: 0.5px solid rgba(237,228,208,0.1); border-left: 2px solid #F2D35C; padding: 12px; margin-bottom: 8px; border-radius: 0 4px 4px 0;">
+        <div style="background: #171717; border: 0.5px solid rgba(237,228,208,0.1); border-left: 2px solid #5A7A3E; padding: 12px; margin-bottom: 8px; border-radius: 0 4px 4px 0;">
           <div style="display: flex; justify-content: space-between; margin-bottom: 8px; gap: 8px;">
             <div style="display: flex; gap: 7px; align-items: center; min-width: 0;">
               <div style="width: 16px; height: 16px; flex-shrink: 0; display: flex; align-items: center; justify-content: center;">
@@ -535,10 +513,10 @@
             <div class="hd" style="color: #EDE4D0; font-size: 16px; flex-shrink: 0;">$247</div>
           </div>
           <div style="height: 2px; background: rgba(237,228,208,0.12); border-radius: 2px;">
-            <div style="width: 82%; height: 100%; background: #F2D35C; border-radius: 2px;"></div>
+            <div style="width: 82%; height: 100%; background: #5A7A3E; border-radius: 2px;"></div>
           </div>
         </div>
-        <div style="background: #171717; border: 0.5px solid rgba(237,228,208,0.1); border-left: 2px solid #D4A574; padding: 12px; margin-bottom: 8px; border-radius: 0 4px 4px 0;">
+        <div style="background: #171717; border: 0.5px solid rgba(237,228,208,0.1); border-left: 2px solid #35B6F2; padding: 12px; margin-bottom: 8px; border-radius: 0 4px 4px 0;">
           <div style="display: flex; justify-content: space-between; margin-bottom: 8px; gap: 8px;">
             <div style="display: flex; gap: 7px; align-items: center; min-width: 0;">
               <div style="width: 16px; height: 16px; flex-shrink: 0; display: flex; align-items: center; justify-content: center;">
@@ -555,7 +533,7 @@
             <div class="hd" style="color: #EDE4D0; font-size: 16px; flex-shrink: 0;">$94</div>
           </div>
           <div style="height: 2px; background: rgba(237,228,208,0.12); border-radius: 2px;">
-            <div style="width: 63%; height: 100%; background: #D4A574; border-radius: 2px;"></div>
+            <div style="width: 63%; height: 100%; background: #35B6F2; border-radius: 2px;"></div>
           </div>
         </div>
         <div style="background: #171717; border: 0.5px dashed rgba(237,228,208,0.18); padding: 10px; border-radius: 3px;">
@@ -724,7 +702,7 @@
       <div class="lb" style="color: #0E0E0E; opacity: 0.45; font-size: 10px; margin-bottom: 22px;">Your side of it</div>
       <h2 class="hd" style="color: #0E0E0E; font-size: 42px; margin: 0 0 20px; line-height: 1;">The admin<br>you'd actually<br>use.</h2>
       <p class="bd" style="color: #2A2A2A; font-size: 15px; margin: 0 0 20px;">Program KPIs, receipt review queue, cross-retailer insights, Shopify merch sync. Built for an operator who lives in it, not a stakeholder who glances at it weekly.</p>
-      <p class="bd" style="color: #2A2A2A; opacity: 0.7; font-size: 13px; margin: 0;">Keyboard-first review. Fraud flags up front. Data export when you want it out.</p>
+      <p class="bd" style="color: #2A2A2A; opacity: 0.7; font-size: 13px; margin: 0;">See real customer behavior your brand never had direct access to before - cross-retailer buying patterns, recency, and campaign lift in one view.</p>
     </div>
     <div>
       <div class="admin-preview" style="font-size: 10px;">
@@ -914,7 +892,7 @@
       <div>
         <div class="lb" style="color: #F2D35C; font-size: 10px; margin-bottom: 10px;">Example campaign · Alien Labs</div>
         <div class="hd" style="color: #EDE4D0; font-size: 32px; line-height: 1; margin-bottom: 8px;">Galaxy Glue · triple category</div>
-        <div class="bd" style="color: #D8D2C2; opacity: 0.7; font-size: 13px;">New strain drop across flower, pre-roll, and vape categories. Limited tee unlocks when customers collect all three in 30 days.</div>
+        <div class="bd" style="color: #EDE4D0; opacity: 0.9; font-size: 13px;">New strain drop across flower, pre-roll, and vape categories. Limited tee unlocks when customers collect all three in 30 days.</div>
       </div>
       <div style="padding: 12px 18px; background: #0E0E0E; border: 0.5px solid rgba(237,228,208,0.2); border-radius: 4px; flex-shrink: 0;">
         <div class="lb" style="color: #F2D35C; font-size: 9px; margin-bottom: 4px;">Headstash config</div>
@@ -924,7 +902,7 @@
 
     <!-- THE CHANNELS GRID -->
     <div style="padding: 32px;">
-      <div class="lb" style="color: #D8D2C2; opacity: 0.5; font-size: 10px; margin-bottom: 22px;">How Alien Labs runs it — one campaign, every surface</div>
+      <div class="lb" style="color: #EDE4D0; opacity: 0.72; font-size: 10px; margin-bottom: 22px;">How Alien Labs runs it — one campaign, every surface</div>
 
       <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-bottom: 16px;">
 
@@ -932,33 +910,33 @@
         <div style="background: #0E0E0E; padding: 20px; border-radius: 4px; border-left: 2px solid #F2D35C;">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
             <div class="lb" style="color: #F2D35C; font-size: 9px;">Klaviyo · email campaign</div>
-            <div class="bd" style="color: #D8D2C2; opacity: 0.5; font-size: 10px;">Day 0</div>
+            <div class="bd" style="color: #EDE4D0; opacity: 0.72; font-size: 10px;">Day 0</div>
           </div>
           <div style="background: #F5EFE1; padding: 14px; border-radius: 3px; margin-bottom: 10px;">
             <div class="lb" style="color: #0E0E0E; opacity: 0.5; font-size: 8px; margin-bottom: 6px;">To: 2,847 Alien Labs customers · past 90 days</div>
             <div class="hd" style="color: #0E0E0E; font-size: 16px; line-height: 1.1; margin-bottom: 8px;">Galaxy Glue lands Thursday.</div>
             <div class="bd" style="color: #2A2A2A; font-size: 11px; line-height: 1.5;">New strain, three categories, one tee. Hit all three inside 30 days — we're mailing you something nobody else can get.</div>
           </div>
-          <div class="bd" style="color: #D8D2C2; opacity: 0.6; font-size: 11px;">Sent to Headstash-sourced segment inside Alien Labs' existing Klaviyo account.</div>
+          <div class="bd" style="color: #EDE4D0; opacity: 0.86; font-size: 11px;">Sent to Headstash-sourced segment inside Alien Labs' existing Klaviyo account.</div>
         </div>
 
         <!-- SMS via retail CRM -->
         <div style="background: #0E0E0E; padding: 20px; border-radius: 4px; border-left: 2px solid #F2D35C;">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
             <div class="lb" style="color: #F2D35C; font-size: 9px;">SMS · via retail co-op</div>
-            <div class="bd" style="color: #D8D2C2; opacity: 0.5; font-size: 10px;">Day 3</div>
+            <div class="bd" style="color: #EDE4D0; opacity: 0.72; font-size: 10px;">Day 3</div>
           </div>
           <div style="background: #2A2A2A; padding: 12px 14px; border-radius: 12px 12px 12px 2px; margin-bottom: 10px; max-width: 90%;">
             <div class="bd" style="color: #EDE4D0; font-size: 12px; line-height: 1.5; font-family: -apple-system, BlinkMacSystemFont, sans-serif;">Galaxy Glue is on shelves. Three categories. Stack 'em inside 30 days, unlock the limited tee. Reply STOP to opt out.</div>
           </div>
-          <div class="bd" style="color: #D8D2C2; opacity: 0.6; font-size: 11px;">Headstash exports the segment. Alien Labs pushes it through retailer co-op SMS — Alpine IQ, springbig, whatever their partner dispensaries run. Same list, different pipe.</div>
+          <div class="bd" style="color: #EDE4D0; opacity: 0.86; font-size: 11px;">Headstash exports the segment. Alien Labs pushes it through retailer co-op SMS — Alpine IQ, springbig, whatever their partner dispensaries run. Same list, different pipe.</div>
         </div>
 
         <!-- In-store retailer signage -->
         <div style="background: #0E0E0E; padding: 20px; border-radius: 4px; border-left: 2px solid #F2D35C;">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
             <div class="lb" style="color: #F2D35C; font-size: 9px;">In-store · retailer placement</div>
-            <div class="bd" style="color: #D8D2C2; opacity: 0.5; font-size: 10px;">Day 0-30</div>
+            <div class="bd" style="color: #EDE4D0; opacity: 0.72; font-size: 10px;">Day 0-30</div>
           </div>
           <div style="background: #0E0E0E; border: 1px solid #F2D35C; padding: 20px 16px; border-radius: 3px; margin-bottom: 10px; text-align: center;">
             <div class="lb" style="color: #F2D35C; font-size: 8px; margin-bottom: 10px;">Alien Labs presents</div>
@@ -970,19 +948,19 @@
               <svg width="22" height="22" viewBox="0 0 22 22" style="color: #0E0E0E;" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="6" height="6"/><rect x="13" y="3" width="6" height="6"/><rect x="3" y="13" width="6" height="6"/><rect x="12" y="12" width="2" height="2"/><rect x="16" y="12" width="2" height="2"/><rect x="12" y="16" width="2" height="2"/><rect x="18" y="18" width="1" height="1"/></svg>
             </div>
           </div>
-          <div class="bd" style="color: #D8D2C2; opacity: 0.6; font-size: 11px;">Shelf talkers, menu slots, budtender cards — QR deep-links to Headstash pre-filled with the campaign.</div>
+          <div class="bd" style="color: #EDE4D0; opacity: 0.86; font-size: 11px;">Shelf talkers, menu slots, budtender cards — QR deep-links to Headstash pre-filled with the campaign.</div>
         </div>
 
         <!-- Social / organic -->
         <div style="background: #0E0E0E; padding: 20px; border-radius: 4px; border-left: 2px solid #F2D35C;">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
             <div class="lb" style="color: #F2D35C; font-size: 9px;">Organic social · IG + TikTok</div>
-            <div class="bd" style="color: #D8D2C2; opacity: 0.5; font-size: 10px;">Day 7, 14, 21</div>
+            <div class="bd" style="color: #EDE4D0; opacity: 0.72; font-size: 10px;">Day 7, 14, 21</div>
           </div>
           <div style="background: #0E0E0E; border: 0.5px solid rgba(237,228,208,0.2); padding: 14px; border-radius: 3px; margin-bottom: 10px;">
             <div class="bd" style="color: #EDE4D0; font-size: 11.5px; line-height: 1.55; font-style: italic;">"42 heads have unlocked the Galaxy Glue tee so far. 158 collected two categories. Find the third before day 30." <br><br><span style="opacity: 0.6; font-style: normal;">— @alienlabs · IG story</span></div>
           </div>
-          <div class="bd" style="color: #D8D2C2; opacity: 0.6; font-size: 11px;">Real-time campaign numbers from Headstash admin, posted organically. Social proof compounds.</div>
+          <div class="bd" style="color: #EDE4D0; opacity: 0.86; font-size: 11px;">Real-time campaign numbers from Headstash admin, posted organically. Social proof compounds.</div>
         </div>
 
       </div>
@@ -1032,16 +1010,16 @@
 
 <!-- CATEGORY -->
 <div style="background: #EDE4D0; padding: 90px 40px;">
-  <div class="lb" style="color: #0E0E0E; opacity: 0.45; font-size: 10px; margin-bottom: 22px;">Why this category wins</div>
+  <div class="lb" style="color: #0E0E0E; opacity: 0.45; font-size: 10px; margin-bottom: 22px;">How Headstash is different</div>
   <h2 class="hd" style="color: #0E0E0E; font-size: 42px; margin: 0 0 44px; line-height: 1.02; max-width: 640px;">Not a dispensary tool.<br>Not a consumer marketplace.<br>Infrastructure for brands.</h2>
   <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;">
-    <div style="border-top: 0.5px solid rgba(200,72,42,0.35); padding: 20px; background: #FAE6E1; border-radius: 4px;">
-      <div class="lb" style="color: #C8482A; font-size: 9px; margin-bottom: 10px;">Retailer tools</div>
-      <div class="bd" style="color: #7A2A19; font-size: 13px;">Built for stores, not brands. Data stays retailer-side and brand visibility is limited.</div>
+    <div style="border-top: 0.5px solid rgba(14,14,14,0.2); padding: 20px; background: #E8E2D4; border-radius: 4px;">
+      <div class="lb" style="color: #6C6760; font-size: 9px; margin-bottom: 10px;">Retailer tools</div>
+      <div class="bd" style="color: #2A2A2A; font-size: 13px;">Built for stores, not brands. Data stays retailer-side and brand visibility is limited.</div>
     </div>
-    <div style="border-top: 0.5px solid rgba(200,72,42,0.35); padding: 20px; background: #FAE6E1; border-radius: 4px;">
-      <div class="lb" style="color: #C8482A; font-size: 9px; margin-bottom: 10px;">Consumer apps</div>
-      <div class="bd" style="color: #7A2A19; font-size: 13px;">Marketplace model. Captures consumer attention, but weakens direct brand ownership.</div>
+    <div style="border-top: 0.5px solid rgba(14,14,14,0.2); padding: 20px; background: #E8E2D4; border-radius: 4px;">
+      <div class="lb" style="color: #6C6760; font-size: 9px; margin-bottom: 10px;">Consumer apps</div>
+      <div class="bd" style="color: #2A2A2A; font-size: 13px;">Marketplace model. Captures consumer attention, but weakens direct brand ownership.</div>
     </div>
     <div style="border-top: 2px solid #F2D35C; padding: 20px; background: #0E0E0E; border-radius: 4px;">
       <div class="lb" style="color: #F2D35C; font-size: 9px; margin-bottom: 10px;">Headstash</div>
@@ -1220,31 +1198,7 @@
 </div>
 
 
-<script>
-(() => {
-  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (prefersReduced) return;
 
-  const sections = Array.from(document.querySelectorAll('body > div'));
-  sections.forEach((el, idx) => {
-    if (idx > 0) el.classList.add('hs-reveal');
-  });
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('is-visible');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
-
-  document.querySelectorAll('.hs-reveal').forEach((el, idx) => {
-    el.style.transitionDelay = `${Math.min(idx * 35, 220)}ms`;
-    observer.observe(el);
-  });
-})();
-</script>
 
 </body>
 </html>
