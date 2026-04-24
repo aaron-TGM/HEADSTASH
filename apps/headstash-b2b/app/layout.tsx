@@ -20,11 +20,27 @@ export const metadata: Metadata = {
     template: "%s · Headstash",
   },
   description:
-    "The infrastructure that turns dispensary receipts into direct customer relationships. Your buyers upload. You see the data. Your Shopify merch moves. The retailer stays out of it.",
+    "The infrastructure that turns dispensary receipts into direct customer relationships. Customers upload. You see the data. Your merch moves. The retailer stays out of it.",
   applicationName: "Headstash",
+  keywords: [
+    "Headstash",
+    "cannabis brand loyalty",
+    "receipt-based loyalty",
+    "customer retention",
+    "cannabis CRM",
+    "merch campaigns",
+  ],
   authors: [{ name: "Tuff Ghost Media LLC" }],
   creator: "Tuff Ghost Media LLC",
   publisher: "Tuff Ghost Media LLC",
+  alternates: {
+    canonical: "/",
+  },
+  icons: {
+    icon: [{ url: "/icon.svg", type: "image/svg+xml" }],
+    apple: [{ url: "/brand/headstash-logo-hit.png" }],
+    shortcut: ["/icon.svg"],
+  },
   openGraph: {
     type: "website",
     siteName: "Headstash",
@@ -32,11 +48,20 @@ export const metadata: Metadata = {
     description:
       "The loyalty layer for cannabis brands. Dispensary receipts become brand-owned customer relationships.",
     url: SITE_URL,
+    images: [
+      {
+        url: "/opengraph-image",
+        width: 1200,
+        height: 630,
+        alt: "Headstash - Own your customer.",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Headstash — Own your customer.",
     description: "The loyalty layer for cannabis brands.",
+    images: ["/twitter-image"],
   },
   robots: {
     index: true,
