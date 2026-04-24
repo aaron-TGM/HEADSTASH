@@ -103,6 +103,65 @@
     100% { transform: scale(1); opacity: 0.5; }
   }
 
+  @keyframes hs-float {
+    0%, 100% { transform: translateY(0px) rotate(-3deg); }
+    50% { transform: translateY(-6px) rotate(-3deg); }
+  }
+
+  @keyframes hs-fade-up {
+    from { opacity: 0; transform: translateY(18px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hs-reveal {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity 520ms ease, transform 520ms cubic-bezier(.22,.61,.36,1);
+    will-change: opacity, transform;
+  }
+
+  .hs-reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .phone-float .mobile-frame.large {
+    animation: hs-float 5.2s ease-in-out infinite;
+  }
+
+  .btn-ochre, .btn-ghost {
+    transition: transform 0.16s ease, box-shadow 0.16s ease, background-color 0.16s ease;
+    will-change: transform;
+  }
+
+  .admin-preview {
+    transition: transform 0.22s ease, box-shadow 0.22s ease;
+    will-change: transform;
+  }
+
+  .admin-preview:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 24px 56px rgba(0,0,0,0.24);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .hs-reveal, .hs-reveal.is-visible {
+      opacity: 1 !important;
+      transform: none !important;
+      transition: none !important;
+    }
+    .phone-float .mobile-frame.large,
+    .btn-ochre,
+    .btn-ghost,
+    .admin-preview {
+      animation: none !important;
+      transition: none !important;
+      transform: none !important;
+    }
+  }
+
+
   .admin-preview { background: #F5EFE1; border-radius: 8px; overflow: hidden; border: 0.5px solid rgba(14,14,14,0.1); box-shadow: 0 20px 60px rgba(0,0,0,0.25); transform-origin: top center; }
 
   /* Prevent horizontal scroll / sideways bounce on touch devices */
@@ -875,6 +934,33 @@
     <div class="bd" style="color: #D8D2C2; opacity: 0.55; font-size: 11px;">For customers</div>
   </div>
 </div>
+
+
+<script>
+(() => {
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (prefersReduced) return;
+
+  const sections = Array.from(document.querySelectorAll('body > div'));
+  sections.forEach((el, idx) => {
+    if (idx > 0) el.classList.add('hs-reveal');
+  });
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+
+  document.querySelectorAll('.hs-reveal').forEach((el, idx) => {
+    el.style.transitionDelay = `${Math.min(idx * 35, 220)}ms`;
+    observer.observe(el);
+  });
+})();
+</script>
 
 </body>
 </html>
