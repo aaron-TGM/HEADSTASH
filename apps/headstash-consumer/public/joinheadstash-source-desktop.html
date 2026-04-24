@@ -46,11 +46,20 @@
     will-change: transform;
   }
 
+  @keyframes hs-hero-stash-pulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(242,211,92,0.45); transform: translateY(0); }
+    50% { box-shadow: 0 0 26px 3px rgba(242,211,92,0.3); transform: translateY(-1px); }
+  }
+  .hs-hero-stash-cta {
+    animation: hs-hero-stash-pulse 2.5s ease-in-out infinite;
+  }
+
   @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
     .phone-float .mobile-frame.large,
     .btn-ochre,
-    .btn-ghost {
+    .btn-ghost,
+    .hs-hero-stash-cta {
       animation: none !important;
       transition: none !important;
       transform: none !important;
@@ -106,6 +115,26 @@
     transition: background 0.15s ease, border-color 0.15s ease;
   }
   .btn-ghost:hover { background: rgba(237,228,208,0.06); border-color: rgba(237,228,208,0.55); }
+
+  .consumer-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+  .consumer-nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    min-width: 0;
+    flex: 1 1 auto;
+  }
+  .consumer-nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+  }
 
   input {
     font-family: Inter, sans-serif;
@@ -205,11 +234,14 @@
 }
 .hs-arrow-nudge { display: inline-block; animation: hs-arrow-nudge 1.2s ease-in-out infinite; }
 @media (prefers-reduced-motion: reduce) {
-  .hs-confetti span, .hs-check-pop, .hs-start-attn, .hs-arrow-nudge { animation: none !important; }
+  .hs-confetti span, .hs-check-pop, .hs-start-attn, .hs-arrow-nudge, .hs-hero-stash-cta { animation: none !important; }
 }
 
 /* Things you already do: tighter mobile layout */
 @media (max-width: 768px) {
+  div[style*="padding: 18px 40px"] {
+    padding: 16px 20px !important;
+  }
   .tya-row {
     grid-template-columns: 1fr !important;
     gap: 6px !important;
@@ -217,6 +249,14 @@
   }
   .tya-row .tya-head { font-size: 18px !important; }
   .tya-row .tya-body { font-size: 13px !important; }
+  .consumer-nav-brand .hd {
+    font-size: 18px !important;
+    letter-spacing: 0.1em !important;
+  }
+  .consumer-nav-brand img {
+    height: 28px !important;
+    width: auto !important;
+  }
 }
 
 /* Submit-step overlap: fit inside mobile column without overflow */
@@ -230,11 +270,14 @@
 <body>
 
 <!-- NAV -->
-<div style="background: #0E0E0E; padding: 18px 40px; display: flex; align-items: center; justify-content: space-between;">
-  <div style="display:flex;align-items:center;gap:14px;"><img src="/brand/headstash-logo-hit.png" alt="Headstash logo" style="height:36px;width:auto;object-fit:contain;"/><div class="hd" style="color: #EDE4D0; font-size: 24px; letter-spacing: 0.14em;">HEADSTASH</div></div>
-  <div style="display: flex; gap: 16px; align-items: center;">
-    <div class="lb" style="color: #D8D2C2; opacity: 0.7; font-size: 10px;">Sign in</div>
-    <div class="lb" style="color: #0E0E0E; background: #F2D35C; font-size: 10px; padding: 8px 14px; border-radius: 4px;">Start ↗</div>
+<div class="consumer-nav" style="background: #0E0E0E; padding: 18px 40px;">
+  <div class="consumer-nav-brand">
+    <img src="/brand/headstash-logo-hit.png" alt="Headstash logo" style="height:36px;width:auto;object-fit:contain;"/>
+    <div class="hd" style="color: #EDE4D0; font-size: 24px; letter-spacing: 0.14em;">HEADSTASH</div>
+  </div>
+  <div class="consumer-nav-actions">
+    <span style="font-family: Inter, sans-serif; color: #D8D2C2; opacity: 0.88; font-size: 10px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; white-space: nowrap;">Sign in</span>
+    <span style="font-family: 'BluntFamily', Impact, sans-serif; color: #0E0E0E; background: #F2D35C; font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; padding: 8px 12px; border-radius: 4px; white-space: nowrap;">Start ↗</span>
   </div>
 </div>
 
@@ -245,7 +288,7 @@
     <h1 class="hd" style="color: #EDE4D0; font-size: 80px; margin: 0 0 26px;">Save the<br>receipt.<br>Hear from<br>the brand.</h1>
     <p class="bd" style="color: #D8D2C2; font-size: 16px; max-width: 480px; margin: 0 0 36px;">Headstash connects the flower you already buy to the brands behind it. Upload your receipt, get seen by the brands you actually shop, and unlock merch, drops, and early access.</p>
     <div style="display: flex; gap: 10px;">
-      <a href="#start" class="btn-ochre">Start your stash ↗</a>
+      <a href="#start" class="btn-ochre hs-hero-stash-cta">Start your stash ↗</a>
       <a href="#how" class="btn-ghost">How it works</a>
     </div>
   </div>
@@ -327,10 +370,12 @@
   <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; align-items: start;">
 
     <div>
-      <div style="width: 56px; height: 56px; border-radius: 50%; background: #0E0E0E; display: flex; align-items: center; justify-content: center; margin-bottom: 14px;">
-        <span class="hd" style="color: #F2D35C; font-size: 28px; line-height: 1; letter-spacing: 0.06em;">01</span>
+      <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+        <div style="width: 48px; height: 48px; border-radius: 50%; background: #0E0E0E; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+          <span class="hd" style="color: #F2D35C; font-size: 24px; line-height: 1; letter-spacing: 0.06em;">01</span>
+        </div>
+        <div class="hd" style="color: #0E0E0E; font-size: 22px; line-height: 1;">Buy</div>
       </div>
-      <div class="hd" style="color: #0E0E0E; font-size: 22px; margin-bottom: 12px;">Buy</div>
       <p class="bd" style="color: #2A2A2A; font-size: 14px; margin: 0 0 26px;">Buy flower at any California dispensary. Participating brands like Alien Labs and Connected show up in your stash automatically.</p>
       <div style="display: flex; justify-content: center;">
         <div class="mobile-frame" style="background: #F5EFE1; border-color: #E8E0CA;">
@@ -348,10 +393,12 @@
     </div>
 
     <div>
-      <div style="width: 56px; height: 56px; border-radius: 50%; background: #0E0E0E; display: flex; align-items: center; justify-content: center; margin-bottom: 14px;">
-        <span class="hd" style="color: #F2D35C; font-size: 28px; line-height: 1; letter-spacing: 0.06em;">02</span>
+      <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+        <div style="width: 48px; height: 48px; border-radius: 50%; background: #0E0E0E; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+          <span class="hd" style="color: #F2D35C; font-size: 24px; line-height: 1; letter-spacing: 0.06em;">02</span>
+        </div>
+        <div class="hd" style="color: #0E0E0E; font-size: 22px; line-height: 1;">Upload</div>
       </div>
-      <div class="hd" style="color: #0E0E0E; font-size: 22px; margin-bottom: 12px;">Upload</div>
       <p class="bd" style="color: #2A2A2A; font-size: 14px; margin: 0 0 26px;">Snap your receipt or forward your delivery email. Your stash updates per brand, usually within 24 hours.</p>
       <div style="display: flex; justify-content: center;">
         <div class="mobile-frame">
@@ -383,10 +430,12 @@
     </div>
 
     <div>
-      <div style="width: 56px; height: 56px; border-radius: 50%; background: #0E0E0E; display: flex; align-items: center; justify-content: center; margin-bottom: 14px;">
-        <span class="hd" style="color: #F2D35C; font-size: 28px; line-height: 1; letter-spacing: 0.06em;">03</span>
+      <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+        <div style="width: 48px; height: 48px; border-radius: 50%; background: #0E0E0E; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+          <span class="hd" style="color: #F2D35C; font-size: 24px; line-height: 1; letter-spacing: 0.06em;">03</span>
+        </div>
+        <div class="hd" style="color: #0E0E0E; font-size: 22px; line-height: 1;">Get it back</div>
       </div>
-      <div class="hd" style="color: #0E0E0E; font-size: 22px; margin-bottom: 12px;">Get it back</div>
       <p class="bd" style="color: #2A2A2A; font-size: 14px; margin: 0 0 26px;">Each brand decides what you unlock. Merch. Drops. Invites. Sometimes something you didn't see coming.</p>
       <div style="display: flex; justify-content: center;">
         <div class="mobile-frame">
