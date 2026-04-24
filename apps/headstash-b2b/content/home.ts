@@ -96,6 +96,40 @@ export const home = {
     headline: "The admin you'd actually use.",
     body: "Program KPIs, receipt review queue, cross-retailer insights, Shopify merch sync. Built for an operator who lives in it, not a stakeholder who glances at it weekly.",
   },
+  bridge: {
+    eyebrow: "The bridge you've been missing",
+    headline: "Your customer. In your stack.",
+    body: "Every cannabis brand already runs tools like Shopify and Klaviyo for buyers they own. Headstash turns receipt uploads into customer profiles in the systems you already use.",
+    integrations: [
+      { name: "Klaviyo", detail: "Segments, flows, lists" },
+      { name: "Shopify", detail: "Customer profiles" },
+      { name: "Your warehouse", detail: "Snowflake, BigQuery, S3" },
+      { name: "CSV export", detail: "Anywhere else you need it" },
+    ],
+    syncPoints: [
+      { title: "Phone + email", body: "Direct channels with consent captured." },
+      { title: "SKU history", body: "Products, formats, and repeat behavior." },
+      { title: "Retailer index", body: "Where your buyers actually shop." },
+      { title: "Purchase recency", body: "Last week, month, quarter views." },
+    ],
+  },
+  campaign: {
+    eyebrow: "What this unlocks",
+    headline: "Coordinated campaigns from shelf to inbox.",
+    body: "Configure once in Headstash and run the same campaign across your existing channels.",
+    channels: [
+      { title: "Klaviyo · email campaign", when: "Day 0", body: "Send to Headstash-sourced segments inside your existing account." },
+      { title: "SMS · via retail co-op", when: "Day 3", body: "Export segment and push through partner retail CRM systems." },
+      { title: "In-store · retailer placement", when: "Day 0-30", body: "Shelf placements and QR links push buyers into the campaign." },
+      { title: "Organic social · IG + TikTok", when: "Day 7, 14, 21", body: "Post real-time campaign progress from admin metrics." },
+    ],
+    kpis: [
+      { label: "Receipts submitted", value: "1,847" },
+      { label: "Hit all 3 formats", value: "142" },
+      { label: "Tees unlocked", value: "142" },
+      { label: "Incremental revenue", value: "+$168k" },
+    ],
+  },
   category: {
     eyebrow: "Category",
     headline:
@@ -141,13 +175,44 @@ export const home = {
       { kind: "text", label: "Partner 03", value: "Locked in" },
     ] satisfies LaunchPartner[],
   },
+  pricing: {
+    eyebrow: "Pricing",
+    headline: "Ten founding partners. Seven slots remain.",
+    intro:
+      "First ten brands get founding pricing at $1,500/month flat, locked for 24 months, with onboarding waived.",
+    cards: [
+      {
+        tier: "Founding partner",
+        price: "$1,500",
+        cadence: "/ month",
+        notes: [
+          "Founder rate locked for 24 months",
+          "$4,995 onboarding fee waived",
+          "Founding partner branding",
+          "Roadmap input priority",
+        ],
+      },
+      {
+        tier: "Standard",
+        price: "$3,500",
+        cadence: "/ month",
+        notes: [
+          "Standard onboarding and training",
+          "12-month annual contract",
+          "Price adjustable annually",
+          "No founding partner placement",
+        ],
+      },
+    ],
+    summary: "$1,500 x 12 months. No rev share, no per-receipt fees, no surprise invoices.",
+  },
   cta: {
     id: "cta",
-    eyebrow: "Private beta",
+    eyebrow: "7 of 10 founding slots remain",
     headline: "Ready to own your customer?",
-    body: "Onboarding a small number of California flower brands for the 2026 launch. If that's you, talk to us.",
+    body: "Founding partner pricing is $1,500/month flat, onboarding waived, locked for 24 months.",
     inputPlaceholder: "you@brand.com",
-    button: "Request ↗",
+    button: "Claim a slot ↗",
     fallback: "Or email direct: hello@getheadstash.com",
   },
   footer: {
