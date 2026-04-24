@@ -83,6 +83,30 @@ export const home = {
       },
     ],
   },
+  insideApp: {
+    eyebrow: "Inside the app",
+    headline: "One stash per brand. All in one place.",
+    cards: [
+      {
+        title: "A brand stash",
+        body: "Available now, working toward, invite only.",
+        imageSrc: "/mockups/doppbag.png",
+        imageAlt: "Alien Labs dopp bag reward preview",
+      },
+      {
+        title: "Home dashboard",
+        body: "Every brand you shop. One screen.",
+        imageSrc: "/mockups/hoodie.png",
+        imageAlt: "Hoodie reward dashboard preview",
+      },
+      {
+        title: "Submitted",
+        body: "We text the second your stash updates.",
+        imageSrc: "/mockups/longsleeve.png",
+        imageAlt: "Long sleeve reward submission preview",
+      },
+    ],
+  },
   behaviors: {
     eyebrow: "What brands can reward you for",
     headline: "Things you already do.",
@@ -113,19 +137,9 @@ export const home = {
     eyebrow: "Available for",
     headline: "The heaviest brands in California.",
     items: [
-      {
-        kind: "logo",
-        label: "Brand 01",
-        logoSrc: "/partners/alien-labs.png",
-        logoAlt: "Alien Labs logo",
-      },
-      {
-        kind: "logo",
-        label: "Brand 02",
-        logoSrc: "/partners/connected.png",
-        logoAlt: "Connected logo",
-      },
-      { kind: "text", label: "More", value: "Under NDA", muted: true },
+      { kind: "text", label: "Brand 01", value: "Locked in" },
+      { kind: "text", label: "Brand 02", value: "Locked in" },
+      { kind: "text", label: "Brand 03", value: "Locked in" },
     ] satisfies AvailableBrand[],
   },
   faq: {

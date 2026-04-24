@@ -2,7 +2,7 @@ import Image from "next/image";
 import { home } from "@/content/home";
 
 export default function Page() {
-  const { nav, hero, howItWorks, examples, behaviors, availableFor, faq, start, footer } = home;
+  const { nav, hero, howItWorks, insideApp, examples, behaviors, availableFor, faq, start, footer } = home;
 
   return (
     <main className="min-h-dvh bg-onyx text-bone">
@@ -21,7 +21,8 @@ export default function Page() {
       </nav>
 
       <section className="relative bg-onyx px-6 pb-24 pt-20 md:px-10 md:pb-28 md:pt-28">
-        <div className="mx-auto w-full max-w-6xl">
+        <div className="mx-auto grid w-full max-w-6xl grid-cols-1 items-center gap-10 lg:grid-cols-2">
+          <div>
           <p className="font-blunt-micro text-micro text-ochre">{hero.eyebrow}</p>
           <h1 className="mt-7 max-w-3xl font-blunt-display text-display text-bone">{hero.headline}</h1>
           <p className="mt-8 max-w-xl text-body-l text-fog">{hero.subcopy}</p>
@@ -35,6 +36,30 @@ export default function Page() {
             >
               {hero.secondaryCta.label}
             </a>
+          </div>
+          </div>
+          <div className="grid grid-cols-2 gap-3">
+            <article className="col-span-2 rounded-sharp border border-bone/10 bg-ash/35 p-4">
+              <p className="font-blunt-micro text-micro text-fog/60">Your stashes</p>
+              <div className="mt-3 grid grid-cols-1 gap-2">
+                <div className="rounded-sharp border border-bone/10 bg-onyx/80 p-3">
+                  <div className="flex items-center justify-between"><p className="font-blunt-h text-h2 text-bone">Smokers Club hoodie</p><p className="font-blunt-h text-h2 text-bone">$247</p></div>
+                  <div className="mt-2 h-1 rounded-sharp bg-bone/15"><div className="h-1 w-[82%] rounded-sharp bg-ochre" /></div>
+                </div>
+                <div className="rounded-sharp border border-bone/10 bg-onyx/80 p-3">
+                  <div className="flex items-center justify-between"><p className="font-blunt-h text-h2 text-bone">Death Traitors long sleeve</p><p className="font-blunt-h text-h2 text-bone">$94</p></div>
+                  <div className="mt-2 h-1 rounded-sharp bg-bone/15"><div className="h-1 w-[63%] rounded-sharp bg-ochre-500" /></div>
+                </div>
+              </div>
+            </article>
+            <article className="rounded-sharp border border-bone/10 bg-bone p-3">
+              <Image src="/mockups/hoodie.png" alt="Hoodie drop detail mockup" width={300} height={180} className="h-28 w-full rounded-sharp object-cover" />
+              <p className="mt-2 font-blunt-micro text-micro text-onyx/60">Drop detail</p>
+            </article>
+            <article className="rounded-sharp border border-bone/10 bg-bone p-3">
+              <Image src="/mockups/doppbag.png" alt="Reward redemption mockup" width={300} height={180} className="h-28 w-full rounded-sharp object-cover" />
+              <p className="mt-2 font-blunt-micro text-micro text-onyx/60">Redemption</p>
+            </article>
           </div>
           <div className="pointer-events-none absolute bottom-10 right-10 text-ochre/30">
             <svg width="72" height="36" viewBox="0 0 72 36" aria-hidden="true">
@@ -61,6 +86,22 @@ export default function Page() {
                 <p className="font-blunt-display text-h1 text-ochre">{step.number}</p>
                 <h2 className="mt-3 font-blunt-h text-h2 text-onyx">{step.title}</h2>
                 <p className="mt-3 text-caption text-ash">{step.body}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-onyx px-6 py-20 md:px-10 md:py-24">
+        <div className="mx-auto w-full max-w-6xl">
+          <p className="font-blunt-micro text-micro text-ochre">{insideApp.eyebrow}</p>
+          <h2 className="mt-6 max-w-3xl font-blunt-h text-h1 text-bone">{insideApp.headline}</h2>
+          <div className="mt-10 grid grid-cols-1 gap-4 md:grid-cols-3">
+            {insideApp.cards.map((card) => (
+              <article key={card.title} className="rounded-sharp border border-bone/10 bg-ash/35 p-4">
+                <Image src={card.imageSrc} alt={card.imageAlt} width={420} height={300} className="h-44 w-full rounded-sharp object-cover" />
+                <p className="mt-3 font-blunt-micro text-micro text-fog/60">{card.title}</p>
+                <p className="mt-2 text-caption text-fog">{card.body}</p>
               </article>
             ))}
           </div>
@@ -113,25 +154,11 @@ export default function Page() {
             {availableFor.items.map((item) => (
               <article key={item.label} className="border-t border-t-bone/25 pt-5">
                 <p className="font-blunt-micro text-micro text-fog/60">{item.label}</p>
-                {item.kind === "logo" ? (
-                  <div className="mt-3 h-14 w-full max-w-[220px]">
-                    <Image
-                      src={item.logoSrc}
-                      alt={item.logoAlt}
-                      width={220}
-                      height={56}
-                      className="h-full w-auto object-contain object-left"
-                    />
-                  </div>
-                ) : (
-                  <p
-                    className={
-                      item.muted ? "mt-2 font-blunt-h text-h2 text-fog/40" : "mt-2 font-blunt-h text-h2 text-bone"
-                    }
-                  >
-                    {item.value}
-                  </p>
-                )}
+                <p
+                  className="mt-2 font-blunt-h text-h2 text-bone"
+                >
+                  {item.value}
+                </p>
               </article>
             ))}
           </div>
