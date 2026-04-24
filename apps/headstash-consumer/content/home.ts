@@ -59,7 +59,7 @@ export const home = {
       {
         number: "02",
         title: "Track & earn",
-        body: "The home dashboard shows your stashes for every brand you shop. As receipts clear, you earn the rewards each brand sets—merch, drops, and access.",
+        body: "The home dashboard shows your stashes for every brand you shop. As receipts clear, you earn the rewards each brand sets: merch, drops, and access.",
       },
       {
         number: "03",

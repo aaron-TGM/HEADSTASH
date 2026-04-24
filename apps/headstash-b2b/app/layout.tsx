@@ -16,7 +16,7 @@ const PLAUSIBLE_DOMAIN = process.env.NEXT_PUBLIC_PLAUSIBLE_DOMAIN;
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Headstash — Own your customer.",
+    default: "Headstash: Own your customer.",
     template: "%s · Headstash",
   },
   description:
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     siteName: "Headstash",
-    title: "Headstash — Own your customer.",
+    title: "Headstash: Own your customer.",
     description:
       "The loyalty layer for cannabis brands. Dispensary receipts become brand-owned customer relationships.",
     url: SITE_URL,
@@ -59,7 +59,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Headstash — Own your customer.",
+    title: "Headstash: Own your customer.",
     description: "The loyalty layer for cannabis brands.",
     images: ["/twitter-image"],
   },
@@ -84,7 +84,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={inter.variable}>
       <head>
-        {/* Preload ONLY the Regular weight — brand spec §12. */}
+        {/* Preload ONLY the Regular weight; brand spec §12. */}
         <link
           rel="preload"
           href="/fonts/BluntFamily-Regular.woff2"

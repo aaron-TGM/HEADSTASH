@@ -2,7 +2,7 @@
   "name": "headstash-consumer",
   "version": "0.1.0",
   "private": true,
-  "description": "joinheadstash.com — B2C consumer site for drop-culture cannabis buyers.",
+  "description": "joinheadstash.com: B2C consumer site for drop-culture cannabis buyers.",
   "scripts": {
     "dev": "next dev -p 3001",
     "build": "next build",

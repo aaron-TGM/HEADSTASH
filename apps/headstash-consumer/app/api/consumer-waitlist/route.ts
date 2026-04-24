@@ -77,7 +77,7 @@ export async function POST(req: Request) {
       await resend.emails.send({
         from,
         to: [notifyTo],
-        subject: "New consumer waitlist signup — joinheadstash.com",
+        subject: "New consumer waitlist signup: joinheadstash.com",
         text: [
           `Phone: ${payload.phone}`,
           `SMS Consent Version: ${payload.smsConsentVersion}`,

@@ -74,7 +74,7 @@ export async function POST(req: Request) {
       await resend.emails.send({
         from,
         to: [notifyTo],
-        subject: "New brand inquiry — getheadstash.com",
+        subject: "New brand inquiry: getheadstash.com",
         text: [
           `Email: ${email}`,
           `Message: ${payload.message || "(none)"}`,
