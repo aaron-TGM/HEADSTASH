@@ -557,7 +557,7 @@
   <p class="bd" style="color: #D8D2C2; font-size: 15px; max-width: 580px; margin: 0 0 50px;">Launch a strain, run a promo, or drop limited merch with one connected campaign across email, SMS, in-store, and social.</p>
 
   <!-- CAMPAIGN EXAMPLE -->
-  <details style="background: #171717; border: 0.5px solid rgba(237,228,208,0.1); border-radius: 8px; overflow: hidden; margin-bottom: 32px;">
+  <details id="campaign-details" style="background: #171717; border: 0.5px solid rgba(237,228,208,0.1); border-radius: 8px; overflow: hidden; margin-bottom: 32px;">
     <summary class="lb" style="list-style:none; cursor:pointer; color:#F2D35C; font-size:10px; letter-spacing:0.2em; padding:16px 20px; border-bottom:0.5px solid rgba(237,228,208,0.12);">Example campaign details (tap to expand)</summary>
   <div style="background: #171717;">
 
@@ -873,6 +873,20 @@
 
 
 
+
+<script>
+(() => {
+  const details = document.getElementById('campaign-details');
+  if (!details) return;
+
+  const applyState = () => {
+    details.open = window.innerWidth >= 1024;
+  };
+
+  applyState();
+  window.addEventListener('resize', applyState);
+})();
+</script>
 
 </body>
 </html>
