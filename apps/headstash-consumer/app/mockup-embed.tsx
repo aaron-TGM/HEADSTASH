@@ -56,8 +56,8 @@ export function MockupEmbed() {
         ref={iframeRef}
         src={src}
         title="Headstash consumer mockup render"
-        className="w-full border-0"
-        style={{ height, touchAction: "pan-y" }}
+        className="block w-full border-0"
+        style={{ height, touchAction: "pan-y", margin: 0 }}
       />
     </main>
   );
