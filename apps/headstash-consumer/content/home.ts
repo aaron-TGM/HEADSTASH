@@ -1,8 +1,10 @@
 /**
  * joinheadstash.com homepage copy.
  *
+ * Matches the joinheadstash-com-desktop.html / mobile.html mockups.
  * Never hardcode copy in JSX. Edit this file only.
  */
+
 type AvailableBrandLogo = {
   kind: "logo";
   label: string;
@@ -15,7 +17,6 @@ type AvailableBrandText = {
   kind: "text";
   label: string;
   value: string;
-  muted?: boolean;
 };
 
 type AvailableBrand = AvailableBrandLogo | AvailableBrandText;
@@ -23,88 +24,94 @@ type AvailableBrand = AvailableBrandLogo | AvailableBrandText;
 export const home = {
   nav: {
     wordmark: "HEADSTASH",
-    signIn: { label: "Sign in", href: "#signin" },
+    signIn: { label: "Sign in", href: "#start" },
     cta: { label: "Start ↗", href: "#start" },
   },
   hero: {
     eyebrow: "Heads only · est 2026",
-    headline: "Save the receipt. Hear from the brand.",
+    headline: "Save the receipt.\nHear from the brand.",
     subcopy:
-      "Headstash connects the flower you already buy to the brands behind it. Upload your receipt. Your favorite brands see you. They decide how to say thanks — merch, early access, drops, or something else entirely.",
+      "One app for every brand you buy. Upload your dispensary receipts, earn real merch and access from the brands themselves. No coupons. No percent-off. No dispensary loyalty hoops.",
     primaryCta: { label: "Start your stash ↗", href: "#start" },
     secondaryCta: { label: "How it works", href: "#how" },
+    receipt: {
+      vendor: "Cookies Melrose",
+      date: "Apr 22 · 4:20 PM",
+      items: [
+        { name: "Alien Labs · Galaxy Glue 3.5g", price: "$52" },
+        { name: "Connected · Gelonade 1g PR", price: "$18" },
+        { name: "Seth Rogen · Afghan Kush tin", price: "$45" },
+      ],
+      total: "$115",
+      status: "Uploaded · approved in 2s",
+    },
   },
   howItWorks: {
     id: "how",
     eyebrow: "How it works",
+    headline: "Three steps. Then you just buy flower.",
     steps: [
       {
         number: "01",
-        title: "Buy",
-        body: "Buy flower at any California dispensary. Participating brands attribute your SKUs into your stash.",
+        title: "Buy.",
+        body: "Shop any California dispensary. Any SKU from a brand running Headstash qualifies.",
       },
       {
         number: "02",
-        title: "Upload",
-        body: "Snap your receipt. Or forward your delivery email. Qualifying dollars land per brand within 24 hours.",
+        title: "Upload.",
+        body: "Snap the receipt. Headstash matches the SKUs to the brand. Usually approved inside thirty seconds.",
       },
       {
         number: "03",
-        title: "Get it back",
-        body: "Each brand decides what you unlock. Merch. Drops. Invites. Sometimes something you did not see coming.",
+        title: "Get it back.",
+        body: "Hit a milestone, unlock the drop. Real merch, real invites, real access. Shipped or held in your stash.",
+      },
+    ],
+  },
+  insideApp: {
+    eyebrow: "Inside the app",
+    headline: "One stash per brand.\nAll in one place.",
+    body: "Each brand you buy runs its own stash inside Headstash. Upload once, the receipt lands where it should.",
+    screens: [
+      {
+        label: "A brand stash",
+        headline: "Alien Labs · stash",
+        body: "Your progress, current drop, next unlock. The brand runs it. You just buy flower.",
+      },
+      {
+        label: "Home dashboard",
+        headline: "Your stashes",
+        body: "Every brand you've bought, together. One app, all your progress.",
+      },
+      {
+        label: "Submitted",
+        headline: "Receipt in",
+        body: "Submitted. We text you the second your stash updates.",
       },
     ],
   },
   examples: {
     eyebrow: "Each brand runs their own thing",
     headline: "One app. Every brand you buy.",
-    intro:
-      "Headstash is one place for every brand you buy. Each one sets up its own program — their own rewards, their own drops, their own voice. You see every brand you shop as its own stash.",
+    body: "Headstash is one place for every brand you buy. Each one sets up its own program - their own rewards, their own drops, their own voice.",
     cards: [
       {
-        label: "Example reward",
-        title: "The heavyweight hoodie",
-        condition: "Spend $300 qualifying across any dispensaries in 90 days.",
-        note: "Example reward. Brands configure their own.",
-        accentClass: "border-l-ochre-300 text-ochre-300",
+        brand: "Example · from a brand",
+        title: "Smokers Club hoodie",
+        body: "Spend $300 qualifying across any dispensaries in 90 days.",
+        footer: "Example reward. Brands configure their own.",
       },
       {
-        label: "Example reward",
-        title: "Sundays invite",
-        condition: "Hit five approved receipts in a rolling month.",
-        note: "Example reward. Brands configure their own.",
-        accentClass: "border-l-ochre-400 text-ochre-400",
+        brand: "Example · from a brand",
+        title: "Sunday tasting invite",
+        body: "Hit five approved receipts in a rolling month.",
+        footer: "Example reward. Brands configure their own.",
       },
       {
-        label: "Example reward",
+        brand: "Example · from a brand",
         title: "Bonus sticker pack",
-        condition: "Upload any receipt with a participating infused pre-roll.",
-        note: "Example reward. Brands configure their own.",
-        accentClass: "border-l-ochre-500 text-ochre-500",
-      },
-    ],
-  },
-  insideApp: {
-    eyebrow: "Inside the app",
-    headline: "One stash per brand. All in one place.",
-    cards: [
-      {
-        title: "A brand stash",
-        body: "Available now, working toward, invite only.",
-        imageSrc: "/mockups/doppbag.png",
-        imageAlt: "Alien Labs dopp bag reward preview",
-      },
-      {
-        title: "Home dashboard",
-        body: "Every brand you shop. One screen.",
-        imageSrc: "/mockups/hoodie.png",
-        imageAlt: "Hoodie reward dashboard preview",
-      },
-      {
-        title: "Submitted",
-        body: "We text the second your stash updates.",
-        imageSrc: "/mockups/longsleeve.png",
-        imageAlt: "Long sleeve reward submission preview",
+        body: "Upload any receipt with an infused pre-roll from the brand.",
+        footer: "Example reward. Brands configure their own.",
       },
     ],
   },
@@ -113,23 +120,23 @@ export const home = {
     headline: "Things you already do.",
     items: [
       {
-        title: "Buying.",
-        body: "Every receipt containing a participating brand SKU adds qualifying dollars to that brand's stash.",
+        label: "Buying.",
+        body: "Every receipt containing a participating brand's SKU adds qualifying dollars to that brand's stash.",
       },
       {
-        title: "Repeating.",
-        body: "Hit a brand's spend or receipt milestone in a rolling window and a real named item shows up in your stash.",
+        label: "Repeating.",
+        body: "Hit a brand's spend or receipt milestone in a rolling window. A real named item shows up in your stash.",
       },
       {
-        title: "Trying.",
+        label: "Trying.",
         body: "First receipt with a new brand usually triggers a welcome item. Most brands say hello with something.",
       },
       {
-        title: "Exploring.",
+        label: "Exploring.",
         body: "Some brands reward buying their SKUs across multiple dispensaries. The kind of thing only Headstash can see.",
       },
       {
-        title: "Putting people on.",
+        label: "Putting people on.",
         body: "Refer a head to a brand you already shop. When their first receipt lands, you both get something.",
       },
     ],
@@ -137,7 +144,7 @@ export const home = {
   availableFor: {
     eyebrow: "Available for",
     headline: "The heaviest brands in California.",
-    items: [
+    brands: [
       {
         kind: "logo",
         label: "Brand 01",
@@ -159,18 +166,28 @@ export const home = {
     eyebrow: "FAQ",
     headline: "Quick answers.",
     items: [
-      { question: "How much does it cost?", answer: "Free. Pay with receipts." },
+      {
+        question: "How much does it cost?",
+        answer: "Free. Pay with receipts.",
+      },
       {
         question: "Does Headstash sell anything?",
         answer:
           "No. Each brand you shop runs their own rewards. Headstash just connects your receipt to them.",
       },
-      { question: "Do receipts expire?", answer: "Fourteen days from purchase. Do not sit on them." },
+      {
+        question: "Do receipts expire?",
+        answer: "Fourteen days from purchase. Don't sit on them.",
+      },
       {
         question: "Is this a discount program?",
-        answer: "No. Brands reward you with merch, drops, or access. Not coupons.",
+        answer:
+          "No. Brands reward you with their merch, drops, or access. Never coupons, never percent-off.",
       },
-      { question: "Can I share receipts with a friend?", answer: "One receipt, one account. We dedupe." },
+      {
+        question: "Can I share receipts with a friend?",
+        answer: "One receipt, one account. We dedupe.",
+      },
     ],
   },
   start: {
@@ -178,11 +195,11 @@ export const home = {
     eyebrow: "Start here",
     headline: "Start your stash.",
     body: "Takes thirty seconds. Works on any phone. Add it to your home screen and upload receipts as you shop.",
-    inputPlaceholder: "+14155551234",
+    placeholder: "(___) ___-____",
     button: "Send code ↗",
-    smsConsent:
+    consent:
       "By continuing you agree to receive SMS from Headstash. Msg & data rates may apply. Reply STOP to opt out.",
-    smsConsentVersion: "v1",
+    consentVersion: "v1.2026.01",
   },
   footer: {
     wordmark: "HEADSTASH",
