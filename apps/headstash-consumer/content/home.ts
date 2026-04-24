@@ -49,7 +49,7 @@ export const home = {
   howItWorks: {
     id: "how",
     eyebrow: "How it works",
-    headline: "Three steps. Then you just buy flower.",
+    headline: "Buy. Upload. Get the perks.",
     steps: [
       {
         number: "01",

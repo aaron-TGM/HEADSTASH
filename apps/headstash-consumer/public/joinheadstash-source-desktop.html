@@ -59,11 +59,15 @@
     .phone-float .mobile-frame.large,
     .btn-ochre,
     .btn-ghost,
-    .hs-hero-stash-cta {
+    .hs-hero-stash-cta,
+    .hs-start-line,
+    .hs-sr-1, .hs-sr-2, .hs-sr-3, .hs-sr-4, .hs-sr-5 {
       animation: none !important;
       transition: none !important;
       transform: none !important;
     }
+    .hs-sr-1, .hs-sr-2, .hs-sr-3, .hs-sr-4, .hs-sr-5 { opacity: 1 !important; }
+    .hs-start-line { transform: none !important; }
   }
 
 </style>
@@ -165,6 +169,8 @@
   .status-bar .battery::after { content: ''; position: absolute; top: 1px; left: 1px; right: 2.5px; bottom: 1px; background: #EDE4D0; }
 
   .frame-nav { padding: 12px 16px 10px; display: flex; align-items: center; justify-content: space-between; border-bottom: 0.5px solid rgba(237,228,208,0.08); }
+  .frame-nav-brand { display: flex; align-items: center; gap: 8px; min-width: 0; }
+  .frame-nav-brand img { flex-shrink: 0; display: block; width: auto; object-fit: contain; }
 
   .phone-float { position: relative; }
   .phone-float::after { content: ''; position: absolute; top: 20px; left: -40px; right: -40px; bottom: 20px; background: radial-gradient(ellipse at center, rgba(242,211,92,0.08) 0%, transparent 70%); z-index: -1; pointer-events: none; }
@@ -227,14 +233,38 @@
   0%, 100% { box-shadow: 0 0 0 0 rgba(242,211,92,0.55); }
   50% { box-shadow: 0 0 0 14px rgba(242,211,92,0); }
 }
-.hs-start-attn { animation: hs-cta-pulse 2.2s ease-in-out infinite; }
+.hs-start-attn { box-shadow: 0 4px 20px rgba(242,211,92,0.35); }
+@keyframes hs-start-line {
+  from { transform: scaleX(0); transform-origin: left center; }
+  to { transform: scaleX(1); transform-origin: left center; }
+}
+.hs-start-line {
+  height: 3px;
+  background: linear-gradient(90deg, #F2D35C, rgba(242,211,92,0.15));
+  border-radius: 2px;
+  margin: 0 0 26px;
+  max-width: 140px;
+  animation: hs-start-line 0.75s cubic-bezier(0.22, 1, 0.36, 1) 0.08s both;
+}
+@keyframes hs-start-rise {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.hs-sr-1 { animation: hs-start-rise 0.65s cubic-bezier(0.22, 1, 0.36, 1) 0s both; }
+.hs-sr-2 { animation: hs-start-rise 0.65s cubic-bezier(0.22, 1, 0.36, 1) 0.08s both; }
+.hs-sr-3 { animation: hs-start-rise 0.65s cubic-bezier(0.22, 1, 0.36, 1) 0.16s both; }
+.hs-sr-4 { animation: hs-start-rise 0.65s cubic-bezier(0.22, 1, 0.36, 1) 0.24s both; }
+.hs-sr-5 { animation: hs-start-rise 0.65s cubic-bezier(0.22, 1, 0.36, 1) 0.32s both; }
 @keyframes hs-arrow-nudge {
   0%, 100% { transform: translateX(0); }
   50% { transform: translateX(3px); }
 }
 .hs-arrow-nudge { display: inline-block; animation: hs-arrow-nudge 1.2s ease-in-out infinite; }
 @media (prefers-reduced-motion: reduce) {
-  .hs-confetti span, .hs-check-pop, .hs-start-attn, .hs-arrow-nudge, .hs-hero-stash-cta { animation: none !important; }
+  .hs-confetti span, .hs-check-pop, .hs-arrow-nudge, .hs-hero-stash-cta,
+  .hs-start-line, .hs-sr-1, .hs-sr-2, .hs-sr-3, .hs-sr-4, .hs-sr-5 { animation: none !important; }
+  .hs-sr-1, .hs-sr-2, .hs-sr-3, .hs-sr-4, .hs-sr-5 { opacity: 1 !important; transform: none !important; }
+  .hs-start-line { transform: none !important; }
 }
 
 /* Things you already do: tighter mobile layout */
@@ -300,7 +330,10 @@
     <div class="mobile-frame large" style="transform: rotate(-3deg);">
       <div class="status-bar"><div class="time">7:12</div><div class="battery"></div></div>
       <div class="frame-nav">
-        <div class="hd" style="color: #EDE4D0; font-size: 11px; letter-spacing: 0.14em;">HEADSTASH</div>
+        <div class="frame-nav-brand">
+          <img src="/brand/headstash-logo-hit.png" alt="" style="height:20px;width:auto;object-fit:contain;"/>
+          <div class="hd" style="color: #EDE4D0; font-size: 11px; letter-spacing: 0.14em;">HEADSTASH</div>
+        </div>
         <div style="width: 24px; height: 24px; border-radius: 50%; background: #2A2A2A; display: flex; align-items: center; justify-content: center;">
           <div class="hd" style="color: #F2D35C; font-size: 9px;">AP</div>
         </div>
@@ -365,7 +398,7 @@
 <!-- HOW IT WORKS with phones for each step -->
 <div id="how" style="background: #EDE4D0; padding: 90px 40px;">
   <div class="lb" style="color: #0E0E0E; opacity: 0.45; font-size: 10px; margin-bottom: 20px;">How it works</div>
-  <h2 class="hd" style="color: #0E0E0E; font-size: 44px; margin: 0 0 60px; line-height: 1;">Three steps.<br>Then you just buy flower.</h2>
+  <h2 class="hd" style="color: #0E0E0E; font-size: 44px; margin: 0 0 60px; line-height: 1;">Buy. Upload.<br>Get the perks.</h2>
 
   <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; align-items: start;">
 
@@ -380,6 +413,10 @@
       <div style="display: flex; justify-content: center;">
         <div class="mobile-frame" style="background: #F5EFE1; border-color: #E8E0CA;">
           <div style="height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 40px 20px; text-align: center; font-family: 'Courier New', monospace;">
+            <div style="display: flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 14px;">
+              <img src="/brand/headstash-logo-hit.png" alt="" style="height:22px;width:auto;object-fit:contain;"/>
+              <span class="hd" style="color: #0E0E0E; font-size: 10px; letter-spacing: 0.14em;">HEADSTASH</span>
+            </div>
             <div style="color: #0E0E0E; font-size: 11px; font-weight: bold; margin-bottom: 4px;">HARBORSIDE OAKLAND</div>
             <div style="color: #0E0E0E; font-size: 8px; margin-bottom: 14px;">04/21/26 - 14:22</div>
             <div style="border-top: 1px dashed #0E0E0E; border-bottom: 1px dashed #0E0E0E; padding: 10px 0; width: 100%; color: #0E0E0E; font-size: 9px; line-height: 1.5; text-align: left;">
@@ -403,9 +440,12 @@
       <div style="display: flex; justify-content: center;">
         <div class="mobile-frame">
           <div class="status-bar"><div class="time">9:43</div><div class="battery"></div></div>
-          <div style="padding: 10px 16px 8px; display: flex; align-items: center; justify-content: space-between;">
+          <div style="padding: 10px 16px 8px; display: flex; align-items: center; justify-content: space-between; border-bottom: 0.5px solid rgba(237,228,208,0.08);">
             <div><svg width="14" height="14" viewBox="0 0 14 14" style="color: #D8D2C2;" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><path d="M 2 2 L 12 12 M 12 2 L 2 12"/></svg></div>
-            <div class="lb" style="color: #EDE4D0; font-size: 8px;">Capture receipt</div>
+            <div style="display: flex; align-items: center; gap: 6px;">
+              <img src="/brand/headstash-logo-hit.png" alt="" style="height:16px;width:auto;object-fit:contain;flex-shrink:0;"/>
+              <div class="lb" style="color: #EDE4D0; font-size: 8px;">Capture receipt</div>
+            </div>
             <div><svg width="11" height="14" viewBox="0 0 11 14" style="color: #D8D2C2;" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M 6.5 0.5 L 1 8 L 5 8 L 4.5 13.5 L 10 6 L 6 6 Z"/></svg></div>
           </div>
           <div style="padding: 16px 18px 0;">
@@ -441,7 +481,10 @@
         <div class="mobile-frame">
           <div class="status-bar"><div class="time">7:16</div><div class="battery"></div></div>
           <div class="frame-nav">
-            <div class="hd" style="color: #EDE4D0; font-size: 10px; letter-spacing: 0.14em;">HEADSTASH</div>
+            <div class="frame-nav-brand">
+              <img src="/brand/headstash-logo-hit.png" alt="" style="height:18px;width:auto;object-fit:contain;"/>
+              <div class="hd" style="color: #EDE4D0; font-size: 10px; letter-spacing: 0.14em;">HEADSTASH</div>
+            </div>
             <div style="width: 22px; height: 22px; border-radius: 50%; background: #2A2A2A; display: flex; align-items: center; justify-content: center;">
               <div class="hd" style="color: #F2D35C; font-size: 8px;">AP</div>
             </div>
@@ -485,7 +528,10 @@
         <div class="mobile-frame">
           <div class="status-bar"><div class="time">7:13</div><div class="battery"></div></div>
           <div class="frame-nav">
-            <div style="color: #D8D2C2; font-size: 14px;">←</div>
+            <div style="display: flex; align-items: center; gap: 10px;">
+              <span style="color: #D8D2C2; font-size: 14px;">←</span>
+              <img src="/brand/headstash-logo-hit.png" alt="" style="height:18px;width:auto;object-fit:contain;flex-shrink:0;"/>
+            </div>
             <div class="lb" style="color: #EDE4D0; font-size: 8px;">Alien Labs</div>
             <div style="width: 22px;"></div>
           </div>
@@ -542,7 +588,10 @@
         <div class="mobile-frame large" style="transform: rotate(-2deg); position: relative;">
           <div class="status-bar"><div class="time">7:12</div><div class="battery"></div></div>
           <div class="frame-nav">
-            <div class="hd" style="color: #EDE4D0; font-size: 11px; letter-spacing: 0.14em;">HEADSTASH</div>
+            <div class="frame-nav-brand">
+              <img src="/brand/headstash-logo-hit.png" alt="" style="height:20px;width:auto;object-fit:contain;"/>
+              <div class="hd" style="color: #EDE4D0; font-size: 11px; letter-spacing: 0.14em;">HEADSTASH</div>
+            </div>
             <div style="width: 24px; height: 24px; border-radius: 50%; background: #2A2A2A; display: flex; align-items: center; justify-content: center;">
               <div class="hd" style="color: #F2D35C; font-size: 9px;">AP</div>
             </div>
@@ -634,7 +683,10 @@
         <div class="mobile-frame hs-submit-peek" style="position: absolute; transform: rotate(-8deg) translate(-56px, 22px); z-index: 1; opacity: 0.85;">
           <div class="status-bar"><div class="time">9:43</div><div class="battery"></div></div>
           <div class="frame-nav">
-            <div class="hd" style="color: #EDE4D0; font-size: 10px; letter-spacing: 0.14em;">HEADSTASH</div>
+            <div class="frame-nav-brand">
+              <img src="/brand/headstash-logo-hit.png" alt="" style="height:18px;width:auto;object-fit:contain;"/>
+              <div class="hd" style="color: #EDE4D0; font-size: 10px; letter-spacing: 0.14em;">HEADSTASH</div>
+            </div>
             <div style="width: 22px; height: 22px; border-radius: 50%; background: #2A2A2A; display: flex; align-items: center; justify-content: center;">
               <div class="hd" style="color: #F2D35C; font-size: 8px;">AP</div>
             </div>
@@ -652,7 +704,10 @@
         <div class="mobile-frame hs-submit-front" style="position: relative; z-index: 2; transform: rotate(3deg) translate(44px, -14px);">
           <div class="status-bar"><div class="time">9:46</div><div class="battery"></div></div>
           <div class="frame-nav">
-            <div class="hd" style="color: #EDE4D0; font-size: 10px; letter-spacing: 0.14em;">HEADSTASH</div>
+            <div class="frame-nav-brand">
+              <img src="/brand/headstash-logo-hit.png" alt="" style="height:18px;width:auto;object-fit:contain;"/>
+              <div class="hd" style="color: #EDE4D0; font-size: 10px; letter-spacing: 0.14em;">HEADSTASH</div>
+            </div>
             <div style="width: 22px; height: 22px; border-radius: 50%; background: #2A2A2A; display: flex; align-items: center; justify-content: center;">
               <div class="hd" style="color: #F2D35C; font-size: 8px;">AP</div>
             </div>
@@ -774,15 +829,16 @@
 </div>
 
 <!-- START -->
-<div id="start" style="background: #EDE4D0; padding: 110px 40px; position: relative;"><div aria-hidden="true" style="position:absolute; inset: 60px 24px auto 24px; height: 180px; background: radial-gradient(closest-side, rgba(242,211,92,0.35), rgba(242,211,92,0) 70%); pointer-events: none; filter: blur(12px);"></div>
-  <div class="lb" style="color: #0E0E0E; opacity: 0.45; font-size: 10px; margin-bottom: 22px;">Start here</div>
-  <h2 class="hd" style="color: #0E0E0E; font-size: 68px; margin: 0 0 22px; line-height: 0.95;">Start your<br>stash.</h2>
-  <p class="bd" style="color: #2A2A2A; font-size: 16px; max-width: 480px; margin: 0 0 36px;">Takes about thirty seconds. Works on any phone. Add it to your home screen and upload receipts as you shop.</p>
-  <div style="display: flex; gap: 10px; max-width: 480px;">
+<div id="start" class="hs-start-block" style="background: #EDE4D0; padding: 110px 40px; position: relative;">
+  <div class="hs-start-line" aria-hidden="true"></div>
+  <div class="lb hs-sr-1" style="color: #0E0E0E; opacity: 0.45; font-size: 10px; margin-bottom: 22px;">Start here</div>
+  <h2 class="hd hs-sr-2" style="color: #0E0E0E; font-size: 68px; margin: 0 0 22px; line-height: 0.95;">Start your<br>stash.</h2>
+  <p class="bd hs-sr-3" style="color: #2A2A2A; font-size: 16px; max-width: 480px; margin: 0 0 36px;">Takes about thirty seconds. Works on any phone. Add it to your home screen and upload receipts as you shop.</p>
+  <div class="hs-sr-4" style="display: flex; gap: 10px; max-width: 480px;">
     <input type="tel" placeholder="(___) ___-____" style="flex: 1; background: transparent; border: 0.5px solid rgba(14,14,14,0.3); color: #0E0E0E; padding: 14px 16px; font-size: 15px; border-radius: 4px;">
     <button class="btn-ochre hs-start-attn">Send code <span class="hs-arrow-nudge">↗</span></button>
   </div>
-  <div class="bd" style="color: #2A2A2A; opacity: 0.65; font-size: 12px; margin-top: 18px; max-width: 480px;">By continuing you agree to receive SMS from Headstash. Msg & data rates may apply. Reply STOP to opt out.</div>
+  <div class="bd hs-sr-5" style="color: #2A2A2A; opacity: 0.65; font-size: 12px; margin-top: 18px; max-width: 480px;">By continuing you agree to receive SMS from Headstash. Msg & data rates may apply. Reply STOP to opt out.</div>
 </div>
 
 <div style="background: #0E0E0E; padding: 28px 40px 32px; display: flex; align-items: flex-start; justify-content: space-between;">
