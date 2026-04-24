@@ -567,19 +567,54 @@
 
       <!-- ADMIN DASHBOARD MINI PREVIEW -->
       <div style="margin-top: 20px;">
-        <div class="admin-preview" style="font-size: 9px;">
-          <div style="background: #0E0E0E; padding: 8px 12px; display: flex; align-items: center; justify-content: space-between; border-bottom: 0.5px solid rgba(237,228,208,0.1);">
-            <div class="hd" style="color: #EDE4D0; font-size: 10px; letter-spacing: 0.14em;">HEADSTASH · OPS</div>
-            <div class="bd" style="color: #D8D2C2; font-size: 8px;">Alien Labs · live</div>
+        <div class="admin-preview" style="font-size: 9px; background:#F5EFE1; border:0.5px solid rgba(14,14,14,0.12); border-radius:6px; overflow:hidden; box-shadow: 0 16px 36px rgba(0,0,0,0.18);">
+          <div style="background:#0E0E0E; padding:8px 10px; display:flex; align-items:center; justify-content:space-between; border-bottom:0.5px solid rgba(237,228,208,0.1);">
+            <div style="display:flex; gap:9px; align-items:center; min-width:0;">
+              <div class="hd" style="color:#EDE4D0; font-size:9px; letter-spacing:0.14em;">HEADSTASH · OPS</div>
+              <div class="lb" style="color:#F2D35C; font-size:6px;">DASHBOARD</div>
+              <div class="lb" style="color:#D8D2C2; opacity:.45; font-size:6px;">RECEIPTS</div>
+              <div class="lb" style="color:#D8D2C2; opacity:.45; font-size:6px;">USERS</div>
+            </div>
+            <div class="bd" style="color:#D8D2C2; font-size:7px; white-space:nowrap;"><span style="color:#5A7A3E;">●</span> Alien Labs · 23 pending</div>
           </div>
-          <div style="padding: 12px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 6px;">
-            <div style="background: #EDE4D0; padding: 9px; border-radius: 3px;"><div class="lb" style="color:#0E0E0E;opacity:.5;font-size:6px;">Receipts</div><div class="hd" style="color:#0E0E0E;font-size:16px;">1,247</div></div>
-            <div style="background: #EDE4D0; padding: 9px; border-radius: 3px;"><div class="lb" style="color:#0E0E0E;opacity:.5;font-size:6px;">Approval</div><div class="hd" style="color:#0E0E0E;font-size:16px;">89%</div></div>
-            <div style="background: #EDE4D0; padding: 9px; border-radius: 3px;"><div class="lb" style="color:#0E0E0E;opacity:.5;font-size:6px;">Revenue</div><div class="hd" style="color:#0E0E0E;font-size:16px;">$41.2k</div></div>
-            <div style="background: #EDE4D0; padding: 9px; border-radius: 3px;"><div class="lb" style="color:#0E0E0E;opacity:.5;font-size:6px;">Redeems</div><div class="hd" style="color:#0E0E0E;font-size:16px;">142</div></div>
+
+          <div style="padding:10px; border-bottom:0.5px solid rgba(14,14,14,0.1);">
+            <div class="lb" style="color:#0E0E0E; opacity:.5; font-size:6px; margin-bottom:6px;">Last 30 days · program overview</div>
+            <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:6px;">
+              <div style="background:#EDE4D0; border:0.5px solid rgba(14,14,14,0.08); padding:8px; border-radius:2px;"><div class="lb" style="color:#0E0E0E;opacity:.45;font-size:5.5px;">Receipts in</div><div class="hd" style="color:#0E0E0E;font-size:16px;">1,247</div><div class="bd" style="color:#5A7A3E;font-size:7px;">+38% vs prior</div></div>
+              <div style="background:#EDE4D0; border:0.5px solid rgba(14,14,14,0.08); padding:8px; border-radius:2px;"><div class="lb" style="color:#0E0E0E;opacity:.45;font-size:5.5px;">Approval rate</div><div class="hd" style="color:#0E0E0E;font-size:16px;">89%</div><div class="bd" style="color:#2A2A2A;opacity:.7;font-size:7px;">2.3s review</div></div>
+              <div style="background:#EDE4D0; border:0.5px solid rgba(14,14,14,0.08); padding:8px; border-radius:2px;"><div class="lb" style="color:#0E0E0E;opacity:.45;font-size:5.5px;">Qualifying $</div><div class="hd" style="color:#0E0E0E;font-size:16px;">$41.2k</div><div class="bd" style="color:#5A7A3E;font-size:7px;">+$12k month</div></div>
+              <div style="background:#EDE4D0; border:0.5px solid rgba(14,14,14,0.08); padding:8px; border-radius:2px;"><div class="lb" style="color:#0E0E0E;opacity:.45;font-size:5.5px;">Merch moved</div><div class="hd" style="color:#0E0E0E;font-size:16px;">$8.6k</div><div class="bd" style="color:#2A2A2A;opacity:.7;font-size:7px;">142 redeems</div></div>
+            </div>
+          </div>
+
+          <div style="display:grid; grid-template-columns:1.35fr 1fr; gap:0;">
+            <div style="padding:10px; border-right:0.5px solid rgba(14,14,14,0.1);">
+              <div class="lb" style="color:#0E0E0E; opacity:.5; font-size:6px; margin-bottom:6px;">Review queue · 23 pending</div>
+              <div style="display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-top:0.5px solid rgba(14,14,14,0.12);">
+                <div><div class="bd" style="color:#0E0E0E;font-size:8.5px;font-weight:600;">Harborside · $47.33</div><div class="bd" style="color:#2A2A2A;opacity:.65;font-size:6.5px;">aaron.p@ · 2m · OCR 94%</div></div>
+                <div style="display:flex;gap:3px;"><div style="background:#5A7A3E;color:#EDE4D0;padding:2px 6px;border-radius:2px;font-family:'BluntFamily',sans-serif;font-size:6px;letter-spacing:.14em;">OK</div><div style="border:0.5px solid rgba(14,14,14,.25);padding:2px 6px;border-radius:2px;font-family:'BluntFamily',sans-serif;font-size:6px;letter-spacing:.14em;">NO</div></div>
+              </div>
+              <div style="display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-top:0.5px solid rgba(14,14,14,0.12);background:#F9E8D5;">
+                <div><div class="bd" style="color:#0E0E0E;font-size:8.5px;font-weight:600;">Sweet Flower · $104.12</div><div class="bd" style="color:#C8482A;font-size:6.5px;">Duplicate hash match</div></div>
+                <div class="lb" style="color:#C8482A;font-size:6px;">Review ↗</div>
+              </div>
+              <div style="display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-top:0.5px solid rgba(14,14,14,0.12);">
+                <div><div class="bd" style="color:#0E0E0E;font-size:8.5px;font-weight:600;">Catalyst · $82.50</div><div class="bd" style="color:#2A2A2A;opacity:.65;font-size:6.5px;">m.reyes@ · 6m · OCR 71%</div></div>
+                <div style="display:flex;gap:3px;"><div style="background:#5A7A3E;color:#EDE4D0;padding:2px 6px;border-radius:2px;font-family:'BluntFamily',sans-serif;font-size:6px;letter-spacing:.14em;">OK</div><div style="border:0.5px solid rgba(14,14,14,.25);padding:2px 6px;border-radius:2px;font-family:'BluntFamily',sans-serif;font-size:6px;letter-spacing:.14em;">NO</div></div>
+              </div>
+            </div>
+            <div style="padding:10px;">
+              <div class="lb" style="color:#0E0E0E; opacity:.5; font-size:6px; margin-bottom:6px;">Top retailers · driving signups</div>
+              <div class="bd" style="color:#0E0E0E;font-size:8.5px;display:flex;justify-content:space-between;padding:6px 0;border-top:0.5px solid rgba(14,14,14,0.12);"><span>Cookies Melrose</span><strong>184</strong></div>
+              <div class="bd" style="color:#0E0E0E;font-size:8.5px;display:flex;justify-content:space-between;padding:6px 0;border-top:0.5px solid rgba(14,14,14,0.12);"><span>Connected SF</span><strong>147</strong></div>
+              <div class="bd" style="color:#0E0E0E;font-size:8.5px;display:flex;justify-content:space-between;padding:6px 0;border-top:0.5px solid rgba(14,14,14,0.12);"><span>Harborside Oakland</span><strong>128</strong></div>
+              <div class="bd" style="color:#0E0E0E;font-size:8.5px;display:flex;justify-content:space-between;padding:6px 0;border-top:0.5px solid rgba(14,14,14,0.12);"><span>Catalyst Long Beach</span><strong>93</strong></div>
+            </div>
           </div>
         </div>
       </div>
+
     </div>
 
     <div>
