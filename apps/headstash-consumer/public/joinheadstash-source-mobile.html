@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#0E0E0E">
 <meta name="description" content="Headstash connects the flower you already buy to the brands behind it. Upload your receipt. Your favorite cannabis brands see you. They decide how to say thanks.">
-<title>Headstash — Save the receipt. (Mobile)</title>
+<title>Headstash - Save the receipt. (Mobile)</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   @font-face {
@@ -29,6 +29,32 @@
   body > div {
     max-width: 100%;
     overflow-x: clip;
+  }
+
+
+  @keyframes hs-float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-6px); }
+  }
+
+  .phone-float .mobile-frame.large {
+    animation: hs-float 5.2s ease-in-out infinite;
+  }
+
+  .btn-ochre, .btn-ghost {
+    transition: transform 0.16s ease, box-shadow 0.16s ease, background-color 0.16s ease;
+    will-change: transform;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .phone-float .mobile-frame.large,
+    .btn-ochre,
+    .btn-ghost {
+      animation: none !important;
+      transition: none !important;
+      transform: none !important;
+    }
   }
 
 </style>
@@ -132,7 +158,7 @@
   
 
   /* ======================================================================= */
-  /* MOBILE BREAKPOINT (768px and below — primary phone viewports)           */
+  /* MOBILE BREAKPOINT (768px and below - primary phone viewports)           */
   /* ======================================================================= */
 
   
@@ -253,7 +279,7 @@
       width: 100%;
     }
 
-    /* Hero embedded phone mockup — center it, don't rotate */
+    /* Hero embedded phone mockup - center it, don't rotate */
     .phone-float .mobile-frame,
     .phone-float .mobile-frame.large {
       transform: none !important;
@@ -264,7 +290,7 @@
       justify-content: center !important;
     }
 
-    /* Consumer hero 3-phone fan — show only the center phone on mobile */
+    /* Consumer hero 3-phone fan - show only the center phone on mobile */
     [id="start"] ~ *, /* No-op safety */
     body {}
     /* Hide the rotated outer phones in the fan; center one stays */
@@ -295,7 +321,7 @@
     div[style*="padding: 36px 32px"] {
       padding: 28px 22px !important;
     }
-    /* Pricing header counter card — stack under headline */
+    /* Pricing header counter card - stack under headline */
     div[style*="display: flex; justify-content: space-between; align-items: flex-end"][style*="margin-bottom: 36px"] {
       flex-direction: column !important;
       align-items: flex-start !important;
@@ -306,13 +332,13 @@
       font-size: 15px !important;
     }
 
-    /* Campaign example card — channels stack */
+    /* Campaign example card - channels stack */
     div[style*="grid-template-columns: repeat(2, 1fr)"][style*="gap: 16px"] {
       grid-template-columns: 1fr !important;
       gap: 12px !important;
     }
 
-    /* Campaign header inside-card — stack brand and config badge */
+    /* Campaign header inside-card - stack brand and config badge */
     div[style*="padding: 28px 32px"][style*="flex-wrap: wrap"] {
       flex-direction: column;
       align-items: flex-start !important;
@@ -321,7 +347,7 @@
       padding: 22px !important;
     }
 
-    /* "Your side of it" admin showcase — reduce padding */
+    /* "Your side of it" admin showcase - reduce padding */
     div[style*="padding: 50px 40px"] {
       padding: 30px 22px !important;
     }
@@ -331,7 +357,7 @@
       padding: 30px 22px !important;
     }
 
-    /* Inside the app showcase — phones center on mobile */
+    /* Inside the app showcase - phones center on mobile */
     div[style*="display: flex; justify-content: center; margin-bottom: 22px"] {
       margin-bottom: 16px !important;
     }
@@ -396,7 +422,7 @@
   
 
   /* ======================================================================= */
-  /* FORCED MOBILE LAYOUT — renders at 430px max width     */
+  /* FORCED MOBILE LAYOUT - renders at 430px max width     */
   /* even on desktop. Content locked to phone viewport dimensions.           */
   /* ======================================================================= */
 
@@ -445,7 +471,7 @@
   <div>
     <div class="lb" style="color: #F2D35C; font-size: 10px; margin-bottom: 24px;">Heads only · est 2026</div>
     <h1 class="hd" style="color: #EDE4D0; font-size: 80px; margin: 0 0 26px;">Save the<br>receipt.<br>Hear from<br>the brand.</h1>
-    <p class="bd" style="color: #D8D2C2; font-size: 16px; max-width: 480px; margin: 0 0 36px;">Headstash connects the flower you already buy to the brands behind it. Upload your receipt. Your favorite brands see you. They decide how to say thanks — merch, early access, drops, or something else entirely.</p>
+    <p class="bd" style="color: #D8D2C2; font-size: 16px; max-width: 480px; margin: 0 0 36px;">Headstash connects the flower you already buy to the brands behind it. Upload your receipt. Your favorite brands see you. They decide how to say thanks - merch, early access, drops, or something else entirely.</p>
     <div style="display: flex; gap: 10px;">
       <a href="#start" class="btn-ochre">Start your stash ↗</a>
       <a href="#how" class="btn-ghost">How it works</a>
@@ -503,7 +529,7 @@
     </div>
 
     <!-- Front phone: populated dashboard -->
-    <div class="mobile-frame large" style="position: relative; z-index: 3;">
+    <div class="phone-float" style="position: relative; z-index: 3;"><div class="mobile-frame large" style="position: relative; z-index: 3;">
       <div class="status-bar"><div class="time">7:12</div><div class="battery"></div></div>
       <div class="frame-nav">
         <div class="hd" style="color: #EDE4D0; font-size: 11px; letter-spacing: 0.14em;">HEADSTASH</div>
@@ -517,12 +543,20 @@
       </div>
       <div style="padding: 0 18px;">
         <div style="background: #171717; border: 0.5px solid rgba(237,228,208,0.1); border-left: 2px solid #F2D35C; padding: 12px; margin-bottom: 8px; border-radius: 0 4px 4px 0;">
-          <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
-            <div>
-              <div class="lb" style="color: #D8D2C2; opacity: 0.55; font-size: 7px;">Alien Labs · stash</div>
-              <div class="hd" style="color: #EDE4D0; font-size: 14px; margin-top: 3px;">Smokers Club hoodie</div>
+          <div style="display: flex; justify-content: space-between; margin-bottom: 8px; gap: 8px;">
+            <div style="display: flex; gap: 7px; align-items: center; min-width: 0;">
+              <div style="width: 16px; height: 16px; flex-shrink: 0; display: flex; align-items: center; justify-content: center;">
+                <img src="/partners/alien-labs-brand.png" alt="Alien Labs" style="width: 16px; height: 16px; object-fit: contain;"/>
+              </div>
+              <div style="width: 24px; height: 24px; border-radius: 2px; overflow: hidden; flex-shrink: 0; border: 0.5px solid rgba(237,228,208,0.2);">
+                <img src="/mockups/product-hoodie-alienlabs.png" alt="Smokers Club hoodie" style="width: 100%; height: 100%; object-fit: cover;"/>
+              </div>
+              <div style="min-width: 0;">
+                <div class="lb" style="color: #D8D2C2; opacity: 0.65; font-size: 7px;">Alien Labs · stash</div>
+                <div class="hd" style="color: #EDE4D0; font-size: 14px; margin-top: 3px; line-height: 1.02;">Smokers Club hoodie</div>
+              </div>
             </div>
-            <div class="hd" style="color: #EDE4D0; font-size: 16px;">$247</div>
+            <div class="hd" style="color: #EDE4D0; font-size: 16px; flex-shrink: 0;">$247</div>
           </div>
           <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
             <div class="bd" style="color: #D8D2C2; opacity: 0.7; font-size: 9px;">$53 to go</div>
@@ -533,12 +567,20 @@
           </div>
         </div>
         <div style="background: #171717; border: 0.5px solid rgba(237,228,208,0.1); border-left: 2px solid #D4A574; padding: 12px; margin-bottom: 8px; border-radius: 0 4px 4px 0;">
-          <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
-            <div>
-              <div class="lb" style="color: #D8D2C2; opacity: 0.55; font-size: 7px;">Connected · stash</div>
-              <div class="hd" style="color: #EDE4D0; font-size: 14px; margin-top: 3px;">Death Traitors long sleeve</div>
+          <div style="display: flex; justify-content: space-between; margin-bottom: 8px; gap: 8px;">
+            <div style="display: flex; gap: 7px; align-items: center; min-width: 0;">
+              <div style="width: 16px; height: 16px; flex-shrink: 0; display: flex; align-items: center; justify-content: center;">
+                <img src="/partners/connected-brand.png" alt="Connected" style="width: 16px; height: 16px; object-fit: contain;"/>
+              </div>
+              <div style="width: 24px; height: 24px; border-radius: 2px; overflow: hidden; flex-shrink: 0; border: 0.5px solid rgba(237,228,208,0.2);">
+                <img src="/mockups/product-longsleeve-connected.png" alt="Death Traitors long sleeve" style="width: 100%; height: 100%; object-fit: cover; object-position: center 20%;"/>
+              </div>
+              <div style="min-width: 0;">
+                <div class="lb" style="color: #D8D2C2; opacity: 0.65; font-size: 7px;">Connected · stash</div>
+                <div class="hd" style="color: #EDE4D0; font-size: 14px; margin-top: 3px; line-height: 1.02;">Death Traitors long sleeve</div>
+              </div>
             </div>
-            <div class="hd" style="color: #EDE4D0; font-size: 16px;">$94</div>
+            <div class="hd" style="color: #EDE4D0; font-size: 16px; flex-shrink: 0;">$94</div>
           </div>
           <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
             <div class="bd" style="color: #D8D2C2; opacity: 0.7; font-size: 9px;">$56 to go</div>
@@ -561,7 +603,7 @@
       <div style="position: absolute; bottom: 14px; left: 18px; right: 18px;">
         <div style="width: 100%; background: #F2D35C; color: #0E0E0E; padding: 12px; border-radius: 4px; font-family: 'BluntFamily', sans-serif; font-size: 10px; letter-spacing: 0.22em; text-align: center;">Upload receipt ↗</div>
       </div>
-    </div>
+    </div></div>
 
   </div>
 </div>
@@ -581,7 +623,7 @@
         <div class="mobile-frame" style="background: #F5EFE1; border-color: #E8E0CA;">
           <div style="height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 40px 20px; text-align: center; font-family: 'Courier New', monospace;">
             <div style="color: #0E0E0E; font-size: 11px; font-weight: bold; margin-bottom: 4px;">HARBORSIDE OAKLAND</div>
-            <div style="color: #0E0E0E; font-size: 8px; margin-bottom: 14px;">04/21/26 — 14:22</div>
+            <div style="color: #0E0E0E; font-size: 8px; margin-bottom: 14px;">04/21/26 - 14:22</div>
             <div style="border-top: 1px dashed #0E0E0E; border-bottom: 1px dashed #0E0E0E; padding: 10px 0; width: 100%; color: #0E0E0E; font-size: 9px; line-height: 1.5; text-align: left;">
               ALIEN LABS BISCOTTI<br>ALIEN LABS BABY J<br>CONNECTED GELATTI
             </div>
@@ -663,7 +705,7 @@
   </div>
 </div>
 
-<!-- INSIDE THE APP — phone screenshot showcase -->
+<!-- INSIDE THE APP - phone screenshot showcase -->
 <div style="background: #0E0E0E; padding: 90px 40px;">
   <div class="lb" style="color: #F2D35C; font-size: 10px; margin-bottom: 20px;">Inside the app</div>
   <h2 class="hd" style="color: #EDE4D0; font-size: 44px; margin: 0 0 60px; line-height: 1; max-width: 600px;">One stash per brand.<br>All in one place.</h2>
@@ -824,12 +866,12 @@
 <div style="background: #EDE4D0; padding: 90px 40px;">
   <div class="lb" style="color: #0E0E0E; opacity: 0.45; font-size: 10px; margin-bottom: 20px;">Each brand runs their own thing</div>
   <h2 class="hd" style="color: #0E0E0E; font-size: 44px; margin: 0 0 14px; line-height: 1;">One app.<br>Every brand you buy.</h2>
-  <p class="bd" style="color: #2A2A2A; font-size: 15px; max-width: 540px; margin: 0 0 44px;">Headstash is one place for every brand you buy. Each one sets up its own program — their own rewards, their own drops, their own voice.</p>
+  <p class="bd" style="color: #2A2A2A; font-size: 15px; max-width: 540px; margin: 0 0 44px;">Headstash is one place for every brand you buy. Each one sets up its own program - their own rewards, their own drops, their own voice.</p>
 
   <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px;">
 
     <div style="background: #0E0E0E; border-left: 2px solid #F2D35C; padding: 18px; border-radius: 0 4px 4px 0; min-height: 220px; display: flex; flex-direction: column;">
-      <div class="lb" style="color: #F2D35C; font-size: 9px; margin-bottom: 10px;">Example · from a brand</div>
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="color:#F2D35C;"><path d="M12 3v18"/><path d="M5 9l7-6 7 6"/><path d="M5 15l7-6 7 6"/></svg><div class="lb" style="color: #F2D35C; font-size: 9px;">Example · merch unlock</div></div>
       <div class="hd" style="color: #EDE4D0; font-size: 20px; margin-bottom: 16px; line-height: 1;">Smokers Club hoodie</div>
       <div style="flex: 1;"><div class="bd" style="color: #D8D2C2; font-size: 12px; opacity: 0.85;">Spend $300 qualifying across any dispensaries in 90 days.</div></div>
       <div style="padding-top: 14px; border-top: 0.5px solid rgba(237,228,208,0.12); margin-top: 12px;">
@@ -838,7 +880,7 @@
     </div>
 
     <div style="background: #0E0E0E; border-left: 2px solid #F2D35C; padding: 18px; border-radius: 0 4px 4px 0; min-height: 220px; display: flex; flex-direction: column; opacity: 0.9;">
-      <div class="lb" style="color: #F2D35C; font-size: 9px; margin-bottom: 10px;">Example · from a brand</div>
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="color:#F2D35C;"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4"/><path d="M8 3v4"/><path d="M3 11h18"/></svg><div class="lb" style="color: #F2D35C; font-size: 9px;">Example · event invite</div></div>
       <div class="hd" style="color: #EDE4D0; font-size: 20px; margin-bottom: 16px; line-height: 1;">Sunday tasting invite</div>
       <div style="flex: 1;"><div class="bd" style="color: #D8D2C2; font-size: 12px; opacity: 0.85;">Hit five approved receipts in a rolling month.</div></div>
       <div style="padding-top: 14px; border-top: 0.5px solid rgba(237,228,208,0.12); margin-top: 12px;">
@@ -847,7 +889,7 @@
     </div>
 
     <div style="background: #0E0E0E; border-left: 2px solid #F2D35C; padding: 18px; border-radius: 0 4px 4px 0; min-height: 220px; display: flex; flex-direction: column; opacity: 0.8;">
-      <div class="lb" style="color: #F2D35C; font-size: 9px; margin-bottom: 10px;">Example · from a brand</div>
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="color:#F2D35C;"><rect x="3" y="7" width="18" height="14" rx="1.5"/><path d="M8 3v4"/><path d="M16 3v4"/><path d="M9 13h6"/></svg><div class="lb" style="color: #F2D35C; font-size: 9px;">Example · bonus drop</div></div>
       <div class="hd" style="color: #EDE4D0; font-size: 20px; margin-bottom: 16px; line-height: 1;">Bonus sticker pack</div>
       <div style="flex: 1;"><div class="bd" style="color: #D8D2C2; font-size: 12px; opacity: 0.85;">Upload any receipt with an infused pre-roll from the brand.</div></div>
       <div style="padding-top: 14px; border-top: 0.5px solid rgba(237,228,208,0.12); margin-top: 12px;">
@@ -865,23 +907,23 @@
 
   <div>
     <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 16px; padding: 20px 0; border-top: 0.5px solid rgba(237,228,208,0.2); align-items: baseline;">
-      <div class="hd" style="color: #EDE4D0; font-size: 22px;">Buying.</div>
+      <div class="hd" style="color: #EDE4D0; font-size: 22px; display:flex; align-items:center; gap:10px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="color:#F2D35C;flex-shrink:0;"><path d="M3 6h18l-2 12a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2L3 6Z"/><path d="M8 6V4a4 4 0 0 1 8 0v2"/></svg><span>Buying.</span></div>
       <div class="bd" style="color: #D8D2C2; font-size: 13.5px;">Every receipt containing a participating brand's SKU adds qualifying dollars to that brand's stash.</div>
     </div>
     <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 16px; padding: 20px 0; border-top: 0.5px solid rgba(237,228,208,0.2); align-items: baseline;">
-      <div class="hd" style="color: #EDE4D0; font-size: 22px;">Repeating.</div>
+      <div class="hd" style="color: #EDE4D0; font-size: 22px; display:flex; align-items:center; gap:10px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="color:#F2D35C;flex-shrink:0;"><path d="M3 12a9 9 0 0 1 15.5-6.3L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15.5 6.3L3 16"/><path d="M3 21v-5h5"/></svg><span>Repeating.</span></div>
       <div class="bd" style="color: #D8D2C2; font-size: 13.5px;">Hit a brand's spend or receipt milestone in a rolling window. A real named item shows up in your stash.</div>
     </div>
     <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 16px; padding: 20px 0; border-top: 0.5px solid rgba(237,228,208,0.2); align-items: baseline;">
-      <div class="hd" style="color: #EDE4D0; font-size: 22px;">Trying.</div>
+      <div class="hd" style="color: #EDE4D0; font-size: 22px; display:flex; align-items:center; gap:10px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="color:#F2D35C;flex-shrink:0;"><path d="M12 3v4"/><path d="M5 8l2.5 2.5"/><path d="M19 8l-2.5 2.5"/><circle cx="12" cy="14" r="6"/><path d="M9 14l2 2 4-4"/></svg><span>Trying.</span></div>
       <div class="bd" style="color: #D8D2C2; font-size: 13.5px;">First receipt with a new brand usually triggers a welcome item. Most brands say hello with something.</div>
     </div>
     <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 16px; padding: 20px 0; border-top: 0.5px solid rgba(237,228,208,0.2); align-items: baseline;">
-      <div class="hd" style="color: #EDE4D0; font-size: 22px;">Exploring.</div>
+      <div class="hd" style="color: #EDE4D0; font-size: 22px; display:flex; align-items:center; gap:10px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="color:#F2D35C;flex-shrink:0;"><circle cx="12" cy="12" r="9"/><path d="M15.5 8.5l-2 5-5 2 2-5 5-2Z"/></svg><span>Exploring.</span></div>
       <div class="bd" style="color: #D8D2C2; font-size: 13.5px;">Some brands reward buying their SKUs across multiple dispensaries. The kind of thing only Headstash can see.</div>
     </div>
     <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 16px; padding: 20px 0; border-top: 0.5px solid rgba(237,228,208,0.2); border-bottom: 0.5px solid rgba(237,228,208,0.2); align-items: baseline;">
-      <div class="hd" style="color: #EDE4D0; font-size: 22px;">Putting people on.</div>
+      <div class="hd" style="color: #EDE4D0; font-size: 22px; display:flex; align-items:center; gap:10px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="color:#F2D35C;flex-shrink:0;"><circle cx="9" cy="8" r="4"/><path d="M2 21a7 7 0 0 1 14 0"/><path d="M17 11h5"/><path d="M19.5 8.5v5"/></svg><span>Putting people on.</span></div>
       <div class="bd" style="color: #D8D2C2; font-size: 13.5px;">Refer a head to a brand you already shop. When their first receipt lands, you both get something.</div>
     </div>
   </div>
@@ -889,20 +931,27 @@
 
 <!-- AVAILABLE FOR -->
 <div style="background: #EDE4D0; padding: 80px 40px;">
-  <div class="lb" style="color: #0E0E0E; opacity: 0.45; font-size: 10px; margin-bottom: 20px;">Available for</div>
-  <h2 class="hd" style="color: #0E0E0E; font-size: 42px; margin: 0 0 40px; line-height: 1;">The heaviest brands<br>in California.</h2>
+  <div class="lb" style="color: #0E0E0E; opacity: 0.45; font-size: 10px; margin-bottom: 12px;">Early access · June 2026</div>
+  <h2 class="hd" style="color: #0E0E0E; font-size: 42px; margin: 0 0 14px; line-height: 1;">Public launch · August 2026</h2>
+  <p class="bd" style="color: #2A2A2A; font-size: 14px; max-width: 520px; margin: 0 0 30px;">The heaviest brands in California, starting with these three.</p>
   <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; border-top: 0.5px solid rgba(14,14,14,0.2); padding-top: 28px;">
     <div>
-      <div class="lb" style="color: #0E0E0E; opacity: 0.4; font-size: 9px; margin-bottom: 8px;">Brand 01</div>
+      <div class="lb" style="color: #0E0E0E; opacity: 0.4; font-size: 9px; margin-bottom: 8px;">Brand 01: Alien Labs</div>
+      <div style="height: 48px; margin-bottom: 10px; display: flex; align-items: center;">
+        <img src="/partners/alien-labs-brand.png" alt="Alien Labs" style="max-height: 48px; width: auto; object-fit: contain; filter: invert(1);"/>
+      </div>
       <div class="hd" style="color: #0E0E0E; font-size: 22px;">Locked in</div>
     </div>
     <div>
-      <div class="lb" style="color: #0E0E0E; opacity: 0.4; font-size: 9px; margin-bottom: 8px;">Brand 02</div>
+      <div class="lb" style="color: #0E0E0E; opacity: 0.4; font-size: 9px; margin-bottom: 8px;">Brand 02: Connected Cannabis Co</div>
+      <div style="height: 48px; margin-bottom: 10px; display: flex; align-items: center;">
+        <img src="/partners/connected-brand.png" alt="Connected" style="max-height: 48px; width: auto; object-fit: contain; filter: invert(1);"/>
+      </div>
       <div class="hd" style="color: #0E0E0E; font-size: 22px;">Locked in</div>
     </div>
     <div>
-      <div class="lb" style="color: #0E0E0E; opacity: 0.4; font-size: 9px; margin-bottom: 8px;">Brand 03</div>
-      <div class="hd" style="color: #0E0E0E; font-size: 22px;">Locked in</div>
+      <div class="lb" style="color: #0E0E0E; opacity: 0.4; font-size: 9px; margin-bottom: 8px;">Brand 03: O*****d</div>
+      <div class="hd" style="color: #0E0E0E; font-size: 22px;">Under NDA</div>
     </div>
   </div>
 </div>
