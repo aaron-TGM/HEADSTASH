@@ -20,6 +20,11 @@ type LaunchPartnerText = {
 };
 
 type LaunchPartner = LaunchPartnerLogo | LaunchPartnerText;
+type BridgeIntegration = {
+  name: string;
+  detail: string;
+  dashed?: boolean;
+};
 
 export const home = {
   nav: {
@@ -120,7 +125,7 @@ export const home = {
       { name: "Shopify", detail: "Customer profiles" },
       { name: "Your warehouse", detail: "Snowflake, BigQuery, S3" },
       { name: "CSV export", detail: "Anywhere else you need it", dashed: true },
-    ],
+    ] satisfies BridgeIntegration[],
     syncPoints: [
       {
         title: "Phone + email",
