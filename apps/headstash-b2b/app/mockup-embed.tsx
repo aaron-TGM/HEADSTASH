@@ -47,14 +47,14 @@ export function MockupEmbed() {
   }, [src]);
 
   return (
-    <main className="bg-[#0E0E0E]">
+    <main className="overflow-x-hidden bg-[#0E0E0E]" style={{ touchAction: "pan-y" }}>
       <iframe
         key={src}
         ref={iframeRef}
         src={src}
         title="Headstash mockup render"
         className="w-full border-0"
-        style={{ height }}
+        style={{ height, touchAction: "pan-y" }}
       />
     </main>
   );
