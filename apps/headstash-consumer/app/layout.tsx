@@ -16,7 +16,7 @@ const PLAUSIBLE_DOMAIN = process.env.NEXT_PUBLIC_PLAUSIBLE_DOMAIN;
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Headstash — Save the receipt. Hear from the brand.",
+    default: "Headstash — Save the receipt. Stash the brand.",
     template: "%s · Headstash",
   },
   description:
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     siteName: "Headstash",
-    title: "Headstash — Save the receipt. Hear from the brand.",
+    title: "Headstash — Save the receipt. Stash the brand.",
     description:
       "One app for every cannabis brand you buy. Each brand decides how to say thanks.",
     url: SITE_URL,
@@ -54,13 +54,13 @@ export const metadata: Metadata = {
         url: "/opengraph-image",
         width: 1200,
         height: 630,
-        alt: "Headstash - Save the receipt. Hear from the brand.",
+        alt: "Headstash - Save the receipt. Stash the brand.",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Headstash — Save the receipt. Hear from the brand.",
+    title: "Headstash — Save the receipt. Stash the brand.",
     description: "One app for every cannabis brand you buy.",
     images: ["/twitter-image"],
   },

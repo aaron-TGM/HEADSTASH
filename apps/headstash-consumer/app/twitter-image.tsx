@@ -1,7 +1,7 @@
 import OpenGraphImage from "./opengraph-image";
 
 export const runtime = "edge";
-export const alt = "Headstash - Save the receipt. Hear from the brand.";
+export const alt = "Headstash - Save the receipt. Stash the brand.";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 

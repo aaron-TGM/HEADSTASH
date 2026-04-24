@@ -29,7 +29,7 @@ export const home = {
   },
   hero: {
     eyebrow: "Heads only · est 2026",
-    headline: "Save the receipt.\nHear from the brand.",
+    headline: "Save the receipt.\nStash the brand.",
     subcopy:
       "One app for every brand you buy. Upload your dispensary receipts, earn real merch and access from the brands themselves. No coupons. No percent-off. No dispensary loyalty hoops.",
     primaryCta: { label: "Start your stash ↗", href: "#start" },

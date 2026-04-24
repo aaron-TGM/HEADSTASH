@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#0E0E0E">
 <meta name="description" content="Headstash connects the flower you already buy to the brands behind it. Upload your receipt. Your favorite cannabis brands see you. They decide how to say thanks.">
-<title>Headstash - Save the receipt. (Mobile)</title>
+<title>Headstash - Save the receipt. Stash the brand. (Mobile)</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   @font-face {
@@ -60,14 +60,14 @@
     .btn-ochre,
     .btn-ghost,
     .hs-hero-stash-cta,
-    .hs-start-line,
-    .hs-sr-1, .hs-sr-2, .hs-sr-3, .hs-sr-4, .hs-sr-5 {
+    .hs-sr-1, .hs-sr-2, .hs-sr-3, .hs-sr-4,
+    .hs-stash-grow {
       animation: none !important;
       transition: none !important;
       transform: none !important;
     }
-    .hs-sr-1, .hs-sr-2, .hs-sr-3, .hs-sr-4, .hs-sr-5 { opacity: 1 !important; }
-    .hs-start-line { transform: none !important; }
+    .hs-sr-1, .hs-sr-2, .hs-sr-3, .hs-sr-4 { opacity: 1 !important; }
+    .hs-stash-grow { transform: none !important; }
   }
 
 </style>
@@ -252,6 +252,7 @@
     div[style*="padding: 90px 40px 110px"],
     div[style*="padding: 100px 40px"],
     div[style*="padding: 110px 40px"],
+    div[style*="padding: 64px 40px 72px"],
     div[style*="padding: 80px 40px"] {
       padding: 56px 22px !important;
     }
@@ -526,27 +527,76 @@
   50% { box-shadow: 0 0 0 14px rgba(242,211,92,0); }
 }
 .hs-start-attn { box-shadow: 0 4px 20px rgba(242,211,92,0.35); }
-@keyframes hs-start-line {
-  from { transform: scaleX(0); transform-origin: left center; }
-  to { transform: scaleX(1); transform-origin: left center; }
-}
-.hs-start-line {
-  height: 3px;
-  background: linear-gradient(90deg, #F2D35C, rgba(242,211,92,0.15));
-  border-radius: 2px;
-  margin: 0 0 26px;
-  max-width: 140px;
-  animation: hs-start-line 0.75s cubic-bezier(0.22, 1, 0.36, 1) 0.08s both;
-}
 @keyframes hs-start-rise {
   from { opacity: 0; transform: translateY(12px); }
   to { opacity: 1; transform: translateY(0); }
 }
 .hs-sr-1 { animation: hs-start-rise 0.65s cubic-bezier(0.22, 1, 0.36, 1) 0s both; }
-.hs-sr-2 { animation: hs-start-rise 0.65s cubic-bezier(0.22, 1, 0.36, 1) 0.08s both; }
-.hs-sr-3 { animation: hs-start-rise 0.65s cubic-bezier(0.22, 1, 0.36, 1) 0.16s both; }
-.hs-sr-4 { animation: hs-start-rise 0.65s cubic-bezier(0.22, 1, 0.36, 1) 0.24s both; }
-.hs-sr-5 { animation: hs-start-rise 0.65s cubic-bezier(0.22, 1, 0.36, 1) 0.32s both; }
+.hs-sr-2 { animation: hs-start-rise 0.65s cubic-bezier(0.22, 1, 0.36, 1) 0.1s both; }
+.hs-sr-3 { animation: hs-start-rise 0.65s cubic-bezier(0.22, 1, 0.36, 1) 0.18s both; }
+.hs-sr-4 { animation: hs-start-rise 0.65s cubic-bezier(0.22, 1, 0.36, 1) 0.26s both; }
+@keyframes hs-stash-grow {
+  0%, 100% { transform: scale(1); }
+  40% { transform: scale(1.14); }
+  58% { transform: scale(1.04); }
+}
+.hs-stash-grow {
+  display: inline-block;
+  transform-origin: 50% 85%;
+  animation: hs-stash-grow 2.6s ease-in-out 0.35s infinite;
+}
+.hs-receipt-frame { overflow: hidden !important; }
+.hs-receipt-stage {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 10px 16px;
+  box-sizing: border-box;
+}
+.hs-receipt-photo {
+  width: 100%;
+  max-width: 234px;
+  transform: rotate(-2deg);
+  background:
+    linear-gradient(168deg, rgba(255,255,255,0.22) 0%, transparent 38%),
+    linear-gradient(95deg, #faf6ee 0%, #efe8da 45%, #e8e0d2 100%);
+  box-shadow:
+    0 1px 0 rgba(255,255,255,0.5) inset,
+    0 16px 32px rgba(0,0,0,0.3),
+    0 2px 6px rgba(0,0,0,0.14);
+  border-radius: 3px;
+  padding: 22px 16px 26px;
+  color: #14120f;
+  font-family: "Courier New", Courier, monospace;
+  text-align: left;
+  position: relative;
+  border: 1px solid rgba(40,32,20,0.08);
+}
+.hs-receipt-photo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow: inset 0 0 55px rgba(60,48,28,0.1);
+  pointer-events: none;
+}
+.hs-receipt-scanlines {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: repeating-linear-gradient(
+    180deg,
+    transparent,
+    transparent 3px,
+    rgba(0,0,0,0.018) 3px,
+    rgba(0,0,0,0.018) 4px
+  );
+  pointer-events: none;
+  mix-blend-mode: multiply;
+  opacity: 0.9;
+}
+.hs-receipt-body { position: relative; z-index: 1; }
 @keyframes hs-arrow-nudge {
   0%, 100% { transform: translateX(0); }
   50% { transform: translateX(3px); }
@@ -554,9 +604,9 @@
 .hs-arrow-nudge { display: inline-block; animation: hs-arrow-nudge 1.2s ease-in-out infinite; }
 @media (prefers-reduced-motion: reduce) {
   .hs-confetti span, .hs-check-pop, .hs-arrow-nudge,
-  .hs-start-line, .hs-sr-1, .hs-sr-2, .hs-sr-3, .hs-sr-4, .hs-sr-5 { animation: none !important; }
-  .hs-sr-1, .hs-sr-2, .hs-sr-3, .hs-sr-4, .hs-sr-5 { opacity: 1 !important; transform: none !important; }
-  .hs-start-line { transform: none !important; }
+  .hs-sr-1, .hs-sr-2, .hs-sr-3, .hs-sr-4, .hs-stash-grow { animation: none !important; }
+  .hs-sr-1, .hs-sr-2, .hs-sr-3, .hs-sr-4 { opacity: 1 !important; transform: none !important; }
+  .hs-stash-grow { transform: none !important; }
 }
 
 /* Things you already do: tighter mobile layout */
@@ -596,7 +646,7 @@
 <div style="background: #0E0E0E; padding: 80px 40px 100px; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center;">
   <div>
     <div class="lb" style="color: #F2D35C; font-size: 10px; margin-bottom: 24px;">Heads only · est 2026</div>
-    <h1 class="hd" style="color: #EDE4D0; font-size: 80px; margin: 0 0 26px;">Save the<br>receipt.<br>Hear from<br>the brand.</h1>
+    <h1 class="hd" style="color: #EDE4D0; font-size: 80px; margin: 0 0 26px;">Save the receipt.<br>Stash the brand.</h1>
     <p class="bd" style="color: #D8D2C2; font-size: 16px; max-width: 480px; margin: 0 0 36px;">Headstash connects the flower you already buy to the brands behind it. Upload your receipt, get seen by the brands you actually shop, and unlock merch, drops, and early access.</p>
     <div style="display: flex; gap: 10px;">
       <a href="#start" class="btn-ochre hs-hero-stash-cta">Start your stash ↗</a>
@@ -692,19 +742,20 @@
       </div>
       <p class="bd" style="color: #2A2A2A; font-size: 14px; margin: 0 0 26px;">Buy flower at any California dispensary. Participating brands like Alien Labs and Connected show up in your stash automatically.</p>
       <div style="display: flex; justify-content: center;">
-        <div class="mobile-frame" style="background: #F5EFE1; border-color: #E8E0CA;">
-          <div style="height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 40px 20px; text-align: center; font-family: 'Courier New', monospace;">
-            <div style="display: flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 14px;">
-              <img src="/brand/headstash-logo-hit.png" alt="" style="height:22px;width:auto;object-fit:contain;"/>
-              <span class="hd" style="color: #0E0E0E; font-size: 10px; letter-spacing: 0.14em;">HEADSTASH</span>
+        <div class="mobile-frame hs-receipt-frame" style="background: #121110; border-color: #2a2824;">
+          <div class="hs-receipt-stage">
+            <div class="hs-receipt-photo" role="img" aria-label="Receipt photograph from Harborside Oakland">
+              <div class="hs-receipt-scanlines" aria-hidden="true"></div>
+              <div class="hs-receipt-body">
+                <div style="font-size: 11px; font-weight: bold; margin-bottom: 4px; letter-spacing: 0.04em; opacity: 0.92;">HARBORSIDE OAKLAND</div>
+                <div style="font-size: 8px; margin-bottom: 12px; opacity: 0.78;">04/21/26 · 14:22</div>
+                <div style="border-top: 1px dashed rgba(20,18,15,0.45); border-bottom: 1px dashed rgba(20,18,15,0.45); padding: 10px 0; width: 100%; font-size: 9px; line-height: 1.55; opacity: 0.9;">
+                  ALIEN LABS BISCOTTI<br>ALIEN LABS BABY J<br>CONNECTED GELATTI
+                </div>
+                <div style="margin-top: 10px; font-size: 11px; font-weight: bold; display: flex; justify-content: space-between; width: 100%; opacity: 0.95;"><span>TOTAL</span><span>$140.63</span></div>
+                <div style="margin-top: 22px; opacity: 0.42; font-size: 7px; letter-spacing: 0.12em;">KEEP THIS RECEIPT</div>
+              </div>
             </div>
-            <div style="color: #0E0E0E; font-size: 11px; font-weight: bold; margin-bottom: 4px;">HARBORSIDE OAKLAND</div>
-            <div style="color: #0E0E0E; font-size: 8px; margin-bottom: 14px;">04/21/26 - 14:22</div>
-            <div style="border-top: 1px dashed #0E0E0E; border-bottom: 1px dashed #0E0E0E; padding: 10px 0; width: 100%; color: #0E0E0E; font-size: 9px; line-height: 1.5; text-align: left;">
-              ALIEN LABS BISCOTTI<br>ALIEN LABS BABY J<br>CONNECTED GELATTI
-            </div>
-            <div style="margin-top: 10px; color: #0E0E0E; font-size: 11px; font-weight: bold; display: flex; justify-content: space-between; width: 100%;"><span>TOTAL</span><span>$140.63</span></div>
-            <div style="margin-top: 30px; color: #0E0E0E; opacity: 0.5; font-size: 8px;">KEEP THIS RECEIPT</div>
           </div>
         </div>
       </div>
@@ -770,8 +821,18 @@
               <div class="hd" style="color: #F2D35C; font-size: 8px;">AP</div>
             </div>
           </div>
-          <div style="padding: 40px 24px 0; text-align: center;">
-            <div style="width: 64px; height: 64px; background: #5A7A3E; border-radius: 50%; margin: 0 auto 22px; display: flex; align-items: center; justify-content: center;">
+          <div style="padding: 40px 24px 0; text-align: center; position: relative; overflow: hidden;">
+            <div class="hs-confetti" style="position: absolute; top: 52px; left: 50%; transform: translateX(-50%); width: 180px; height: 180px; pointer-events: none;">
+              <span style="--dx:-58px;--dy:-42px;--c:#5A7A3E;--d:0s;"></span>
+              <span style="--dx:42px;--dy:-52px;--c:#35B6F2;--d:.08s;"></span>
+              <span style="--dx:-28px;--dy:-62px;--c:#F2D35C;--d:.12s;"></span>
+              <span style="--dx:62px;--dy:-24px;--c:#E87A3A;--d:.06s;"></span>
+              <span style="--dx:-68px;--dy:6px;--c:#F2D35C;--d:.18s;"></span>
+              <span style="--dx:50px;--dy:12px;--c:#5A7A3E;--d:.22s;"></span>
+              <span style="--dx:-12px;--dy:-78px;--c:#E87A3A;--d:.14s;"></span>
+              <span style="--dx:22px;--dy:-34px;--c:#35B6F2;--d:.24s;"></span>
+            </div>
+            <div class="hs-check-pop" style="width: 64px; height: 64px; background: #5A7A3E; border-radius: 50%; margin: 0 auto 22px; display: flex; align-items: center; justify-content: center; position: relative; box-shadow: 0 0 0 6px rgba(90,122,62,0.16);">
               <svg width="28" height="22" viewBox="0 0 40 30" style="color: #EDE4D0;"><path d="M 5 16 L 15 26 L 35 4" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </div>
             <div class="hd" style="color: #EDE4D0; font-size: 26px; line-height: 1; margin-bottom: 12px;">It's yours.</div>
@@ -1110,16 +1171,14 @@
 </div>
 
 <!-- START -->
-<div id="start" class="hs-start-block" style="background: #EDE4D0; padding: 110px 40px; position: relative;">
-  <div class="hs-start-line" aria-hidden="true"></div>
-  <div class="lb hs-sr-1" style="color: #0E0E0E; opacity: 0.45; font-size: 10px; margin-bottom: 22px;">Start here</div>
-  <h2 class="hd hs-sr-2" style="color: #0E0E0E; font-size: 68px; margin: 0 0 22px; line-height: 0.95;">Start your<br>stash.</h2>
-  <p class="bd hs-sr-3" style="color: #2A2A2A; font-size: 16px; max-width: 480px; margin: 0 0 36px;">Takes about thirty seconds. Works on any phone. Add it to your home screen and upload receipts as you shop.</p>
-  <div class="hs-sr-4" style="display: flex; gap: 10px; max-width: 480px;">
+<div id="start" class="hs-start-block" style="background: #EDE4D0; padding: 64px 40px 72px; position: relative;">
+  <h2 class="hd hs-sr-1" style="color: #0E0E0E; font-size: 68px; margin: 0 0 14px; line-height: 0.95;">Start your<br><span class="hs-stash-grow">stash.</span></h2>
+  <p class="bd hs-sr-2" style="color: #2A2A2A; font-size: 16px; max-width: 480px; margin: 0 0 22px;">Takes about thirty seconds. Works on any phone. Add it to your home screen and upload receipts as you shop.</p>
+  <div class="hs-sr-3" style="display: flex; gap: 10px; max-width: 480px;">
     <input type="tel" placeholder="(___) ___-____" style="flex: 1; background: transparent; border: 0.5px solid rgba(14,14,14,0.3); color: #0E0E0E; padding: 14px 16px; font-size: 15px; border-radius: 4px;">
     <button class="btn-ochre hs-start-attn">Send code <span class="hs-arrow-nudge">↗</span></button>
   </div>
-  <div class="bd hs-sr-5" style="color: #2A2A2A; opacity: 0.65; font-size: 12px; margin-top: 18px; max-width: 480px;">By continuing you agree to receive SMS from Headstash. Msg & data rates may apply. Reply STOP to opt out.</div>
+  <div class="bd hs-sr-4" style="color: #2A2A2A; opacity: 0.65; font-size: 12px; margin-top: 14px; max-width: 480px;">By continuing you agree to receive SMS from Headstash. Msg & data rates may apply. Reply STOP to opt out.</div>
 </div>
 
 <div style="background: #0E0E0E; padding: 28px 40px 32px; display: flex; align-items: flex-start; justify-content: space-between;">
