@@ -169,6 +169,62 @@
 
   
 
+
+/* Submit-step: confetti burst + check pop */
+@keyframes hs-confetti-burst {
+  0% { transform: translate(0,0) scale(.6); opacity: 0; }
+  20% { opacity: 1; }
+  100% { transform: translate(var(--dx), var(--dy)) scale(1); opacity: 0; }
+}
+.hs-confetti { position: relative; }
+.hs-confetti span {
+  position: absolute;
+  top: 0; left: 50%;
+  width: 6px; height: 10px;
+  background: var(--c);
+  border-radius: 1px;
+  transform: translate(0,0) scale(.6);
+  opacity: 0;
+  animation: hs-confetti-burst 1.8s cubic-bezier(.2,.6,.4,1) var(--d, 0s) infinite;
+}
+@keyframes hs-check-pop {
+  0% { transform: scale(.6); box-shadow: 0 0 0 0 rgba(90,122,62,0.35); }
+  60% { transform: scale(1.08); box-shadow: 0 0 0 14px rgba(90,122,62,0); }
+  100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(90,122,62,0); }
+}
+.hs-check-pop { animation: hs-check-pop 1.4s ease-out 0s 1; }
+/* Start form attention: pulsing ochre button + glowing wrapper */
+@keyframes hs-cta-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(242,211,92,0.55); }
+  50% { box-shadow: 0 0 0 14px rgba(242,211,92,0); }
+}
+.hs-start-attn { animation: hs-cta-pulse 2.2s ease-in-out infinite; }
+@keyframes hs-arrow-nudge {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(3px); }
+}
+.hs-arrow-nudge { display: inline-block; animation: hs-arrow-nudge 1.2s ease-in-out infinite; }
+@media (prefers-reduced-motion: reduce) {
+  .hs-confetti span, .hs-check-pop, .hs-start-attn, .hs-arrow-nudge { animation: none !important; }
+}
+
+/* Things you already do: tighter mobile layout */
+@media (max-width: 768px) {
+  .tya-row {
+    grid-template-columns: 1fr !important;
+    gap: 6px !important;
+    padding: 14px 0 !important;
+  }
+  .tya-row .tya-head { font-size: 18px !important; }
+  .tya-row .tya-body { font-size: 13px !important; }
+}
+
+/* Submit-step overlap: fit inside mobile column without overflow */
+@media (max-width: 768px) {
+  .hs-submit-stage { min-height: 620px !important; }
+  .hs-submit-peek { transform: rotate(-8deg) translate(-38px, 18px) scale(0.86) !important; }
+  .hs-submit-front { transform: rotate(3deg) translate(32px, -8px) scale(0.92) !important; }
+}
 </style>
 </head>
 <body>
@@ -414,7 +470,7 @@
                   <div class="lb" style="color: #F2D35C; font-size: 6px;">Issue 01 · hoodie</div>
                   <div class="hd" style="color: #EDE4D0; font-size: 11px; margin-top: 2px;">Smokers Club hoodie</div>
                   <div style="height: 1.5px; background: rgba(237,228,208,0.12); border-radius: 1px; margin-top: 6px;">
-                    <div style="width: 82%; height: 100%; background: #F2D35C; border-radius: 1px;"></div>
+                    <div style="width: 82%; height: 100%; background: #5A7A3E; border-radius: 1px;"></div>
                   </div>
                 </div>
               </div>
@@ -441,7 +497,7 @@
             <div class="hd" style="color: #EDE4D0; font-size: 18px; line-height: 1;">Your stashes.</div>
           </div>
           <div style="padding: 0 18px;">
-            <div style="background: #171717; border: 0.5px solid rgba(237,228,208,0.1); border-left: 2px solid #F2D35C; padding: 10px; margin-bottom: 7px; border-radius: 0 3px 3px 0;">
+            <div style="background: #171717; border: 0.5px solid rgba(237,228,208,0.1); border-left: 2px solid #5A7A3E; padding: 10px; margin-bottom: 7px; border-radius: 0 3px 3px 0;">
               <div style="display: flex; justify-content: space-between; margin-bottom: 6px;">
                 <div>
                   <div class="lb" style="color: #D8D2C2; opacity: 0.55; font-size: 6px;">Alien Labs</div>
@@ -453,7 +509,7 @@
                 <div style="width: 82%; height: 100%; background: #F2D35C; border-radius: 1px;"></div>
               </div>
             </div>
-            <div style="background: #171717; border: 0.5px solid rgba(237,228,208,0.1); border-left: 2px solid #D4A574; padding: 10px; margin-bottom: 7px; border-radius: 0 3px 3px 0;">
+            <div style="background: #171717; border: 0.5px solid rgba(237,228,208,0.1); border-left: 2px solid #35B6F2; padding: 10px; margin-bottom: 7px; border-radius: 0 3px 3px 0;">
               <div style="display: flex; justify-content: space-between; margin-bottom: 6px;">
                 <div>
                   <div class="lb" style="color: #D8D2C2; opacity: 0.55; font-size: 6px;">Connected</div>
@@ -462,10 +518,10 @@
                 <div class="hd" style="color: #EDE4D0; font-size: 14px;">$94</div>
               </div>
               <div style="height: 2px; background: rgba(237,228,208,0.12); border-radius: 1px;">
-                <div style="width: 63%; height: 100%; background: #D4A574; border-radius: 1px;"></div>
+                <div style="width: 63%; height: 100%; background: #35B6F2; border-radius: 1px;"></div>
               </div>
             </div>
-            <div style="background: #171717; border: 0.5px solid rgba(237,228,208,0.1); border-left: 2px solid #B888E8; padding: 10px; border-radius: 0 3px 3px 0;">
+            <div style="background: #171717; border: 0.5px solid rgba(237,228,208,0.1); border-left: 2px solid #E87A3A; padding: 10px; border-radius: 0 3px 3px 0;">
               <div style="display: flex; justify-content: space-between; margin-bottom: 6px;">
                 <div>
                   <div class="lb" style="color: #D8D2C2; opacity: 0.55; font-size: 6px;">Oakfruitland</div>
@@ -474,7 +530,7 @@
                 <div class="hd" style="color: #EDE4D0; font-size: 14px;">$42</div>
               </div>
               <div style="height: 2px; background: rgba(237,228,208,0.12); border-radius: 1px;">
-                <div style="width: 28%; height: 100%; background: #B888E8; border-radius: 1px;"></div>
+                <div style="width: 28%; height: 100%; background: #E87A3A; border-radius: 1px;"></div>
               </div>
             </div>
           </div>
@@ -488,31 +544,60 @@
     </div>
 
     <div>
-      <div style="display: flex; justify-content: center; margin-bottom: 22px;">
-        <div class="mobile-frame">
-          <div class="status-bar"><div class="time">9:44</div><div class="battery"></div></div>
+      <div class="hs-submit-stage" style="position: relative; display: flex; justify-content: center; align-items: center; margin-bottom: 22px; min-height: 560px; overflow: visible;">
+        <!-- Peek phone: queued/clock behind -->
+        <div class="mobile-frame hs-submit-peek" style="position: absolute; transform: rotate(-8deg) translate(-56px, 22px); z-index: 1; opacity: 0.85;">
+          <div class="status-bar"><div class="time">9:43</div><div class="battery"></div></div>
           <div class="frame-nav">
             <div class="hd" style="color: #EDE4D0; font-size: 10px; letter-spacing: 0.14em;">HEADSTASH</div>
             <div style="width: 22px; height: 22px; border-radius: 50%; background: #2A2A2A; display: flex; align-items: center; justify-content: center;">
               <div class="hd" style="color: #F2D35C; font-size: 8px;">AP</div>
             </div>
           </div>
-          <div style="padding: 56px 20px 0; text-align: center;">
-            <div style="width: 62px; height: 62px; border: 2px solid #F2D35C; border-radius: 50%; margin: 0 auto 22px; display: flex; align-items: center; justify-content: center; position: relative;">
+          <div style="padding: 44px 20px 0; text-align: center;">
+            <div style="width: 58px; height: 58px; border: 2px solid #F2D35C; border-radius: 50%; margin: 0 auto 18px; display: flex; align-items: center; justify-content: center; position: relative;">
               <div style="position: absolute; inset: -6px; border: 1px solid rgba(242,211,92,0.3); border-radius: 50%; animation: pulse-ring 2s infinite;"></div>
-              <svg width="28" height="28" viewBox="0 0 36 36" style="color: #F2D35C;"><circle cx="18" cy="18" r="14" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M 18 10 L 18 18 L 24 22" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+              <svg width="26" height="26" viewBox="0 0 36 36" style="color: #F2D35C;"><circle cx="18" cy="18" r="14" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M 18 10 L 18 18 L 24 22" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
             </div>
-            <div class="hd" style="color: #EDE4D0; font-size: 24px; line-height: 1; margin-bottom: 12px;">In the queue.</div>
-            <div class="bd" style="color: #D8D2C2; font-size: 12px; line-height: 1.55; margin-bottom: 22px;">Your Harborside Oakland receipt is under review. We'll text you the second your stash is updated.</div>
+            <div class="hd" style="color: #EDE4D0; font-size: 20px; line-height: 1; margin-bottom: 8px;">In the queue.</div>
+            <div class="bd" style="color: #D8D2C2; font-size: 10px; line-height: 1.5; opacity: 0.75;">Receipt under review.</div>
+          </div>
+        </div>
+        <!-- Front phone: redeem success with confetti -->
+        <div class="mobile-frame hs-submit-front" style="position: relative; z-index: 2; transform: rotate(3deg) translate(44px, -14px);">
+          <div class="status-bar"><div class="time">9:46</div><div class="battery"></div></div>
+          <div class="frame-nav">
+            <div class="hd" style="color: #EDE4D0; font-size: 10px; letter-spacing: 0.14em;">HEADSTASH</div>
+            <div style="width: 22px; height: 22px; border-radius: 50%; background: #2A2A2A; display: flex; align-items: center; justify-content: center;">
+              <div class="hd" style="color: #F2D35C; font-size: 8px;">AP</div>
+            </div>
+          </div>
+          <div style="padding: 52px 22px 0; text-align: center; position: relative; overflow: hidden;">
+            <!-- Confetti burst -->
+            <div class="hs-confetti" style="position: absolute; top: 64px; left: 50%; transform: translateX(-50%); width: 180px; height: 180px; pointer-events: none;">
+              <span style="--dx:-58px;--dy:-42px;--c:#5A7A3E;--d:0s;"></span>
+              <span style="--dx:42px;--dy:-52px;--c:#35B6F2;--d:.08s;"></span>
+              <span style="--dx:-28px;--dy:-62px;--c:#F2D35C;--d:.12s;"></span>
+              <span style="--dx:62px;--dy:-24px;--c:#E87A3A;--d:.06s;"></span>
+              <span style="--dx:-68px;--dy:6px;--c:#F2D35C;--d:.18s;"></span>
+              <span style="--dx:50px;--dy:12px;--c:#5A7A3E;--d:.22s;"></span>
+              <span style="--dx:-12px;--dy:-78px;--c:#E87A3A;--d:.14s;"></span>
+              <span style="--dx:22px;--dy:-34px;--c:#35B6F2;--d:.24s;"></span>
+            </div>
+            <div class="hs-check-pop" style="width: 72px; height: 72px; background: #5A7A3E; border-radius: 50%; margin: 0 auto 22px; display: flex; align-items: center; justify-content: center; position: relative; box-shadow: 0 0 0 8px rgba(90,122,62,0.18);">
+              <svg width="32" height="24" viewBox="0 0 40 30" style="color: #EDE4D0;"><path d="M 5 16 L 15 26 L 35 4" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="hd" style="color: #EDE4D0; font-size: 24px; line-height: 1; margin-bottom: 10px;">You're in.</div>
+            <div class="bd" style="color: #D8D2C2; font-size: 12px; line-height: 1.55; margin-bottom: 18px;">Alien Labs · Biscotti just unlocked something in your stash.</div>
             <div style="background: #171717; border: 0.5px solid rgba(237,228,208,0.1); padding: 10px; border-radius: 3px; text-align: left;">
-              <div class="lb" style="color: #F2D35C; font-size: 6px; margin-bottom: 4px;">Pending · submitted 9:43 AM</div>
+              <div class="lb" style="color: #5A7A3E; font-size: 6px; margin-bottom: 4px;">Approved · Apr 21</div>
               <div class="bd" style="color: #EDE4D0; font-size: 10px; font-weight: 500;">Harborside Oakland</div>
-              <div class="bd" style="color: #D8D2C2; opacity: 0.6; font-size: 8px;">3 items · $140.63 · Apr 21</div>
+              <div class="bd" style="color: #D8D2C2; opacity: 0.6; font-size: 8px;">+$62.40 to Alien Labs stash</div>
             </div>
           </div>
         </div>
       </div>
-      <div class="lb" style="color: #D8D2C2; opacity: 0.55; font-size: 9px; text-align: center; margin-bottom: 4px;">Submitted</div>
+      <div class="lb" style="color: #D8D2C2; opacity: 0.55; font-size: 9px; text-align: center; margin-bottom: 4px;">Queue · approved</div>
       <div class="bd" style="color: #D8D2C2; font-size: 13px; text-align: center; opacity: 0.9;">We text the second your stash updates.</div>
     </div>
 
@@ -521,34 +606,34 @@
 
 <!-- ONE APP EVERY BRAND -->
 <div style="background: #EDE4D0; padding: 90px 40px;">
-  <div class="lb" style="color: #0E0E0E; opacity: 0.45; font-size: 10px; margin-bottom: 20px;">Each brand runs their own thing</div>
+  <div class="lb" style="color: #0E0E0E; opacity: 0.45; font-size: 10px; margin-bottom: 20px;">Real brands. Real rewards.</div>
   <h2 class="hd" style="color: #0E0E0E; font-size: 44px; margin: 0 0 14px; line-height: 1;">One app.<br>Every brand you buy.</h2>
-  <p class="bd" style="color: #2A2A2A; font-size: 16px; max-width: 580px; margin: 0 0 44px;">Headstash is one place for every brand you buy. Each brand runs its own program - rewards, drops, and voice - while you keep one clean home screen.</p>
+  <p class="bd" style="color: #2A2A2A; font-size: 16px; max-width: 580px; margin: 0 0 44px;">These are the brands you already buy. Here's the kind of thing they can do back.</p>
 
   <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px;">
 
-    <div style="background: #0E0E0E; border-left: 2px solid #F2D35C; padding: 18px; border-radius: 0 4px 4px 0; min-height: 220px; display: flex; flex-direction: column;">
-      <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="color:#F2D35C;"><path d="M12 3v18"/><path d="M5 9l7-6 7 6"/><path d="M5 15l7-6 7 6"/></svg><div class="lb" style="color: #F2D35C; font-size: 9px;">Example · merch unlock</div></div>
+    <div style="background: #0E0E0E; border-left: 3px solid #5A7A3E; padding: 18px; border-radius: 0 4px 4px 0; min-height: 220px; display: flex; flex-direction: column;">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;"><img src="/partners/alien-labs-brand.png" alt="Alien Labs" style="height: 22px; width: auto; object-fit: contain;"/><div class="lb" style="color: #5A7A3E; font-size: 9px;">Alien Labs · merch unlock</div></div>
       <div class="hd" style="color: #EDE4D0; font-size: 20px; margin-bottom: 16px; line-height: 1;">Smokers Club hoodie</div>
-      <div style="flex: 1;"><div class="bd" style="color: #D8D2C2; font-size: 12px; opacity: 0.85;">Spend $300 qualifying across any dispensaries in 90 days.</div></div>
+      <div style="flex: 1;"><div class="bd" style="color: #D8D2C2; font-size: 12px; opacity: 0.9;">Hit $300 across any dispensary in 90 days. The grey camo hoodie ships free.</div></div>
       <div style="padding-top: 14px; border-top: 0.5px solid rgba(237,228,208,0.12); margin-top: 12px;">
         <div class="bd" style="color: #D8D2C2; opacity: 0.55; font-size: 11px;">Example reward. Brands configure their own.</div>
       </div>
     </div>
 
-    <div style="background: #0E0E0E; border-left: 2px solid #F2D35C; padding: 18px; border-radius: 0 4px 4px 0; min-height: 220px; display: flex; flex-direction: column; opacity: 0.9;">
-      <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="color:#F2D35C;"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4"/><path d="M8 3v4"/><path d="M3 11h18"/></svg><div class="lb" style="color: #F2D35C; font-size: 9px;">Example · event invite</div></div>
-      <div class="hd" style="color: #EDE4D0; font-size: 20px; margin-bottom: 16px; line-height: 1;">Sunday tasting invite</div>
-      <div style="flex: 1;"><div class="bd" style="color: #D8D2C2; font-size: 12px; opacity: 0.85;">Hit five approved receipts in a rolling month.</div></div>
+    <div style="background: #0E0E0E; border-left: 3px solid #35B6F2; padding: 18px; border-radius: 0 4px 4px 0; min-height: 220px; display: flex; flex-direction: column;">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;"><img src="/partners/connected-brand.png" alt="Connected" style="height: 22px; width: auto; object-fit: contain;"/><div class="lb" style="color: #35B6F2; font-size: 9px;">Connected · drop access</div></div>
+      <div class="hd" style="color: #EDE4D0; font-size: 20px; margin-bottom: 16px; line-height: 1;">Death Traitors first look</div>
+      <div style="flex: 1;"><div class="bd" style="color: #D8D2C2; font-size: 12px; opacity: 0.9;">Five Connected receipts this month gets you first access to the next Death Traitors drop.</div></div>
       <div style="padding-top: 14px; border-top: 0.5px solid rgba(237,228,208,0.12); margin-top: 12px;">
         <div class="bd" style="color: #D8D2C2; opacity: 0.55; font-size: 11px;">Example reward. Brands configure their own.</div>
       </div>
     </div>
 
-    <div style="background: #0E0E0E; border-left: 2px solid #F2D35C; padding: 18px; border-radius: 0 4px 4px 0; min-height: 220px; display: flex; flex-direction: column; opacity: 0.8;">
-      <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="color:#F2D35C;"><rect x="3" y="7" width="18" height="14" rx="1.5"/><path d="M8 3v4"/><path d="M16 3v4"/><path d="M9 13h6"/></svg><div class="lb" style="color: #F2D35C; font-size: 9px;">Example · bonus drop</div></div>
-      <div class="hd" style="color: #EDE4D0; font-size: 20px; margin-bottom: 16px; line-height: 1;">Bonus sticker pack</div>
-      <div style="flex: 1;"><div class="bd" style="color: #D8D2C2; font-size: 12px; opacity: 0.85;">Upload any receipt with an infused pre-roll from the brand.</div></div>
+    <div style="background: #0E0E0E; border-left: 3px solid #E87A3A; padding: 18px; border-radius: 0 4px 4px 0; min-height: 220px; display: flex; flex-direction: column;">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;"><div style="width: 22px; height: 22px; border-radius: 3px; background: #E87A3A; color: #0E0E0E; display: flex; align-items: center; justify-content: center; font-family: 'BluntFamily', sans-serif; font-size: 10px; letter-spacing: 0.04em; flex-shrink: 0;">OF</div><div class="lb" style="color: #E87A3A; font-size: 9px;">Oakfruitland · farm day</div></div>
+      <div class="hd" style="color: #EDE4D0; font-size: 20px; margin-bottom: 16px; line-height: 1;">Sunday tasting at the farm</div>
+      <div style="flex: 1;"><div class="bd" style="color: #D8D2C2; font-size: 12px; opacity: 0.9;">Three Oakfruitland receipts in a month and you're on the list for the next tasting.</div></div>
       <div style="padding-top: 14px; border-top: 0.5px solid rgba(237,228,208,0.12); margin-top: 12px;">
         <div class="bd" style="color: #D8D2C2; opacity: 0.55; font-size: 11px;">Example reward. Brands configure their own.</div>
       </div>
@@ -559,29 +644,29 @@
 
 <!-- THINGS YOU ALREADY DO -->
 <div style="background: #0E0E0E; padding: 90px 40px;">
-  <div class="lb" style="color: #F2D35C; font-size: 10px; margin-bottom: 20px;">What brands can reward you for</div>
-  <h2 class="hd" style="color: #EDE4D0; font-size: 44px; margin: 0 0 40px; line-height: 1;">Things you already do.</h2>
+  <div class="lb" style="color: #F2D35C; font-size: 10px; margin-bottom: 16px; display: block;">What brands can reward you for</div>
+  <h2 class="hd" style="color: #EDE4D0; font-size: 40px; margin: 0 0 28px; line-height: 1;">Things you already do.</h2>
 
   <div>
-    <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 16px; padding: 20px 0; border-top: 0.5px solid rgba(237,228,208,0.2); align-items: baseline;">
-      <div class="hd" style="color: #EDE4D0; font-size: 22px; display:flex; align-items:center; gap:10px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="color:#F2D35C;flex-shrink:0;"><path d="M3 6h18l-2 12a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2L3 6Z"/><path d="M8 6V4a4 4 0 0 1 8 0v2"/></svg><span>Buying.</span></div>
-      <div class="bd" style="color: #D8D2C2; font-size: 14px;">Every receipt with a participating SKU adds qualifying dollars to that brand's stash.</div>
+    <div class="tya-row" style="display: grid; grid-template-columns: 1fr 2fr; gap: 16px; padding: 20px 0; border-top: 0.5px solid rgba(237,228,208,0.2); align-items: baseline;">
+      <div class="hd tya-head" style="color: #EDE4D0; font-size: 22px; display:flex; align-items:center; gap:10px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="color:#F2D35C;flex-shrink:0;"><path d="M3 6h18l-2 12a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2L3 6Z"/><path d="M8 6V4a4 4 0 0 1 8 0v2"/></svg><span>Buying.</span></div>
+      <div class="bd tya-body" style="color: #D8D2C2; font-size: 14px;">Every receipt with a participating SKU adds qualifying dollars to that brand's stash.</div>
     </div>
-    <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 16px; padding: 20px 0; border-top: 0.5px solid rgba(237,228,208,0.2); align-items: baseline;">
-      <div class="hd" style="color: #EDE4D0; font-size: 22px; display:flex; align-items:center; gap:10px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="color:#F2D35C;flex-shrink:0;"><path d="M3 12a9 9 0 0 1 15.5-6.3L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15.5 6.3L3 16"/><path d="M3 21v-5h5"/></svg><span>Repeating.</span></div>
-      <div class="bd" style="color: #D8D2C2; font-size: 14px;">Hit a brand's spend or receipt milestone and a named item appears in your stash.</div>
+    <div class="tya-row" style="display: grid; grid-template-columns: 1fr 2fr; gap: 16px; padding: 20px 0; border-top: 0.5px solid rgba(237,228,208,0.2); align-items: baseline;">
+      <div class="hd tya-head" style="color: #EDE4D0; font-size: 22px; display:flex; align-items:center; gap:10px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="color:#F2D35C;flex-shrink:0;"><path d="M3 12a9 9 0 0 1 15.5-6.3L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15.5 6.3L3 16"/><path d="M3 21v-5h5"/></svg><span>Repeating.</span></div>
+      <div class="bd tya-body" style="color: #D8D2C2; font-size: 14px;">Hit a brand's spend or receipt milestone and a named item appears in your stash.</div>
     </div>
-    <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 16px; padding: 20px 0; border-top: 0.5px solid rgba(237,228,208,0.2); align-items: baseline;">
-      <div class="hd" style="color: #EDE4D0; font-size: 22px; display:flex; align-items:center; gap:10px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="color:#F2D35C;flex-shrink:0;"><path d="M12 3v4"/><path d="M5 8l2.5 2.5"/><path d="M19 8l-2.5 2.5"/><circle cx="12" cy="14" r="6"/><path d="M9 14l2 2 4-4"/></svg><span>Trying.</span></div>
-      <div class="bd" style="color: #D8D2C2; font-size: 14px;">Your first receipt with a new brand can trigger a welcome item.</div>
+    <div class="tya-row" style="display: grid; grid-template-columns: 1fr 2fr; gap: 16px; padding: 20px 0; border-top: 0.5px solid rgba(237,228,208,0.2); align-items: baseline;">
+      <div class="hd tya-head" style="color: #EDE4D0; font-size: 22px; display:flex; align-items:center; gap:10px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="color:#F2D35C;flex-shrink:0;"><path d="M12 3v4"/><path d="M5 8l2.5 2.5"/><path d="M19 8l-2.5 2.5"/><circle cx="12" cy="14" r="6"/><path d="M9 14l2 2 4-4"/></svg><span>Trying.</span></div>
+      <div class="bd tya-body" style="color: #D8D2C2; font-size: 14px;">Your first receipt with a new brand can trigger a welcome item.</div>
     </div>
-    <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 16px; padding: 20px 0; border-top: 0.5px solid rgba(237,228,208,0.2); align-items: baseline;">
-      <div class="hd" style="color: #EDE4D0; font-size: 22px; display:flex; align-items:center; gap:10px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="color:#F2D35C;flex-shrink:0;"><circle cx="12" cy="12" r="9"/><path d="M15.5 8.5l-2 5-5 2 2-5 5-2Z"/></svg><span>Exploring.</span></div>
-      <div class="bd" style="color: #D8D2C2; font-size: 14px;">Some brands reward buying their SKUs across multiple dispensaries - something Headstash can uniquely track.</div>
+    <div class="tya-row" style="display: grid; grid-template-columns: 1fr 2fr; gap: 16px; padding: 20px 0; border-top: 0.5px solid rgba(237,228,208,0.2); align-items: baseline;">
+      <div class="hd tya-head" style="color: #EDE4D0; font-size: 22px; display:flex; align-items:center; gap:10px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="color:#F2D35C;flex-shrink:0;"><circle cx="12" cy="12" r="9"/><path d="M15.5 8.5l-2 5-5 2 2-5 5-2Z"/></svg><span>Exploring.</span></div>
+      <div class="bd tya-body" style="color: #D8D2C2; font-size: 14px;">Some brands reward buying their SKUs across multiple dispensaries - something Headstash can uniquely track.</div>
     </div>
-    <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 16px; padding: 20px 0; border-top: 0.5px solid rgba(237,228,208,0.2); border-bottom: 0.5px solid rgba(237,228,208,0.2); align-items: baseline;">
-      <div class="hd" style="color: #EDE4D0; font-size: 22px; display:flex; align-items:center; gap:10px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="color:#F2D35C;flex-shrink:0;"><circle cx="9" cy="8" r="4"/><path d="M2 21a7 7 0 0 1 14 0"/><path d="M17 11h5"/><path d="M19.5 8.5v5"/></svg><span>Putting people on.</span></div>
-      <div class="bd" style="color: #D8D2C2; font-size: 14px;">Refer a friend to a brand you already shop. When their first receipt lands, you both unlock something.</div>
+    <div class="tya-row" style="display: grid; grid-template-columns: 1fr 2fr; gap: 16px; padding: 20px 0; border-top: 0.5px solid rgba(237,228,208,0.2); border-bottom: 0.5px solid rgba(237,228,208,0.2); align-items: baseline;">
+      <div class="hd tya-head" style="color: #EDE4D0; font-size: 22px; display:flex; align-items:center; gap:10px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="color:#F2D35C;flex-shrink:0;"><circle cx="9" cy="8" r="4"/><path d="M2 21a7 7 0 0 1 14 0"/><path d="M17 11h5"/><path d="M19.5 8.5v5"/></svg><span>Putting people on.</span></div>
+      <div class="bd tya-body" style="color: #D8D2C2; font-size: 14px;">Refer a friend to a brand you already shop. When their first receipt lands, you both unlock something.</div>
     </div>
   </div>
 </div>
@@ -620,35 +705,35 @@
   <div>
     <div style="padding: 20px 0; border-top: 0.5px solid rgba(237,228,208,0.2);">
       <div class="hd" style="color: #EDE4D0; font-size: 17px; margin-bottom: 8px;">How much does it cost?</div>
-      <div class="bd" style="color: #D8D2C2; font-size: 14px;">Free. The cost is receipts, not cash.</div>
+      <div class="bd tya-body" style="color: #D8D2C2; font-size: 14px;">Free. The cost is receipts, not cash.</div>
     </div>
     <div style="padding: 20px 0; border-top: 0.5px solid rgba(237,228,208,0.2);">
       <div class="hd" style="color: #EDE4D0; font-size: 17px; margin-bottom: 8px;">Does Headstash sell anything?</div>
-      <div class="bd" style="color: #D8D2C2; font-size: 14px;">No. Brands run their own rewards. Headstash connects your receipt to them.</div>
+      <div class="bd tya-body" style="color: #D8D2C2; font-size: 14px;">No. Brands run their own rewards. Headstash connects your receipt to them.</div>
     </div>
     <div style="padding: 20px 0; border-top: 0.5px solid rgba(237,228,208,0.2);">
       <div class="hd" style="color: #EDE4D0; font-size: 17px; margin-bottom: 8px;">Do receipts expire?</div>
-      <div class="bd" style="color: #D8D2C2; font-size: 14px;">Fourteen days from purchase. Don't sit on them.</div>
+      <div class="bd tya-body" style="color: #D8D2C2; font-size: 14px;">Fourteen days from purchase. Don't sit on them.</div>
     </div>
     <div style="padding: 20px 0; border-top: 0.5px solid rgba(237,228,208,0.2);">
       <div class="hd" style="color: #EDE4D0; font-size: 17px; margin-bottom: 8px;">Is this a discount program?</div>
-      <div class="bd" style="color: #D8D2C2; font-size: 14px;">No. Brands reward you with merch, drops, or access - not generic coupons.</div>
+      <div class="bd tya-body" style="color: #D8D2C2; font-size: 14px;">No. Brands reward you with merch, drops, or access - not generic coupons.</div>
     </div>
     <div style="padding: 20px 0; border-top: 0.5px solid rgba(237,228,208,0.2); border-bottom: 0.5px solid rgba(237,228,208,0.2);">
       <div class="hd" style="color: #EDE4D0; font-size: 17px; margin-bottom: 8px;">Can I share receipts with a friend?</div>
-      <div class="bd" style="color: #D8D2C2; font-size: 14px;">One receipt, one account. We dedupe.</div>
+      <div class="bd tya-body" style="color: #D8D2C2; font-size: 14px;">One receipt, one account. We dedupe.</div>
     </div>
   </div>
 </div>
 
 <!-- START -->
-<div id="start" style="background: #EDE4D0; padding: 110px 40px;">
+<div id="start" style="background: #EDE4D0; padding: 110px 40px; position: relative;"><div aria-hidden="true" style="position:absolute; inset: 60px 24px auto 24px; height: 180px; background: radial-gradient(closest-side, rgba(242,211,92,0.35), rgba(242,211,92,0) 70%); pointer-events: none; filter: blur(12px);"></div>
   <div class="lb" style="color: #0E0E0E; opacity: 0.45; font-size: 10px; margin-bottom: 22px;">Start here</div>
   <h2 class="hd" style="color: #0E0E0E; font-size: 68px; margin: 0 0 22px; line-height: 0.95;">Start your<br>stash.</h2>
   <p class="bd" style="color: #2A2A2A; font-size: 16px; max-width: 480px; margin: 0 0 36px;">Takes about thirty seconds. Works on any phone. Add it to your home screen and upload receipts as you shop.</p>
   <div style="display: flex; gap: 10px; max-width: 480px;">
     <input type="tel" placeholder="(___) ___-____" style="flex: 1; background: transparent; border: 0.5px solid rgba(14,14,14,0.3); color: #0E0E0E; padding: 14px 16px; font-size: 15px; border-radius: 4px;">
-    <button class="btn-ochre">Send code ↗</button>
+    <button class="btn-ochre hs-start-attn">Send code <span class="hs-arrow-nudge">↗</span></button>
   </div>
   <div class="bd" style="color: #2A2A2A; opacity: 0.65; font-size: 12px; margin-top: 18px; max-width: 480px;">By continuing you agree to receive SMS from Headstash. Msg & data rates may apply. Reply STOP to opt out.</div>
 </div>
