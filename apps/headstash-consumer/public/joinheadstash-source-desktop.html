@@ -178,22 +178,6 @@
   .phone-float::after { content: ''; position: absolute; top: 20px; left: -40px; right: -40px; bottom: 20px; background: radial-gradient(ellipse at center, rgba(242,211,92,0.08) 0%, transparent 70%); z-index: -1; pointer-events: none; }
 
   .hs-site-header { position: sticky; top: 0; z-index: 500; background: #0E0E0E; border-bottom: 0.5px solid rgba(237,228,208,0.1); }
-  .hs-nav-burger { display: none; flex-direction: column; align-items: center; justify-content: center; width: 40px; height: 40px; padding: 0; background: transparent; border: 0.5px solid rgba(237,228,208,0.25); border-radius: 4px; color: #EDE4D0; cursor: pointer; }
-  .hs-nav-burger span { display: block; width: 18px; height: 2px; background: #EDE4D0; margin: 2px 0; border-radius: 1px; }
-  @media (min-width: 901px) {
-    .hs-nav-burger { display: none !important; }
-    .hs-nav-desk { display: flex !important; flex-wrap: wrap; align-items: center; gap: 6px 16px; justify-content: flex-end; }
-  }
-  @media (max-width: 900px) {
-    .hs-nav-desk { display: none !important; }
-    .hs-nav-burger { display: flex; }
-  }
-  .hs-nav-backdrop[hidden] { display: none !important; }
-  .hs-nav-backdrop { position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 600; }
-  .hs-nav-panel[hidden] { display: none !important; }
-  .hs-nav-panel { position: fixed; top: 0; right: 0; width: min(320px, 100vw); height: 100%; background: #0E0E0E; z-index: 700; padding: 72px 24px 24px; box-shadow: -8px 0 32px rgba(0,0,0,0.45); overflow-y: auto; }
-  .hs-nav-panel a { display: block; color: #D8D2C2; text-decoration: none; font-family: Inter, sans-serif; font-size: 14px; padding: 12px 0; border-bottom: 0.5px solid rgba(237,228,208,0.1); }
-  .hs-nav-panel a:hover { color: #F2D35C; }
 
   @keyframes pulse-ring {
     0% { transform: scale(1); opacity: 0.5; }
@@ -392,33 +376,17 @@
     <img src="/brand/headstash-logo-hit.png" alt="Headstash logo" style="height:36px;width:auto;object-fit:contain;"/>
     <div class="hd" style="color: #EDE4D0; font-size: 24px; letter-spacing: 0.14em;">HEADSTASH</div>
   </a>
-  <div class="hs-nav-desk" style="display: none; align-items: center;">
-    <a class="bd" style="color: #D8D2C2; text-decoration: none; font-size: 12px;" href="#how">How it works</a>
-    <a class="bd" style="color: #D8D2C2; text-decoration: none; font-size: 12px;" href="#tya">What you do</a>
-    <a class="bd" style="color: #D8D2C2; text-decoration: none; font-size: 12px;" href="#launch">Launch</a>
-    <a class="bd" style="color: #D8D2C2; text-decoration: none; font-size: 12px;" href="#faq">FAQ</a>
-  </div>
   <div class="consumer-nav-actions" style="display: flex; align-items: center; gap: 10px; flex-shrink: 0;">
-    <span style="font-family: Inter, sans-serif; color: #D8D2C2; opacity: 0.88; font-size: 10px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; white-space: nowrap;">Sign in</span>
-    <a href="#start" class="bd" style="font-family: 'BluntFamily', Impact, sans-serif; color: #0E0E0E; background: #F2D35C; font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; padding: 8px 12px; border-radius: 4px; white-space: nowrap; text-decoration: none;">Start ↗</a>
-    <button type="button" class="hs-nav-burger" aria-label="Open menu" aria-controls="hs-nav-panel" aria-expanded="false" id="hs-nav-burger"><span></span><span></span><span></span></button>
+    <a href="#start" style="font-family: Inter, sans-serif; color: #D8D2C2; opacity: 0.88; font-size: 10px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; white-space: nowrap; text-decoration: none;">SIGN IN</a>
+    <a href="#start" class="bd" style="font-family: 'BluntFamily', Impact, sans-serif; color: #0E0E0E; background: #F2D35C; font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; padding: 8px 12px; border-radius: 4px; white-space: nowrap; text-decoration: none;">START YOUR STASH</a>
   </div>
-</nav>
-<div id="hs-nav-backdrop" class="hs-nav-backdrop" hidden data-close-nav="1"></div>
-<nav class="hs-nav-panel" id="hs-nav-panel" hidden aria-label="On this page">
-  <a href="#how">How it works</a>
-  <a href="#tya">What you do</a>
-  <a href="#launch">Launch</a>
-  <a href="#faq">FAQ</a>
-  <a href="#start">Start your stash</a>
 </nav>
 </header>
 
 <!-- HERO with hero phone mockup -->
 <div style="background: #0E0E0E; padding: 80px 40px 100px; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center;">
   <div>
-    <div class="lb" style="color: #F2D35C; font-size: 10px; margin-bottom: 24px;">Heads only · est 2026</div>
-    <h1 class="hd" style="color: #EDE4D0; font-size: 80px; margin: 0 0 26px;">Save the receipt.<br>Stash the brand.</h1>
+        <h1 class="hd" style="color: #EDE4D0; font-size: 80px; margin: 0 0 26px;">Save the receipt.<br>Stash the brand.</h1>
     <p class="bd" style="color: #D8D2C2; font-size: 16px; max-width: 480px; margin: 0 0 36px;">Headstash connects the flower you already buy to the brands behind it. Upload your receipt, get seen by the brands you actually shop, and unlock merch, drops, and early access.</p>
     <div style="display: flex; gap: 10px;">
       <a href="#start" class="btn-ochre hs-hero-stash-cta">Start your stash ↗</a>
@@ -556,7 +524,7 @@
                 <div style="position: absolute; bottom: 0; left: 0; width: 20px; height: 20px; border-bottom: 2.5px solid #F2D35C; border-left: 2.5px solid #F2D35C; border-radius: 1px;"></div>
                 <div style="position: absolute; bottom: 0; right: 0; width: 20px; height: 20px; border-bottom: 2.5px solid #F2D35C; border-right: 2.5px solid #F2D35C; border-radius: 1px;"></div>
               </div>
-              <div style="position: absolute; left: 50%; top: 48%; transform: translate(-50%,-50%) scale(0.55); z-index: 1; width: 234px;">
+              <div style="position: absolute; left: 50%; top: 48%; transform: translate(-50%,-50%) scale(0.72); z-index: 1; width: 260px;">
                 <div class="hs-receipt-photo hs-receipt-in-camera" role="img" aria-label="Harborside receipt in camera frame">
                   <div class="hs-receipt-scanlines" aria-hidden="true"></div>
                   <div class="hs-receipt-body">
@@ -603,8 +571,7 @@
           <div style="padding: 18px 18px 10px;">
             <div class="lb" style="color: #F2D35C; font-size: 8px; margin-bottom: 6px;">Evening · Aaron</div>
             <div class="hd" style="color: #EDE4D0; font-size: 18px; line-height: 1;">Your stashes.</div>
-            <div class="bd" style="color: #D8D2C2; font-size: 8px; line-height: 1.45; opacity: 0.75; margin-top: 6px;">No App Store download. Sign in with your phone number, then track and redeem from every brand stash here.</div>
-          </div>
+                      </div>
           <div style="padding: 0 18px 52px;">
             <div style="background: #171717; border: 0.5px solid rgba(237,228,208,0.1); border-left: 2px solid #5A7A3E; padding: 12px; margin-bottom: 8px; border-radius: 0 4px 4px 0;">
               <div style="display: flex; justify-content: space-between; margin-bottom: 8px; gap: 8px;">
@@ -810,26 +777,30 @@
   <div class="lb" style="color: #F2D35C; font-size: 10px; margin-bottom: 20px;">FAQ</div>
   <h2 class="hd" style="color: #EDE4D0; font-size: 44px; margin: 0 0 40px; line-height: 1;">Quick answers.</h2>
   <div>
-    <div style="padding: 20px 0; border-top: 0.5px solid rgba(237,228,208,0.2);">
-      <div class="hd" style="color: #EDE4D0; font-size: 17px; margin-bottom: 8px;">How much does it cost?</div>
-      <div class="bd tya-body" style="color: #D8D2C2; font-size: 14px;">Free. The cost is receipts, not cash.</div>
-    </div>
-    <div style="padding: 20px 0; border-top: 0.5px solid rgba(237,228,208,0.2);">
-      <div class="hd" style="color: #EDE4D0; font-size: 17px; margin-bottom: 8px;">Does Headstash sell anything?</div>
-      <div class="bd tya-body" style="color: #D8D2C2; font-size: 14px;">No. Brands run their own rewards. Headstash connects your receipt to them.</div>
-    </div>
-    <div style="padding: 20px 0; border-top: 0.5px solid rgba(237,228,208,0.2);">
-      <div class="hd" style="color: #EDE4D0; font-size: 17px; margin-bottom: 8px;">Do receipts expire?</div>
-      <div class="bd tya-body" style="color: #D8D2C2; font-size: 14px;">Fourteen days from purchase. Don't sit on them.</div>
-    </div>
-    <div style="padding: 20px 0; border-top: 0.5px solid rgba(237,228,208,0.2);">
-      <div class="hd" style="color: #EDE4D0; font-size: 17px; margin-bottom: 8px;">Is this a discount program?</div>
-      <div class="bd tya-body" style="color: #D8D2C2; font-size: 14px;">No. Brands reward you with merch, drops, or access - not generic coupons.</div>
-    </div>
-    <div style="padding: 20px 0; border-top: 0.5px solid rgba(237,228,208,0.2); border-bottom: 0.5px solid rgba(237,228,208,0.2);">
-      <div class="hd" style="color: #EDE4D0; font-size: 17px; margin-bottom: 8px;">Can I share receipts with a friend?</div>
-      <div class="bd tya-body" style="color: #D8D2C2; font-size: 14px;">One receipt, one account. We dedupe.</div>
-    </div>
+    <details style="padding: 20px 0; border-top: 0.5px solid rgba(237,228,208,0.2);">
+      <summary class="hd" style="color: #EDE4D0; font-size: 17px; cursor: pointer; list-style: none;">HOW MUCH DOES IT COST?</summary>
+      <div class="bd tya-body" style="color: #D8D2C2; font-size: 14px; margin-top: 10px;">Free. The cost is receipts, not cash. No subscription, no fees, no premium tier.</div>
+    </details>
+    <details style="padding: 20px 0; border-top: 0.5px solid rgba(237,228,208,0.2);">
+      <summary class="hd" style="color: #EDE4D0; font-size: 17px; cursor: pointer; list-style: none;">WHAT DO I ACTUALLY GET?</summary>
+      <div class="bd tya-body" style="color: #D8D2C2; font-size: 14px; margin-top: 10px;">Depends on the brand. Some send merch when you hit a spend threshold. Some send invites to drops or events. Some surprise you with limited stuff that is not even on their store. Each brand decides what counts and what they send. You see what is available in your stash from day one.</div>
+    </details>
+    <details style="padding: 20px 0; border-top: 0.5px solid rgba(237,228,208,0.2);">
+      <summary class="hd" style="color: #EDE4D0; font-size: 17px; cursor: pointer; list-style: none;">IS MY PURCHASE HISTORY PRIVATE?</summary>
+      <div class="bd tya-body" style="color: #D8D2C2; font-size: 14px; margin-top: 10px;">Yes. Each brand sees only the SKUs from their own products in your receipts. Nobody else can see what you bought, where, or when. Your data is not sold, is not shared with employers or insurers, and you can delete your account and everything in it anytime.</div>
+    </details>
+    <details style="padding: 20px 0; border-top: 0.5px solid rgba(237,228,208,0.2);">
+      <summary class="hd" style="color: #EDE4D0; font-size: 17px; cursor: pointer; list-style: none;">WHAT IF I FORGET TO UPLOAD?</summary>
+      <div class="bd tya-body" style="color: #D8D2C2; font-size: 14px; margin-top: 10px;">You have fourteen days from the date on the receipt. After that, the receipt expires and will not earn anything. We will text reminders if you go a few days without uploading after a known purchase, so you do not lose what you already earned.</div>
+    </details>
+    <details style="padding: 20px 0; border-top: 0.5px solid rgba(237,228,208,0.2);">
+      <summary class="hd" style="color: #EDE4D0; font-size: 17px; cursor: pointer; list-style: none;">WHAT HAPPENS WHEN I SIGN UP?</summary>
+      <div class="bd tya-body" style="color: #D8D2C2; font-size: 14px; margin-top: 10px;">You get a six-digit code by text. Enter it. Your stash is empty until you upload your first receipt - usually that is where the first welcome reward fires. No app store download. Add Headstash to your home screen and it works like an app.</div>
+    </details>
+    <details style="padding: 20px 0; border-top: 0.5px solid rgba(237,228,208,0.2); border-bottom: 0.5px solid rgba(237,228,208,0.2);">
+      <summary class="hd" style="color: #EDE4D0; font-size: 17px; cursor: pointer; list-style: none;">CAN I USE THIS FOR DELIVERY ORDERS?</summary>
+      <div class="bd tya-body" style="color: #D8D2C2; font-size: 14px; margin-top: 10px;">Yes. Forward the order confirmation email to receipts@joinheadstash.com. Same outcome - we identify the brand SKUs and credit your stash automatically.</div>
+    </details>
   </div>
 </div>
 
@@ -856,24 +827,5 @@
   </div>
 </div>
 
-<script>
-(function () {
-  var btn = document.getElementById("hs-nav-burger");
-  var panel = document.getElementById("hs-nav-panel");
-  var backdrop = document.getElementById("hs-nav-backdrop");
-  if (!btn || !panel) return;
-  function setOpen(open) {
-    panel.hidden = !open;
-    if (backdrop) backdrop.hidden = !open;
-    btn.setAttribute("aria-expanded", open ? "true" : "false");
-    document.body.style.overflow = open ? "hidden" : "";
-  }
-  btn.addEventListener("click", function () { setOpen(panel.hidden); });
-  if (backdrop) backdrop.addEventListener("click", function () { setOpen(false); });
-  panel.querySelectorAll('a[href^="#"]').forEach(function (a) {
-    a.addEventListener("click", function () { setOpen(false); });
-  });
-})();
-</script>
 </body>
 </html>
