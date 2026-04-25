@@ -178,7 +178,22 @@
   .phone-float::after { content: ''; position: absolute; top: 20px; left: -40px; right: -40px; bottom: 20px; background: radial-gradient(ellipse at center, rgba(242,211,92,0.08) 0%, transparent 70%); z-index: -1; pointer-events: none; }
 
   .hs-site-header { position: sticky; top: 0; z-index: 500; background: #0E0E0E; border-bottom: 0.5px solid rgba(237,228,208,0.1); }
-  .hs-nav-desk { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 16px; justify-content: flex-end; }
+  .hs-nav-burger { display: none; flex-direction: column; align-items: center; justify-content: center; width: 40px; height: 40px; padding: 0; background: transparent; border: 0.5px solid rgba(237,228,208,0.25); border-radius: 4px; color: #EDE4D0; cursor: pointer; }
+  .hs-nav-burger span { display: block; width: 18px; height: 2px; background: #EDE4D0; margin: 2px 0; border-radius: 1px; }
+  @media (min-width: 901px) {
+    .hs-nav-burger { display: none !important; }
+    .hs-nav-desk { display: flex !important; flex-wrap: wrap; align-items: center; gap: 6px 16px; justify-content: flex-end; }
+  }
+  @media (max-width: 900px) {
+    .hs-nav-desk { display: none !important; }
+    .hs-nav-burger { display: flex; }
+  }
+  .hs-nav-backdrop[hidden] { display: none !important; }
+  .hs-nav-backdrop { position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 600; }
+  .hs-nav-panel[hidden] { display: none !important; }
+  .hs-nav-panel { position: fixed; top: 0; right: 0; width: min(320px, 100vw); height: 100%; background: #0E0E0E; z-index: 700; padding: 72px 24px 24px; box-shadow: -8px 0 32px rgba(0,0,0,0.45); overflow-y: auto; }
+  .hs-nav-panel a { display: block; color: #D8D2C2; text-decoration: none; font-family: Inter, sans-serif; font-size: 14px; padding: 12px 0; border-bottom: 0.5px solid rgba(237,228,208,0.1); }
+  .hs-nav-panel a:hover { color: #F2D35C; }
 
   @keyframes pulse-ring {
     0% { transform: scale(1); opacity: 0.5; }
@@ -343,6 +358,13 @@
   div[style*="padding: 18px 40px"] {
     padding: 16px 20px !important;
   }
+  .tya-row {
+    grid-template-columns: 1fr !important;
+    gap: 6px !important;
+    padding: 14px 0 !important;
+  }
+  .tya-row .tya-head { font-size: 18px !important; }
+  .tya-row .tya-body { font-size: 13px !important; }
   .consumer-nav-brand .hd {
     font-size: 18px !important;
     letter-spacing: 0.1em !important;
@@ -351,13 +373,6 @@
     height: 28px !important;
     width: auto !important;
   }
-  .tya-row {
-    grid-template-columns: 1fr !important;
-    gap: 6px !important;
-    padding: 14px 0 !important;
-  }
-  .tya-row .tya-head { font-size: 18px !important; }
-  .tya-row .tya-body { font-size: 13px !important; }
 }
 
 /* Submit-step overlap: fit inside mobile column without overflow */
@@ -370,13 +385,14 @@
 </head>
 <body id="site-top">
 
+<!-- NAV -->
 <header class="hs-site-header" id="hs-site-header">
-<nav class="consumer-nav" aria-label="Main" style="padding: 18px 40px; display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap;">
+<nav class="consumer-nav" aria-label="Main" style="padding: 18px 40px; display: flex; align-items: center; justify-content: space-between; gap: 12px;">
   <a href="#site-top" class="consumer-nav-brand" style="text-decoration: none; display: flex; align-items: center; gap: 14px; min-width: 0; flex: 1 1 auto;">
     <img src="/brand/headstash-logo-hit.png" alt="Headstash logo" style="height:36px;width:auto;object-fit:contain;"/>
     <div class="hd" style="color: #EDE4D0; font-size: 24px; letter-spacing: 0.14em;">HEADSTASH</div>
   </a>
-  <div class="hs-nav-desk">
+  <div class="hs-nav-desk" style="display: none; align-items: center;">
     <a class="bd" style="color: #D8D2C2; text-decoration: none; font-size: 12px;" href="#how">How it works</a>
     <a class="bd" style="color: #D8D2C2; text-decoration: none; font-size: 12px;" href="#tya">What you do</a>
     <a class="bd" style="color: #D8D2C2; text-decoration: none; font-size: 12px;" href="#launch">Launch</a>
@@ -385,7 +401,16 @@
   <div class="consumer-nav-actions" style="display: flex; align-items: center; gap: 10px; flex-shrink: 0;">
     <span style="font-family: Inter, sans-serif; color: #D8D2C2; opacity: 0.88; font-size: 10px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; white-space: nowrap;">Sign in</span>
     <a href="#start" class="bd" style="font-family: 'BluntFamily', Impact, sans-serif; color: #0E0E0E; background: #F2D35C; font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; padding: 8px 12px; border-radius: 4px; white-space: nowrap; text-decoration: none;">Start ↗</a>
+    <button type="button" class="hs-nav-burger" aria-label="Open menu" aria-controls="hs-nav-panel" aria-expanded="false" id="hs-nav-burger"><span></span><span></span><span></span></button>
   </div>
+</nav>
+<div id="hs-nav-backdrop" class="hs-nav-backdrop" hidden data-close-nav="1"></div>
+<nav class="hs-nav-panel" id="hs-nav-panel" hidden aria-label="On this page">
+  <a href="#how">How it works</a>
+  <a href="#tya">What you do</a>
+  <a href="#launch">Launch</a>
+  <a href="#faq">FAQ</a>
+  <a href="#start">Start your stash</a>
 </nav>
 </header>
 
@@ -848,5 +873,24 @@
   </div>
 </div>
 
+<script>
+(function () {
+  var btn = document.getElementById("hs-nav-burger");
+  var panel = document.getElementById("hs-nav-panel");
+  var backdrop = document.getElementById("hs-nav-backdrop");
+  if (!btn || !panel) return;
+  function setOpen(open) {
+    panel.hidden = !open;
+    if (backdrop) backdrop.hidden = !open;
+    btn.setAttribute("aria-expanded", open ? "true" : "false");
+    document.body.style.overflow = open ? "hidden" : "";
+  }
+  btn.addEventListener("click", function () { setOpen(panel.hidden); });
+  if (backdrop) backdrop.addEventListener("click", function () { setOpen(false); });
+  panel.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    a.addEventListener("click", function () { setOpen(false); });
+  });
+})();
+</script>
 </body>
 </html>
