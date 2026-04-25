@@ -97,26 +97,10 @@
   .phone-float { position: relative; }
   .phone-float::after { content: ''; position: absolute; top: 20px; left: -40px; right: -40px; bottom: 20px; background: radial-gradient(ellipse at center, rgba(242,211,92,0.08) 0%, transparent 70%); z-index: -1; pointer-events: none; }
 
-  .hs-site-header { position: sticky; top: 0; z-index: 500; background: #0E0E0E; border-bottom: 0.5px solid rgba(237,228,208,0.12); }
   .hs-hero-03 .mobile-frame.hs-submit-front { transform: none; }
-  .hs-nav-burger { display: none; flex-direction: column; align-items: center; justify-content: center; width: 40px; height: 40px; padding: 0; background: transparent; border: 0.5px solid rgba(237,228,208,0.25); border-radius: 4px; color: #EDE4D0; cursor: pointer; }
-  .hs-nav-burger span { display: block; width: 18px; height: 2px; background: #EDE4D0; margin: 2px 0; border-radius: 1px; }
-  @media (min-width: 901px) {
-    .hs-nav-burger { display: none !important; }
-    .hs-nav-desk { display: flex !important; flex-wrap: wrap; align-items: center; gap: 6px 16px; justify-content: flex-end; }
-    .hs-b2b-nav-mobile { display: none !important; }
-  }
-  @media (max-width: 900px) {
-    .hs-nav-desk { display: none !important; }
-    .hs-nav-burger { display: flex; }
-    .hs-b2b-nav-mobile { display: flex; }
-  }
-  .hs-nav-backdrop[hidden] { display: none !important; }
-  .hs-nav-backdrop { position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 600; }
-  .hs-nav-panel[hidden] { display: none !important; }
-  .hs-nav-panel { position: fixed; top: 0; right: 0; width: min(320px, 100vw); height: 100%; background: #0E0E0E; z-index: 700; padding: 72px 24px 24px; box-shadow: -8px 0 32px rgba(0,0,0,0.45); overflow-y: auto; }
-  .hs-nav-panel a { display: block; color: #D8D2C2; text-decoration: none; font-family: Inter, sans-serif; font-size: 14px; padding: 12px 0; border-bottom: 0.5px solid rgba(237,228,208,0.1); }
-  .hs-nav-panel a:hover { color: #F2D35C; }
+
+  .hs-site-header { position: sticky; top: 0; z-index: 500; background: #0E0E0E; border-bottom: 0.5px solid rgba(237,228,208,0.12); }
+  .hs-nav-desk { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 18px; justify-content: flex-end; flex: 1 1 200px; min-width: 0; }
 
   @keyframes pulse-ring {
     0% { transform: scale(1); opacity: 0.5; }
@@ -203,28 +187,17 @@
 <body id="site-top">
 
 <header class="hs-site-header" id="hs-site-header">
-<nav aria-label="Main" style="padding: 18px 40px; display: flex; align-items: center; justify-content: space-between; gap: 12px; border-bottom: 0.5px solid rgba(237,228,208,0.12);">
-  <a href="#site-top" style="display:flex;align-items:center;gap:12px; text-decoration: none;">
+<nav aria-label="Main" style="padding: 18px 40px; display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap;">
+  <a href="#site-top" style="display: flex; align-items: center; gap: 12px; text-decoration: none; min-width: 0; flex: 0 0 auto;">
     <img src="/brand/headstash-logo-hit.png" alt="Headstash logo" style="height:30px;width:auto;object-fit:contain;"/>
     <div class="hd" style="color: #EDE4D0; font-size: 21px; letter-spacing: 0.14em;">HEADSTASH</div>
   </a>
-  <div class="hs-nav-desk" style="display: none; align-items: center; gap: 10px 18px; flex-wrap: wrap; justify-content: flex-end;">
+  <div class="hs-nav-desk">
     <a class="bd" style="color: #D8D2C2; text-decoration: none; font-size: 12px;" href="#how">How it works</a>
     <a class="bd" style="color: #D8D2C2; text-decoration: none; font-size: 12px;" href="#pricing">Pricing</a>
     <a class="bd" style="color: #D8D2C2; text-decoration: none; font-size: 12px;" href="#gap">The gap</a>
     <a class="bd" style="color: #F2D35C; text-decoration: none; font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 600;" href="#cta">Request access ↗</a>
   </div>
-  <div class="hs-b2b-nav-mobile" style="display: flex; align-items: center; gap: 10px;">
-    <a href="#cta" class="lb" style="color: #F2D35C; font-size: 10px; text-decoration: none;">Request ↗</a>
-    <button type="button" class="hs-nav-burger" aria-label="Open menu" aria-controls="hs-nav-panel" aria-expanded="false" id="hs-nav-burger"><span></span><span></span><span></span></button>
-  </div>
-</nav>
-<div id="hs-nav-backdrop" class="hs-nav-backdrop" hidden></div>
-<nav class="hs-nav-panel" id="hs-nav-panel" hidden aria-label="On this page">
-  <a href="#how">How it works</a>
-  <a href="#pricing">Pricing</a>
-  <a href="#gap">The gap</a>
-  <a href="#cta">Request access</a>
 </nav>
 </header>
 
@@ -1028,25 +1001,6 @@
 
 
 
-<script>
-(function () {
-  var btn = document.getElementById("hs-nav-burger");
-  var panel = document.getElementById("hs-nav-panel");
-  var backdrop = document.getElementById("hs-nav-backdrop");
-  if (!btn || !panel) return;
-  function setOpen(open) {
-    panel.hidden = !open;
-    if (backdrop) backdrop.hidden = !open;
-    btn.setAttribute("aria-expanded", open ? "true" : "false");
-    document.body.style.overflow = open ? "hidden" : "";
-  }
-  btn.addEventListener("click", function () { setOpen(panel.hidden); });
-  if (backdrop) backdrop.addEventListener("click", function () { setOpen(false); });
-  panel.querySelectorAll('a[href^="#"]').forEach(function (a) {
-    a.addEventListener("click", function () { setOpen(false); });
-  });
-})();
-</script>
 <script>
 (() => {
   const details = document.getElementById('campaign-details');
