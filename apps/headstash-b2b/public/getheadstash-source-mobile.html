@@ -490,28 +490,17 @@
 <body id="site-top">
 
 <header class="hs-site-header" id="hs-site-header">
-<nav aria-label="Main" style="padding: 18px 40px; display: flex; align-items: center; justify-content: space-between; gap: 12px; border-bottom: 0.5px solid rgba(237,228,208,0.12);">
-  <a href="#site-top" style="display:flex;align-items:center;gap:12px; text-decoration: none;">
+<nav aria-label="Main" style="padding: 18px 40px; display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap;">
+  <a href="#site-top" style="display:flex;align-items:center;gap:12px; text-decoration: none; flex-shrink: 0;">
     <img src="/brand/headstash-logo-hit.png" alt="Headstash logo" style="height:30px;width:auto;object-fit:contain;"/>
     <div class="hd" style="color: #EDE4D0; font-size: 21px; letter-spacing: 0.14em;">HEADSTASH</div>
   </a>
-  <div class="hs-nav-desk" style="display: none; align-items: center; gap: 10px 18px; flex-wrap: wrap; justify-content: flex-end;">
+  <div style="display: flex; align-items: center; gap: 10px 18px; flex-wrap: wrap; justify-content: flex-end;">
     <a class="bd" style="color: #D8D2C2; text-decoration: none; font-size: 12px;" href="#how">How it works</a>
     <a class="bd" style="color: #D8D2C2; text-decoration: none; font-size: 12px;" href="#pricing">Pricing</a>
     <a class="bd" style="color: #D8D2C2; text-decoration: none; font-size: 12px;" href="#gap">The gap</a>
     <a class="bd" style="color: #F2D35C; text-decoration: none; font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 600;" href="#cta">Request access ↗</a>
   </div>
-  <div class="hs-b2b-nav-mobile" style="display: flex; align-items: center; gap: 10px;">
-    <a href="#cta" class="lb" style="color: #F2D35C; font-size: 10px; text-decoration: none;">Request ↗</a>
-    <button type="button" class="hs-nav-burger" aria-label="Open menu" aria-controls="hs-nav-panel" aria-expanded="false" id="hs-nav-burger"><span></span><span></span><span></span></button>
-  </div>
-</nav>
-<div id="hs-nav-backdrop" class="hs-nav-backdrop" hidden></div>
-<nav class="hs-nav-panel" id="hs-nav-panel" hidden aria-label="On this page">
-  <a href="#how">How it works</a>
-  <a href="#pricing">Pricing</a>
-  <a href="#gap">The gap</a>
-  <a href="#cta">Request access</a>
 </nav>
 </header>
 
@@ -528,7 +517,7 @@
     </div>
   </div>
 
-  <!-- Hero: stacked 02 (top), 01, 03 -->
+  <!-- Hero: single stash dashboard mockup -->
   <div class="hs-hero-flex phone-float" style="display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 0; width: 100%;">
 
     <div class="hs-hero-02" style="position: relative; z-index: 3; display: flex; justify-content: center; width: 100%; max-width: 300px;">
@@ -622,58 +611,7 @@
       </div>
     </div>
 
-    <div class="hs-hero-01" style="position: relative; z-index: 2; display: flex; justify-content: center; width: 100%; max-width: 300px; margin-top: -120px;">
-      <div style="display: flex; justify-content: center;">
-        <div class="mobile-frame" style="position: relative;">
-          <div class="status-bar"><div class="time">9:43</div><div class="battery"></div></div>
-          <div style="padding: 10px 16px 8px; display: flex; align-items: center; justify-content: space-between; border-bottom: 0.5px solid rgba(237,228,208,0.08);">
-            <div><svg width="14" height="14" viewBox="0 0 14 14" style="color: #D8D2C2;" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><path d="M 2 2 L 12 12 M 12 2 L 2 12"/></svg></div>
-            <div style="display: flex; align-items: center; gap: 6px;">
-              <img src="/brand/headstash-logo-hit.png" alt="" style="height:16px;width:auto;object-fit:contain;flex-shrink:0;"/>
-              <div class="lb" style="color: #EDE4D0; font-size: 8px;">Capture receipt</div>
-            </div>
-            <div><svg width="11" height="14" viewBox="0 0 11 14" style="color: #D8D2C2;" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M 6.5 0.5 L 1 8 L 5 8 L 4.5 13.5 L 10 6 L 6 6 Z"/></svg></div>
-          </div>
-          <div style="padding: 10px 12px 6px;">
-            <div style="height: 300px; border-radius: 4px; background: #101010; position: relative; overflow: hidden;">
-              <div style="position: absolute; top: 9px; left: 9px; right: 9px; bottom: 8px; pointer-events: none; z-index: 2;">
-                <div style="position: absolute; top: 0; left: 0; width: 20px; height: 20px; border-top: 2.5px solid #F2D35C; border-left: 2.5px solid #F2D35C; border-radius: 1px;"></div>
-                <div style="position: absolute; top: 0; right: 0; width: 20px; height: 20px; border-top: 2.5px solid #F2D35C; border-right: 2.5px solid #F2D35C; border-radius: 1px;"></div>
-                <div style="position: absolute; bottom: 0; left: 0; width: 20px; height: 20px; border-bottom: 2.5px solid #F2D35C; border-left: 2.5px solid #F2D35C; border-radius: 1px;"></div>
-                <div style="position: absolute; bottom: 0; right: 0; width: 20px; height: 20px; border-bottom: 2.5px solid #F2D35C; border-right: 2.5px solid #F2D35C; border-radius: 1px;"></div>
-              </div>
-              <div style="position: absolute; left: 50%; top: 48%; transform: translate(-50%,-50%) scale(0.55); z-index: 1; width: 234px;">
-                <div class="hs-receipt-photo hs-receipt-in-camera" role="img" aria-label="Harborside receipt in camera frame">
-                  <div class="hs-receipt-scanlines" aria-hidden="true"></div>
-                  <div class="hs-receipt-body">
-                    <div style="font-size: 11px; font-weight: bold; margin-bottom: 4px; letter-spacing: 0.04em; opacity: 0.92;">HARBORSIDE OAKLAND</div>
-                    <div style="font-size: 8px; margin-bottom: 12px; opacity: 0.78;">04/21/26 · 14:22</div>
-                    <div style="border-top: 1px dashed rgba(20,18,15,0.45); border-bottom: 1px dashed rgba(20,18,15,0.45); padding: 10px 0; width: 100%; font-size: 9px; line-height: 1.55; opacity: 0.9;">ALIEN LABS BISCOTTI<br>ALIEN LABS BABY J<br>CONNECTED GELATTI</div>
-                    <div style="margin-top: 10px; font-size: 11px; font-weight: bold; display: flex; justify-content: space-between; width: 100%; opacity: 0.95;"><span>TOTAL</span><span>$140.63</span></div>
-                    <div style="margin-top: 22px; opacity: 0.42; font-size: 7px; letter-spacing: 0.12em;">KEEP THIS RECEIPT</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="lb" style="color: #D8D2C2; opacity: 0.45; font-size: 6px; text-align: center; margin-top: 4px; letter-spacing: 0.14em;">LIVE PREVIEW</div>
-          </div>
-          <div style="position: absolute; bottom: 18px; left: 0; right: 0; display: flex; justify-content: center; z-index: 3;">
-            <div style="width: 48px; height: 48px; border: 2.5px solid #F2D35C; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: rgba(14,14,14,0.35);">
-              <div style="width: 36px; height: 36px; background: #F2D35C; border-radius: 50%;"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
 
-    <div class="hs-hero-03" style="position: relative; z-index: 1; display: flex; justify-content: center; width: 100%; max-width: 300px; margin-top: -110px; transform: scale(0.92); transform-origin: top center;">
-          <div class="mobile-frame hs-submit-front" style="position: relative; z-index: 2;">
-            <div class="status-bar"><div class="time">9:46</div><div class="battery"></div></div>
-            <div class="frame-nav">
-              <div class="frame-nav-brand">
-                <img src="/brand/headstash-logo-hit.png" alt="" width="40" height="40" style="height:18px;width:auto;object-fit:contain;"/>
-                <div class="hd" style="color: #EDE4D0; font-size: 10px; letter-spacing: 0.14em;">HEADSTASH</div>
-              </div>
               <div style="width: 22px; height: 22px; border-radius: 50%; background: #2A2A2A; display: flex; align-items: center; justify-content: center;">
                 <div class="hd" style="color: #F2D35C; font-size: 8px;">AP</div>
               </div>
@@ -1266,24 +1204,25 @@
 
   <!-- FAQ ACCORDIONS -->
   <div style="margin-top: 48px;">
-    <div class="lb" style="color: #0E0E0E; opacity: 0.45; font-size: 10px; margin-bottom: 20px;">Pricing questions</div>
+    <div class="lb" style="color: #0E0E0E; opacity: 0.45; font-size: 10px; margin-bottom: 8px;">Pricing questions</div>
+    <div class="bd" style="color: #2A2A2A; opacity: 0.6; font-size: 12px; margin-bottom: 18px;">Tap any question to expand.</div>
     <div>
-      <div style="padding: 18px 0; border-top: 0.5px solid rgba(14,14,14,0.2);">
-        <div class="hd" style="color: #0E0E0E; font-size: 16px; margin-bottom: 8px;">Is there really no rev share?</div>
-        <div class="bd" style="color: #2A2A2A; font-size: 13.5px;">No rev share, no take-rate, no percentage of redemption value. Flat monthly platform fee. You keep 100% of the merch revenue the program drives.</div>
-      </div>
-      <div style="padding: 18px 0; border-top: 0.5px solid rgba(14,14,14,0.2);">
-        <div class="hd" style="color: #0E0E0E; font-size: 16px; margin-bottom: 8px;">What happens at month 13?</div>
-        <div class="bd" style="color: #2A2A2A; font-size: 13.5px;">Early access rates go month-to-month at the locked $1,500 rate through month 24. Standard contracts renew annually with market-rate pricing.</div>
-      </div>
-      <div style="padding: 18px 0; border-top: 0.5px solid rgba(14,14,14,0.2);">
-        <div class="hd" style="color: #0E0E0E; font-size: 16px; margin-bottom: 8px;">Who pays for the merch that gets redeemed?</div>
-        <div class="bd" style="color: #2A2A2A; font-size: 13.5px;">You do - it's your inventory out of your Shopify. Same merch economics as your IG store, just moving to a qualified, receipt-verified audience instead of random traffic.</div>
-      </div>
-      <div style="padding: 18px 0; border-top: 0.5px solid rgba(14,14,14,0.2); border-bottom: 0.5px solid rgba(14,14,14,0.2);">
-        <div class="hd" style="color: #0E0E0E; font-size: 16px; margin-bottom: 8px;">Can I cancel?</div>
-        <div class="bd" style="color: #2A2A2A; font-size: 13.5px;">12-month term, then month-to-month. Data export is included - if you leave, you leave with everything: receipts, users, ledger, redemptions. Your customer, your data.</div>
-      </div>
+      <details style="padding: 18px 0; border-top: 0.5px solid rgba(14,14,14,0.2);">
+        <summary class="hd" style="color: #0E0E0E; font-size: 16px; cursor: pointer; list-style: none; display: flex; align-items: center; gap: 10px;"><span style="color:#0E0E0E; opacity:0.45; font-size: 18px; line-height: 1;">+</span><span>Is there really no rev share?</span></summary>
+        <div class="bd" style="color: #2A2A2A; font-size: 13.5px; margin-top: 10px;">No rev share, no take-rate, no percentage of redemption value. Flat monthly platform fee. You keep 100% of the merch revenue the program drives.</div>
+      </details>
+      <details style="padding: 18px 0; border-top: 0.5px solid rgba(14,14,14,0.2);">
+        <summary class="hd" style="color: #0E0E0E; font-size: 16px; cursor: pointer; list-style: none; display: flex; align-items: center; gap: 10px;"><span style="color:#0E0E0E; opacity:0.45; font-size: 18px; line-height: 1;">+</span><span>What happens at month 13?</span></summary>
+        <div class="bd" style="color: #2A2A2A; font-size: 13.5px; margin-top: 10px;">Early access rates go month-to-month at the locked $1,500 rate through month 24. Standard contracts renew annually with market-rate pricing.</div>
+      </details>
+      <details style="padding: 18px 0; border-top: 0.5px solid rgba(14,14,14,0.2);">
+        <summary class="hd" style="color: #0E0E0E; font-size: 16px; cursor: pointer; list-style: none; display: flex; align-items: center; gap: 10px;"><span style="color:#0E0E0E; opacity:0.45; font-size: 18px; line-height: 1;">+</span><span>Who pays for the merch that gets redeemed?</span></summary>
+        <div class="bd" style="color: #2A2A2A; font-size: 13.5px; margin-top: 10px;">You do - it's your inventory out of your Shopify. Same merch economics as your IG store, just moving to a qualified, receipt-verified audience instead of random traffic.</div>
+      </details>
+      <details style="padding: 18px 0; border-top: 0.5px solid rgba(14,14,14,0.2); border-bottom: 0.5px solid rgba(14,14,14,0.2);">
+        <summary class="hd" style="color: #0E0E0E; font-size: 16px; cursor: pointer; list-style: none; display: flex; align-items: center; gap: 10px;"><span style="color:#0E0E0E; opacity:0.45; font-size: 18px; line-height: 1;">+</span><span>Can I cancel?</span></summary>
+        <div class="bd" style="color: #2A2A2A; font-size: 13.5px; margin-top: 10px;">12-month term, then month-to-month. Data export is included - if you leave, you leave with everything: receipts, users, ledger, redemptions. Your customer, your data.</div>
+      </details>
     </div>
   </div>
 </div>
@@ -1300,40 +1239,25 @@
   <div class="bd" style="color: #D8D2C2; opacity: 0.5; font-size: 11px; margin-top: 18px;">Or email direct: hello@getheadstash.com</div>
 </div>
 
-<div style="background: #080808; padding: 30px 40px; display: flex; align-items: flex-start; justify-content: space-between; border-top: 0.5px solid rgba(237,228,208,0.08);">
-  <div>
-    <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;"><img src="/brand/headstash-logo-hit.png" alt="Headstash logo" style="height:18px;width:auto;object-fit:contain;"/><div class="hd" style="color: #EDE4D0; font-size: 15px; letter-spacing: 0.14em;">HEADSTASH</div></div>
-    <div class="bd" style="color: #D8D2C2; opacity: 0.4; font-size: 11px;">A Tuff Ghost Media product · © 2026</div>
+<div style="background: #080808; padding: 28px 40px 32px; border-top: 0.5px solid rgba(237,228,208,0.08);">
+  <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 14px;">
+    <img src="/brand/headstash-logo-hit.png" alt="Headstash mark" style="height:56px;width:auto;object-fit:contain;flex-shrink:0;"/>
+    <div>
+      <div class="hd" style="color: #EDE4D0; font-size: 24px; letter-spacing: 0.12em; line-height: 1; margin-bottom: 5px;">HEADSTASH</div>
+      <div class="bd" style="color: #D8D2C2; opacity: 0.4; font-size: 11px;">A Tuff Ghost Media product · © 2026</div>
+    </div>
   </div>
-  <div style="display: flex; flex-wrap: wrap; gap: 14px 22px; justify-content: flex-end; align-items: center;">
-    <a class="bd" style="color: #D8D2C2; opacity: 0.55; font-size: 11px; text-decoration: none;" href="/privacy.html">Privacy</a>
-    <a class="bd" style="color: #D8D2C2; opacity: 0.55; font-size: 11px; text-decoration: none;" href="/terms.html">Terms</a>
-    <a class="bd" style="color: #D8D2C2; opacity: 0.55; font-size: 11px; text-decoration: none;" href="https://joinheadstash.com">For customers</a>
+  <div style="display: flex; flex-wrap: wrap; gap: 12px 22px; align-items: center;">
+    <a class="bd" style="color: #D8D2C2; opacity: 0.72; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none;" href="/privacy.html">PRIVACY</a>
+    <a class="bd" style="color: #D8D2C2; opacity: 0.72; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none;" href="/terms.html">TERMS</a>
+    <a class="bd" style="color: #D8D2C2; opacity: 0.72; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none;" href="https://joinheadstash.com">FOR CUSTOMERS</a>
   </div>
 </div>
 
 
 
 
-<script>
-(function () {
-  var btn = document.getElementById("hs-nav-burger");
-  var panel = document.getElementById("hs-nav-panel");
-  var backdrop = document.getElementById("hs-nav-backdrop");
-  if (!btn || !panel) return;
-  function setOpen(open) {
-    panel.hidden = !open;
-    if (backdrop) backdrop.hidden = !open;
-    btn.setAttribute("aria-expanded", open ? "true" : "false");
-    document.body.style.overflow = open ? "hidden" : "";
-  }
-  btn.addEventListener("click", function () { setOpen(panel.hidden); });
-  if (backdrop) backdrop.addEventListener("click", function () { setOpen(false); });
-  panel.querySelectorAll('a[href^="#"]').forEach(function (a) {
-    a.addEventListener("click", function () { setOpen(false); });
-  });
-})();
-</script>
+
 <script>
 (() => {
   const details = document.getElementById('campaign-details');
