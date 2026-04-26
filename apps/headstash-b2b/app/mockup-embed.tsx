@@ -23,11 +23,10 @@ export function MockupEmbed() {
   // Listen for form-success message posted from inside the iframe
   useEffect(() => {
     const handler = (e: MessageEvent) => {
-      if (
-        e.origin === window.location.origin &&
-        (e.data as Record<string, unknown>)?.hs === "inquiry-success"
-      ) {
-        window.location.href = "/success";
+      const data = e.data as Record<string, unknown>;
+      if (e.origin === window.location.origin && data?.hs === "inquiry-success") {
+        const email = typeof data.email === "string" ? data.email : "";
+        window.location.href = `/success${email ? `?e=${encodeURIComponent(email)}` : ""}`;
       }
     };
     window.addEventListener("message", handler);

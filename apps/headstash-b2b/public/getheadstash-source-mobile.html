@@ -1303,7 +1303,7 @@
   function goToSuccess() {
     // Primary: postMessage to parent so MockupEmbed can navigate the top window
     try {
-      window.parent.postMessage({ hs: 'inquiry-success' }, window.location.origin);
+      window.parent.postMessage({ hs: 'inquiry-success', email: email }, window.location.origin);
     } catch (_) {}
     // Fallback: direct top-window navigation
     try {

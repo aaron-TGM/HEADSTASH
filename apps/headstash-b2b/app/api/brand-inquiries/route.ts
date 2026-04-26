@@ -1,6 +1,5 @@
 import { NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
-import { Resend } from "resend";
 
 type BrandInquiryPayload = {
   email: string;
@@ -63,27 +62,6 @@ export async function POST(req: Request) {
 
     if (error) {
       return NextResponse.json({ error: "Unable to save inquiry." }, { status: 500 });
-    }
-
-    const resendApiKey = process.env.RESEND_API_KEY;
-    if (resendApiKey) {
-      const resend = new Resend(resendApiKey);
-      const notifyTo = process.env.NOTIFY_EMAIL || "hello@getheadstash.com";
-      const from = process.env.RESEND_FROM_EMAIL || "Headstash <onboarding@resend.dev>";
-
-      await resend.emails.send({
-        from,
-        to: [notifyTo],
-        subject: "New brand inquiry: getheadstash.com",
-        text: [
-          `Email: ${email}`,
-          `Message: ${payload.message || "(none)"}`,
-          `Source: ${payload.pageSource || "getheadstash.com"}`,
-          `IP: ${ip || "(unknown)"}`,
-          `User-Agent: ${userAgent || "(unknown)"}`,
-          `Timestamp: ${new Date().toISOString()}`,
-        ].join("\n"),
-      });
     }
 
     return NextResponse.json({ ok: true }, { status: 201 });
