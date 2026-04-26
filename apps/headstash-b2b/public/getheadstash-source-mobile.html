@@ -1294,16 +1294,17 @@
   const msg = document.getElementById('cta-msg');
   if (!emailInput || !btn || !msg) return;
 
-  function goToSuccess() {
+  function goToSuccess(submittedEmail) {
     // Primary: postMessage to parent so MockupEmbed can navigate the top window
     try {
-      window.parent.postMessage({ hs: 'inquiry-success', email: email }, window.location.origin);
+      window.parent.postMessage({ hs: 'inquiry-success', email: submittedEmail }, window.location.origin);
     } catch (_) {}
-    // Fallback: direct top-window navigation
+    // Fallback: direct top-window navigation (includes email so success page can use it)
+    var dest = '/success' + (submittedEmail ? '?e=' + encodeURIComponent(submittedEmail) : '');
     try {
-      (window.top || window.parent || window).location.href = '/success';
+      (window.top || window.parent || window).location.href = dest;
     } catch (_) {
-      window.location.href = '/success';
+      window.location.href = dest;
     }
   }
 
@@ -1326,7 +1327,7 @@
         body: JSON.stringify({ email, pageSource: 'getheadstash.com' }),
       });
       if (res.ok) {
-        goToSuccess();
+        goToSuccess(email);
       } else {
         const data = await res.json().catch(() => ({}));
         msg.textContent = data.error || 'Something went wrong. Try again.';
