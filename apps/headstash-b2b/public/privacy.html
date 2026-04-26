@@ -1,26 +1,158 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="robots" content="noindex, nofollow">
-<meta name="description" content="Privacy information for getheadstash.com, the Headstash brand and operator program.">
-<title>Privacy | Headstash (getheadstash.com)</title>
-<style>
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: Inter, -apple-system, BlinkMacSystemFont, sans-serif; background: #0E0E0E; color: #D8D2C2; line-height: 1.6; padding: 40px 24px 64px; max-width: 640px; margin: 0 auto; -webkit-font-smoothing: antialiased; }
-  h1 { color: #EDE4D0; font-size: 1.5rem; margin-bottom: 0.75rem; font-weight: 600; }
-  p, li { margin: 0 0 1rem; font-size: 0.95rem; }
-  a { color: #F2D35C; text-decoration: none; }
-  a:hover { text-decoration: underline; }
-  .muted { color: #D8D2C2; opacity: 0.5; font-size: 0.8rem; margin-top: 2.5rem; }
-</style>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Privacy Policy · Headstash</title>
+  <meta name="robots" content="noindex, follow"/>
+  <link rel="icon" href="/brand/headstash-logo-hit.png" type="image/png"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    @font-face {
+      font-family: 'Blunt Family';
+      src: url('/fonts/BluntFamily-Regular.woff2') format('woff2');
+      font-weight: 400; font-style: normal; font-display: swap;
+    }
+    body {
+      font-family: Inter, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #0E0E0E;
+      color: #D8D2C2;
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.6;
+    }
+    a { color: #F2D35C; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .site-header {
+      position: sticky; top: 0; z-index: 100;
+      background: #0E0E0E;
+      border-bottom: 0.5px solid rgba(237,228,208,0.1);
+      padding: 16px 40px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .site-header a { display: flex; align-items: center; gap: 10px; }
+    .site-header img { height: 28px; width: auto; }
+    .site-header .wordmark {
+      font-family: 'Blunt Family', Impact, sans-serif;
+      color: #EDE4D0; font-size: 18px; letter-spacing: 0.14em;
+    }
+
+    .page-wrap {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 64px 40px 96px;
+    }
+
+    .eyebrow {
+      font-family: 'Blunt Family', Impact, sans-serif;
+      color: #F2D35C; font-size: 10px; letter-spacing: 0.25em;
+      text-transform: uppercase; margin-bottom: 16px;
+    }
+    h1 {
+      font-family: 'Blunt Family', Impact, sans-serif;
+      color: #EDE4D0; font-size: 48px; letter-spacing: 0.02em;
+      text-transform: uppercase; line-height: 0.95;
+      margin-bottom: 24px;
+    }
+    .meta {
+      font-size: 12px; color: #D8D2C2; opacity: 0.5;
+      margin-bottom: 56px;
+      border-bottom: 0.5px solid rgba(237,228,208,0.1);
+      padding-bottom: 24px;
+    }
+    h2 {
+      font-family: 'Blunt Family', Impact, sans-serif;
+      color: #EDE4D0; font-size: 18px; letter-spacing: 0.08em;
+      text-transform: uppercase; margin: 48px 0 12px;
+    }
+    p { font-size: 14px; color: #D8D2C2; margin-bottom: 14px; }
+    ul { padding-left: 20px; margin-bottom: 14px; }
+    ul li { font-size: 14px; color: #D8D2C2; margin-bottom: 6px; }
+
+    .footer-bar {
+      background: #080808;
+      border-top: 0.5px solid rgba(237,228,208,0.08);
+      padding: 24px 40px;
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 12px;
+    }
+    .footer-bar span { font-size: 11px; color: #D8D2C2; opacity: 0.4; }
+    .footer-bar a { font-size: 11px; color: #D8D2C2; opacity: 0.6; letter-spacing: 0.08em; text-transform: uppercase; }
+
+    @media (max-width: 600px) {
+      .site-header { padding: 14px 20px; }
+      .page-wrap { padding: 48px 24px 80px; }
+      h1 { font-size: 36px; }
+      .footer-bar { padding: 20px 24px; }
+    }
+  </style>
 </head>
 <body>
-<nav class="muted"><a href="/">← getheadstash.com</a> · <a href="https://joinheadstash.com">joinheadstash.com (shoppers)</a></nav>
-<h1>Privacy (brands and operators)</h1>
-<p>This page is a general placeholder. A complete privacy policy for brand partners, data processing roles, and consumer-facing notices will be published before production use.</p>
-<p>For the shopper-facing PWA, see the consumer site at <a href="https://joinheadstash.com">joinheadstash.com</a>.</p>
-<p class="muted">© 2026 · Headstash / Tuff Ghost Media</p>
+
+<header class="site-header">
+  <a href="/">
+    <img src="/brand/headstash-logo-hit.png" alt="Headstash"/>
+    <span class="wordmark">HEADSTASH</span>
+  </a>
+</header>
+
+<div class="page-wrap">
+  <p class="eyebrow">Legal</p>
+  <h1>Privacy Policy</h1>
+  <p class="meta">Effective date: April 26, 2026 &nbsp;·&nbsp; Tuff Ghost Media LLC</p>
+
+  <p>This Privacy Policy covers both getheadstash.com (brand inquiry site) and the Headstash consumer platform, both operated by Tuff Ghost Media LLC ("we," "us," or "our"). It explains how we collect, use, and protect information from brand partners and prospective partners who interact with our platform.</p>
+
+  <h2>What we collect from brand partners</h2>
+  <ul>
+    <li><strong style="color:#EDE4D0;">Business contact information</strong> -- name, email address, and brand name submitted via inquiry forms.</li>
+    <li><strong style="color:#EDE4D0;">Campaign configuration</strong> -- reward thresholds, product details, and campaign settings you configure through the Headstash brand dashboard.</li>
+    <li><strong style="color:#EDE4D0;">Usage and access data</strong> -- IP address, browser type, and platform activity used to secure and operate your account.</li>
+  </ul>
+
+  <h2>What we collect from consumers (on your behalf)</h2>
+  <p>When your brand campaign is active, Headstash collects consumer phone numbers, receipt images, and purchase data on your behalf. You, as the brand, are the data controller for your customer relationships. We process this data as your service provider under the terms of our brand agreement.</p>
+  <ul>
+    <li>Consumer data collected under your campaign is stored securely and accessible to your brand account only.</li>
+    <li>You can export your full customer list at any time.</li>
+    <li>Upon cancellation, you retain your data -- we do not delete it without your explicit instruction.</li>
+  </ul>
+
+  <h2>How we use brand partner data</h2>
+  <ul>
+    <li>To onboard your brand and configure your loyalty campaign.</li>
+    <li>To communicate with you about your account, billing, and platform updates.</li>
+    <li>To send service-related emails via Resend.</li>
+    <li>To improve the platform and develop new features.</li>
+  </ul>
+
+  <h2>Sub-processors</h2>
+  <p>We use the following sub-processors to operate the Service: Supabase (database and auth), Resend (transactional email), Vercel (hosting and edge functions). All sub-processors are contractually bound to protect your data.</p>
+
+  <h2>Data retention</h2>
+  <p>Brand account data is retained for the duration of your account and for a reasonable period thereafter for legal and compliance purposes. You may request deletion by contacting us directly.</p>
+
+  <h2>Your rights</h2>
+  <p>You have the right to access, correct, or delete your personal data at any time. To exercise these rights, contact us at <a href="mailto:privacy@headstash.co">privacy@headstash.co</a>.</p>
+
+  <h2>Changes to this policy</h2>
+  <p>We may update this policy periodically. Material changes will be communicated via email to your account address. Continued use of the platform constitutes acceptance.</p>
+
+  <h2>Contact</h2>
+  <p>Tuff Ghost Media LLC<br/>
+  <a href="mailto:privacy@headstash.co">privacy@headstash.co</a></p>
+</div>
+
+<footer class="footer-bar">
+  <span>© 2026 Tuff Ghost Media LLC</span>
+  <div style="display:flex;gap:20px;">
+    <a href="/terms.html">Terms</a>
+    <a href="https://joinheadstash.com" target="_blank" rel="noopener noreferrer">For Customers</a>
+  </div>
+</footer>
+
 </body>
 </html>

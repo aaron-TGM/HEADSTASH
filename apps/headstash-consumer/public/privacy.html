@@ -1,26 +1,158 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="robots" content="noindex, nofollow">
-<meta name="description" content="Privacy information for joinheadstash.com, the Headstash consumer experience.">
-<title>Privacy | Headstash (joinheadstash.com)</title>
-<style>
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: Inter, -apple-system, BlinkMacSystemFont, sans-serif; background: #0E0E0E; color: #D8D2C2; line-height: 1.6; padding: 40px 24px 64px; max-width: 640px; margin: 0 auto; -webkit-font-smoothing: antialiased; }
-  h1 { color: #EDE4D0; font-size: 1.5rem; margin-bottom: 0.75rem; font-weight: 600; }
-  p, li { margin: 0 0 1rem; font-size: 0.95rem; }
-  a { color: #F2D35C; text-decoration: none; }
-  a:hover { text-decoration: underline; }
-  .muted { color: #D8D2C2; opacity: 0.5; font-size: 0.8rem; margin-top: 2.5rem; }
-</style>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Privacy Policy · Headstash</title>
+  <meta name="robots" content="noindex, follow"/>
+  <link rel="icon" href="/brand/headstash-logo-hit.png" type="image/png"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    @font-face {
+      font-family: 'Blunt Family';
+      src: url('/fonts/BluntFamily-Regular.woff2') format('woff2');
+      font-weight: 400; font-style: normal; font-display: swap;
+    }
+    body {
+      font-family: Inter, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #0E0E0E;
+      color: #D8D2C2;
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.6;
+    }
+    a { color: #F2D35C; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .site-header {
+      position: sticky; top: 0; z-index: 100;
+      background: #0E0E0E;
+      border-bottom: 0.5px solid rgba(237,228,208,0.1);
+      padding: 16px 40px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .site-header a { display: flex; align-items: center; gap: 10px; }
+    .site-header img { height: 28px; width: auto; }
+    .site-header .wordmark {
+      font-family: 'Blunt Family', Impact, sans-serif;
+      color: #EDE4D0; font-size: 18px; letter-spacing: 0.14em;
+    }
+
+    .page-wrap {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 64px 40px 96px;
+    }
+
+    .eyebrow {
+      font-family: 'Blunt Family', Impact, sans-serif;
+      color: #F2D35C; font-size: 10px; letter-spacing: 0.25em;
+      text-transform: uppercase; margin-bottom: 16px;
+    }
+    h1 {
+      font-family: 'Blunt Family', Impact, sans-serif;
+      color: #EDE4D0; font-size: 48px; letter-spacing: 0.02em;
+      text-transform: uppercase; line-height: 0.95;
+      margin-bottom: 24px;
+    }
+    .meta {
+      font-size: 12px; color: #D8D2C2; opacity: 0.5;
+      margin-bottom: 56px;
+      border-bottom: 0.5px solid rgba(237,228,208,0.1);
+      padding-bottom: 24px;
+    }
+    h2 {
+      font-family: 'Blunt Family', Impact, sans-serif;
+      color: #EDE4D0; font-size: 18px; letter-spacing: 0.08em;
+      text-transform: uppercase; margin: 48px 0 12px;
+    }
+    p { font-size: 14px; color: #D8D2C2; margin-bottom: 14px; }
+    ul { padding-left: 20px; margin-bottom: 14px; }
+    ul li { font-size: 14px; color: #D8D2C2; margin-bottom: 6px; }
+
+    .footer-bar {
+      background: #080808;
+      border-top: 0.5px solid rgba(237,228,208,0.08);
+      padding: 24px 40px;
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 12px;
+    }
+    .footer-bar span { font-size: 11px; color: #D8D2C2; opacity: 0.4; }
+    .footer-bar a { font-size: 11px; color: #D8D2C2; opacity: 0.6; letter-spacing: 0.08em; text-transform: uppercase; }
+
+    @media (max-width: 600px) {
+      .site-header { padding: 14px 20px; }
+      .page-wrap { padding: 48px 24px 80px; }
+      h1 { font-size: 36px; }
+      .footer-bar { padding: 20px 24px; }
+    }
+  </style>
 </head>
 <body>
-<nav class="muted"><a href="/">← joinheadstash.com</a> · <a href="https://getheadstash.com">getheadstash.com (brands)</a></nav>
-<h1>Privacy (consumer)</h1>
-<p>This page is a general placeholder. Headstash and its operators will publish a full privacy policy before public launch, including what we collect (for example phone number and receipt data you choose to share), how we use it, how long we keep it, and your choices (including opt out of marketing SMS where applicable).</p>
-<p>Questions: contact us through the channels provided on the live product once available. For the brand and operator side of Headstash, see <a href="https://getheadstash.com">getheadstash.com</a>.</p>
-<p class="muted">© 2026 · Headstash / Tuff Ghost Media</p>
+
+<header class="site-header">
+  <a href="/">
+    <img src="/brand/headstash-logo-hit.png" alt="Headstash"/>
+    <span class="wordmark">HEADSTASH</span>
+  </a>
+</header>
+
+<div class="page-wrap">
+  <p class="eyebrow">Legal</p>
+  <h1>Privacy Policy</h1>
+  <p class="meta">Effective date: April 26, 2026 &nbsp;·&nbsp; Tuff Ghost Media LLC</p>
+
+  <p>Headstash is a product of Tuff Ghost Media LLC ("we," "us," or "our"). This Privacy Policy explains how we collect, use, and protect information when you use Headstash -- the receipt-based brand loyalty app ("Service"). By using Headstash you agree to this policy.</p>
+
+  <h2>What we collect</h2>
+  <ul>
+    <li><strong style="color:#EDE4D0;">Phone number</strong> -- used to create your account and send you program updates and rewards via SMS.</li>
+    <li><strong style="color:#EDE4D0;">Receipt images and purchase data</strong> -- photos you upload of cannabis purchase receipts. We extract brand, product, and purchase amount to calculate your reward progress.</li>
+    <li><strong style="color:#EDE4D0;">Device and usage data</strong> -- browser type, IP address, and in-app activity used to operate and improve the Service.</li>
+  </ul>
+
+  <h2>How we use it</h2>
+  <ul>
+    <li>To track your reward progress toward brand campaigns you have opted into.</li>
+    <li>To send you SMS notifications about your stash, rewards, and program updates.</li>
+    <li>To share relevant purchase data with the specific brand whose campaign you opted into -- so they can fulfill your reward.</li>
+    <li>To detect and prevent fraud (duplicate receipts, invalid submissions).</li>
+    <li>To improve the Service and develop new features.</li>
+  </ul>
+
+  <h2>Who we share it with</h2>
+  <p>We share your data only with the cannabis brands whose loyalty campaigns you have directly opted into. We do not sell your data to third parties, data brokers, or advertisers. We do not share your data with dispensaries.</p>
+  <p>We use Supabase (database), Resend (transactional email), and Vercel (hosting). These sub-processors receive data only as necessary to operate the Service and are bound by their own privacy commitments.</p>
+
+  <h2>SMS communications</h2>
+  <p>By creating a Headstash account you consent to receive SMS messages related to your account and active brand campaigns. Message and data rates may apply. You can opt out at any time by replying <strong style="color:#EDE4D0;">STOP</strong> to any message. Reply <strong style="color:#EDE4D0;">HELP</strong> for assistance.</p>
+
+  <h2>Data retention</h2>
+  <p>We retain your data for as long as your account is active or as needed to provide the Service. You can request deletion of your account and associated data at any time by contacting us at the address below.</p>
+
+  <h2>Your rights</h2>
+  <p>Depending on your state, you may have the right to access, correct, or delete your personal data, or to opt out of certain data uses. To exercise these rights, contact us at <a href="mailto:privacy@headstash.co">privacy@headstash.co</a>.</p>
+
+  <h2>Children</h2>
+  <p>Headstash is intended for adults 21 and older in accordance with applicable cannabis laws. We do not knowingly collect data from anyone under 21.</p>
+
+  <h2>Changes to this policy</h2>
+  <p>We may update this policy from time to time. We will notify you of material changes via SMS or by posting a notice in the app. Continued use after changes constitutes acceptance.</p>
+
+  <h2>Contact</h2>
+  <p>Tuff Ghost Media LLC<br/>
+  <a href="mailto:privacy@headstash.co">privacy@headstash.co</a></p>
+</div>
+
+<footer class="footer-bar">
+  <span>© 2026 Tuff Ghost Media LLC</span>
+  <div style="display:flex;gap:20px;">
+    <a href="/terms.html">Terms</a>
+    <a href="https://getheadstash.com" target="_blank" rel="noopener noreferrer">For Brands</a>
+  </div>
+</footer>
+
 </body>
 </html>
