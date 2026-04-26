@@ -20,6 +20,20 @@ export function MockupEmbed() {
 
   const src = useMemo(() => (isMobile ? MOBILE_SRC : DESKTOP_SRC), [isMobile]);
 
+  // Listen for form-success message posted from inside the iframe
+  useEffect(() => {
+    const handler = (e: MessageEvent) => {
+      if (
+        e.origin === window.location.origin &&
+        (e.data as Record<string, unknown>)?.hs === "inquiry-success"
+      ) {
+        window.location.href = "/success";
+      }
+    };
+    window.addEventListener("message", handler);
+    return () => window.removeEventListener("message", handler);
+  }, []);
+
   useEffect(() => {
     const frame = iframeRef.current;
     if (!frame) return;

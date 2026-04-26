@@ -1243,10 +1243,10 @@
   <h2 class="hd" style="color: #EDE4D0; font-size: 64px; margin: 0 0 24px; line-height: 0.95;">Ready to own<br>your customer?</h2>
   <p class="bd" style="color: #D8D2C2; font-size: 16px; max-width: 480px; margin: 0 0 36px;">Early access/founders rate is $1,500/month, onboarding waived, locked for 24 months. Seven slots remain.</p>
   <div style="display: flex; gap: 10px; max-width: 520px;">
-    <input type="email" placeholder="you@brand.com" style="flex: 1; background: transparent; border: 0.5px solid rgba(237,228,208,0.3); color: #EDE4D0; padding: 14px 16px; font-size: 14px; border-radius: 4px;">
-    <button class="btn-ochre">Claim a slot ↗</button>
+    <input id="cta-email" type="email" placeholder="you@brand.com" style="flex: 1; background: transparent; border: 0.5px solid rgba(237,228,208,0.3); color: #EDE4D0; padding: 14px 16px; font-size: 14px; border-radius: 4px;">
+    <button id="cta-btn" class="btn-ochre">Claim a slot ↗</button>
   </div>
-  <div class="bd" style="color: #D8D2C2; opacity: 0.5; font-size: 11px; margin-top: 18px;">Or email direct: hello@getheadstash.com</div>
+  <div id="cta-msg" class="bd" style="color: #D8D2C2; opacity: 0.5; font-size: 11px; margin-top: 18px;">Or email direct: hello@getheadstash.com</div>
 </div>
 
 <div style="background: #080808; padding: 28px 40px 32px; border-top: 0.5px solid rgba(237,228,208,0.08);">
@@ -1276,7 +1276,6 @@
   const desktopMedia = window.matchMedia('(min-width: 1024px)');
   let wasDesktop = desktopMedia.matches;
 
-  // Set the default state once on load.
   details.open = wasDesktop;
 
   const onBreakpointChange = (event) => {
@@ -1291,6 +1290,70 @@
   } else if (typeof desktopMedia.addListener === 'function') {
     desktopMedia.addListener(onBreakpointChange);
   }
+})();
+</script>
+
+<script>
+(() => {
+  const emailInput = document.getElementById('cta-email');
+  const btn = document.getElementById('cta-btn');
+  const msg = document.getElementById('cta-msg');
+  if (!emailInput || !btn || !msg) return;
+
+  function goToSuccess() {
+    // Primary: postMessage to parent so MockupEmbed can navigate the top window
+    try {
+      window.parent.postMessage({ hs: 'inquiry-success' }, window.location.origin);
+    } catch (_) {}
+    // Fallback: direct top-window navigation
+    try {
+      (window.top || window.parent || window).location.href = '/success';
+    } catch (_) {
+      window.location.href = '/success';
+    }
+  }
+
+  async function submit() {
+    const email = emailInput.value.trim();
+    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      msg.textContent = 'Please enter a valid email address.';
+      msg.style.opacity = '1';
+      msg.style.color = '#E07070';
+      return;
+    }
+
+    btn.disabled = true;
+    btn.textContent = 'Sending…';
+
+    try {
+      const res = await fetch('/api/brand-inquiries', {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify({ email, pageSource: 'getheadstash.com' }),
+      });
+      if (res.ok) {
+        goToSuccess();
+      } else {
+        const data = await res.json().catch(() => ({}));
+        msg.textContent = data.error || 'Something went wrong. Try again.';
+        msg.style.opacity = '1';
+        msg.style.color = '#E07070';
+        btn.disabled = false;
+        btn.textContent = 'Claim a slot ↗';
+      }
+    } catch {
+      msg.textContent = 'Network error. Try again.';
+      msg.style.opacity = '1';
+      msg.style.color = '#E07070';
+      btn.disabled = false;
+      btn.textContent = 'Claim a slot ↗';
+    }
+  }
+
+  btn.addEventListener('click', submit);
+  emailInput.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') submit();
+  });
 })();
 </script>
 
