@@ -30,7 +30,7 @@ export default function SuccessPage() {
 
       <p
         className="lb mb-3 text-[10px] tracking-[0.25em] uppercase"
-        style={{ color: "#F2D35C", fontFamily: "'BluntFamily', Impact, sans-serif" }}
+        style={{ color: "#F2D35C", fontFamily: "'Blunt Family', Impact, sans-serif" }}
       >
         Request received
       </p>
@@ -38,7 +38,7 @@ export default function SuccessPage() {
       <h1
         className="mb-5 text-[56px] leading-none uppercase"
         style={{
-          fontFamily: "'BluntFamily', Impact, sans-serif",
+          fontFamily: "'Blunt Family', Impact, sans-serif",
           color: "#EDE4D0",
           letterSpacing: "0.02em",
         }}
