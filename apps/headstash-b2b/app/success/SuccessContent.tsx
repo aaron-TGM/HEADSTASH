@@ -28,7 +28,7 @@ function launchConfetti(canvas: HTMLCanvasElement) {
     y: canvas.height * 0.38,
     vx: (Math.random() - 0.5) * 12,
     vy: -(Math.random() * 10 + 6),
-    color: CONFETTI_COLORS[Math.floor(Math.random() * CONFETTI_COLORS.length)],
+    color: CONFETTI_COLORS[Math.floor(Math.random() * CONFETTI_COLORS.length)] ?? "#F2D35C",
     size: Math.random() * 7 + 4,
     rotation: Math.random() * Math.PI * 2,
     spin: (Math.random() - 0.5) * 0.3,
