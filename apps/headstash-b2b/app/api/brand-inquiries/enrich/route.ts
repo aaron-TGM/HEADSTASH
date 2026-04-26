@@ -59,7 +59,7 @@ export async function POST(req: Request) {
           `Email:       ${email || "(not provided)"}`,
           `Name:        ${name || "(not provided)"}`,
           `Brand:       ${brand || "(not provided)"}`,
-          `Sells merch: ${MERCH_LABELS[sellsMerch] ?? sellsMerch || "(not provided)"}`,
+          `Sells merch: ${(MERCH_LABELS[sellsMerch] ?? sellsMerch) || "(not provided)"}`,
           `Timestamp:   ${new Date().toISOString()}`,
         ].join("\n"),
       });
