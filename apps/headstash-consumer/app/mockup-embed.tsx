@@ -20,6 +20,19 @@ export function MockupEmbed() {
 
   const src = useMemo(() => (isMobile ? MOBILE_SRC : DESKTOP_SRC), [isMobile]);
 
+  // Listen for waitlist-success posted from inside the iframe
+  useEffect(() => {
+    const handler = (e: MessageEvent) => {
+      const data = e.data as Record<string, unknown>;
+      if (e.origin === window.location.origin && data?.hs === "waitlist-success") {
+        const email = typeof data.email === "string" ? data.email : "";
+        window.location.href = `/success${email ? `?e=${encodeURIComponent(email)}` : ""}`;
+      }
+    };
+    window.addEventListener("message", handler);
+    return () => window.removeEventListener("message", handler);
+  }, []);
+
   useEffect(() => {
     const frame = iframeRef.current;
     if (!frame) return;
