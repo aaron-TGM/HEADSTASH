@@ -81,7 +81,7 @@ export async function POST(req: Request) {
 
     if (error) {
       return NextResponse.json(
-        { error: "Unable to save waitlist entry." },
+        { error: `DB error: ${error.message} (code: ${error.code})` },
         { status: 500 },
       );
     }
