@@ -298,6 +298,16 @@ export const home = {
       eyebrow: "Pricing questions",
       items: [
         {
+          question: "Does this compete with dispensary loyalty programs?",
+          answer:
+            "No. Headstash is a brand loyalty layer, not a store loyalty program. Dispensary programs reward customers for shopping at that store. Headstash rewards customers for buying your brand wherever they shop. The two run in parallel and neither interferes with the other. Most dispensaries want their shelves stocked with brands that drive their own customer engagement — a brand that brings activated, loyal customers into a store is a better shelf partner than one that does not.",
+        },
+        {
+          question: "Can I use Headstash to activate at specific retailers?",
+          answer:
+            "Yes, and this is one of the more powerful things the platform enables. Because Headstash tracks which dispensaries your customers shop at, you can build targeted campaigns around specific retail partners. A brand can message its Headstash customers who regularly shop at Artist Tree and offer a bonus reward for buying a new SKU there during a launch window. The customer earns brand rewards through Headstash and Artist Tree loyalty points through their dispensary program simultaneously. For the retailer it drives incremental traffic and basket size on your SKUs. For your brand it deepens both the retail relationship and the direct customer relationship at the same time.",
+        },
+        {
           question: "Is there really no rev share?",
           answer:
             "No rev share, no take-rate, no percentage of redemption value. Flat monthly platform fee. You keep 100% of the merch revenue the program drives.",
